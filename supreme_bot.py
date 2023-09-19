@@ -8,8 +8,8 @@ import orders
 import exchange_info
 
 
-key="y3XGU6HUeLNqf3JvXJFXOLVDnWSBHpq3JbepwXPWYUwZsPXfcpUNt3LeEymW5sPo"
-secret="J5dduEDdqFGqMW1teAkvYSFnNfU9KXznJ9ypt7yshN2Wn6ld6I0G3oSEhZqvnhAW"
+key=""
+secret=""
 
 um_futures_client = UMFutures(key=key, secret=secret)
 open_positions=[]

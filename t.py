@@ -13,6 +13,7 @@ import json
 import hashlib
 import hmac
 import time
+from config import(email,clavecorreo,destinatarios,bybit_api_key,bybit_secret_key)
 
 API_KEY = ""
 API_SECRET = ""
@@ -20,11 +21,9 @@ interval= 15
 
 from pybit.unified_trading import WebSocket
 from time import sleep
-clavecorreo = ""
-email = ""
+
 def SendEmail(symbol = 'BTCUSDT',temporality = '15m',message=''):
     yag = yagmail.SMTP(user=email,password=clavecorreo)
-    destinatarios = ['']
     asunto = 'posible mecha '+temporality+' '+symbol+': '
     mensaje = message
 

@@ -3,7 +3,7 @@ from binance.um_futures import UMFutures
 from binance.lib.utils import config_logging
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import smtplib
 import yagmail
 import threading

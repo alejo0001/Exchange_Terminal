@@ -9,16 +9,14 @@ import yagmail
 from pybit.unified_trading import (WebSocket,HTTP)
 from os import system
 from common import SendTelegramMessage
+from config import(email,clavecorreo,destinatarios,bybit_api_key,bybit_secret_key)
 # Set up logging (optional)
 import logging
 logging.basicConfig(filename="pybit.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(message)s")
 
-clavecorreo = ""
-email = ""
 def SendEmail(symbol = 'BTCUSDT',temporality = '15m',message=''):
     yag = yagmail.SMTP(user=email,password=clavecorreo)
-    destinatarios = ['']
     asunto = 'posible mecha '+temporality+' '+symbol+': '
     mensaje = message
 
@@ -48,14 +46,14 @@ ws = WebSocket(
 ws_private = WebSocket(
     testnet=False,
     channel_type="private",
-    api_key="",
-    api_secret=""
+    api_key=bybit_api_key,
+    api_secret=bybit_secret_key
 )
 
 session = HTTP(
     testnet=False,
-    api_key="",
-    api_secret="",
+    api_key=bybit_api_key,
+    api_secret=bybit_secret_key
 )
 
 # Let's fetch the orderbook for BTCUSDT. First, we'll define a function.

@@ -25,3 +25,8 @@ print(session.place_order(
     isLeverage=1, #necesario para futuros
     positionIdx=1 #necesario para futuros
 ))
+
+
+
+# D:\Apps\Exchange_Terminal\Exchange_Terminal>py pruebas.py
+# {'retCode': 0, 'retMsg': 'OK', 'result': {'orderId': 'a6416a18-7f2b-490e-8824-92bcd8a5d51c', 'orderLinkId': ''}, 'retExtInfo': {}, 'time': 1695255288114}

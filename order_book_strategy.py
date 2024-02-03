@@ -4,10 +4,11 @@ from binance.lib.utils import config_logging
 from binance.error import ClientError
 import array as arr
 from common import(order_book_strategy_coins,Moneda,CoinOrderbookInfo)
+from config import(binance_api_key,binance_secret_key)
 
 
-key=""
-secret=""
+key=binance_api_key
+secret=binance_secret_key
 
 um_futures_client = UMFutures(key=key, secret=secret)
 

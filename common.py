@@ -120,7 +120,7 @@ coins = [
     Moneda('LITUSDT',['0.01','0.001']),
     Moneda('DYDXUSDT',['0.1','0.01','0.001']),
     Moneda('STXUSDT',['0.01','0.001','0.0001']),
-    Moneda('COCOSUSDT',['0.1','0.01','0.001']),
+    #Moneda('COCOSUSDT',['0.1','0.01','0.001']),
     Moneda('SSVUSDT',['1','0.1','0.01']),
     Moneda('FTMUSDT',['0.01','0.001','0.0001']),
     Moneda('SXPUSDT',['0.01','0.001','0.0001']),

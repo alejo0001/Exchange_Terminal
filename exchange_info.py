@@ -2,12 +2,13 @@ import logging
 from binance.um_futures import UMFutures
 from binance.lib.utils import config_logging
 import math
+from config import (binance_api_key,binance_secret_key)
 
 
 
 
-key=""
-secret=""
+key=binance_api_key
+secret=binance_secret_key
 
 um_futures_client = UMFutures(key=key, secret=secret)
 

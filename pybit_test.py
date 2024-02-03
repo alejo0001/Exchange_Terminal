@@ -81,7 +81,7 @@ while True:
        
     pos = session.get_positions(
         category="linear",
-        symbol="THETAUSDT",
+        symbol="UNFIUSDT",
     )
 
     pnl1 = float(pos['result']['list'][0]['unrealisedPnl'])
@@ -92,10 +92,10 @@ while True:
         mayor = pnl2
         menor = pnl1
 
-    if(float(pos['result']['list'][0]['markPrice']) <= 0.6048):
-        SendEmail('THETAUSDT','15m','precio menor a  0.6048')
-    if(float(pos['result']['list'][0]['markPrice']) >= 0.6114):
-        SendEmail('THETAUSDT','15m','precio mayor a  0.6114')
+    if(float(pos['result']['list'][0]['markPrice']) >= 7.546):
+        SendEmail('UNFIUSDT','15m','precio mayor a  7.546')
+    #if(float(pos['result']['list'][0]['markPrice']) >= 0.6114):
+        #SendEmail('UNFIUSDT','15m','precio mayor a  0.6114')
     system('cls') 
     print(pos)
     print('Pnl menor: '+ str(menor)+'. Pnl Mayor: '+ str(mayor))

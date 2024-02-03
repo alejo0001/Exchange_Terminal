@@ -9,6 +9,7 @@ import asyncio
 import requests
 import yagmail
 import websocket
+import websockets
 import json
 import hashlib
 import hmac
@@ -18,9 +19,33 @@ from config import(email,clavecorreo,destinatarios,bybit_api_key,bybit_secret_ke
 API_KEY = ""
 API_SECRET = ""
 interval= 15
+connected_clients = set()
+loop = asyncio.get_event_loop()
 
 from pybit.unified_trading import WebSocket
 from time import sleep
+
+async def websocket_handler(websocket, path):
+    connected_clients.add(websocket)
+    while True:
+        # Espera a recibir mensajes desde el cliente
+        mensaje = await websocket.recv()
+        print(f"Mensaje recibido: {mensaje}")
+
+        # Responde al cliente
+        respuesta = f"Recibido: {mensaje}"
+        await websocket.send(respuesta)
+
+async def send_websocket_message(message, custom_websocket):
+    #await custom_websocket.send(json.dumps(message))
+
+    for client in connected_clients:
+       
+        try:
+            await custom_websocket.send(json.dumps(message))
+        except websockets.exceptions.ConnectionClosedError:
+            # Manejar casos donde la conexión está cerrada
+            print(f"Conexión cerrada: {custom_websocket}")
 
 def SendEmail(symbol = 'BTCUSDT',temporality = '15m',message=''):
     yag = yagmail.SMTP(user=email,password=clavecorreo)
@@ -37,8 +62,22 @@ ws = WebSocket(
     testnet=True,
     channel_type="linear",
 )
-def handle_message(message):
+
+async def enviarMensaje(message,ws):
+    #print(message)
+    print("sddddd")
+    #await ws.send("dsdsdsd")
+
+    for client in connected_clients:
+       
+        try:
+            await client.send("ssdsdsddd")
+        except websockets.exceptions.ConnectionClosedError:
+            # Manejar casos donde la conexión está cerrada
+            print(f"Conexión cerrada: {client}")
+async def handle_message(message,custom_websocket):
     
+    #
     open = float(message['data'][0]['open'])
     close = float(message['data'][0]['close'])
     porcentaje = 0
@@ -53,14 +92,88 @@ def handle_message(message):
     system('cls')
     print(message)
     print('Porcentaje última vela temporalidad '+str(interval)+'m: '+str(round(porcentaje,4))+'%')
-ws.kline_stream(
-    interval=interval,
-    symbol="THETAUSDT",
-    callback=handle_message
-)
-while True:    
-    sleep(0.5)
+    
+    # await send_websocket_message({
+    #     'symbol': message['topic'].split('.')[2],
+    #     'temporality': str(interval)+'m',
+    #     'percentage': str(round(porcentaje, 4))+'%'
+    # }, custom_websocket)
 
+    for client in connected_clients:
+       
+        try:
+            await client.send(json.dumps({
+                'symbol': message['topic'].split('.')[2],
+                'temporality': str(interval)+'m',
+                'percentage': str(round(porcentaje,4))+'%'
+            }))
+        except websockets.exceptions.ConnectionClosedError:
+            # Manejar casos donde la conexión está cerrada
+            print(f"Conexión cerrada: {client}")
+
+    #await send_websocket_message("dsddsdsd", custom_websocket)
+    
+
+async def start_websocket_server():
+    try:
+        server = await websockets.serve(websocket_handler, "localhost", 8765)
+        print("Servidor WebSocket iniciado en ws://localhost:8765")
+
+        await server.wait_closed()
+    except Exception as e:
+        print(f"Error en start_websocket_server: {e}")
+    
+# Función principal
+async def main():
+    try:
+        # Configura el servidor WebSocket y espera a que esté listo
+        # server_task = asyncio.create_task(start_websocket_server())
+        # await asyncio.sleep(1)  # Espera un segundo para asegurarse de que el servidor esté listo
+        server = await websockets.serve(websocket_handler, "localhost", 8765)
+        
+        print("Servidor WebSocket iniciado en ws://localhost:8765")
+
+        
+
+        # Inicia la conexión al WebSocket personalizado después de iniciar el servidor
+        custom_websocket = await websockets.connect("ws://localhost:8765")
+
+        # Configura el cliente WebSocket para recibir mensajes
+        ws = WebSocket(
+            testnet=True,
+            channel_type="linear",
+        )
+        # Configura el cliente WebSocket para recibir mensajes
+        #asyncio.new_event_loop()
+        ws.kline_stream(
+            interval=interval,
+            symbol="1000BONKUSDT",
+            #callback=lambda message:asyncio.create_task(handle_message(message, custom_websocket,server))
+            callback = lambda message: loop.create_task(handle_message(message,custom_websocket))
+        )
+        #ws.subscribe_candle("1m")
+        await server.wait_closed()
+        while True:
+            # data = ws.recv()
+            # if data != "":
+            #     ws.send("xssx")
+            
+            
+            # Puedes realizar otras tareas aquí si es necesario
+            sleep(0.5)
+
+
+    except Exception as e:
+        print(f"Error en main: {e}")
+
+loop = asyncio.get_event_loop()
+try:
+    # Configura y ejecuta el bucle de eventos automáticamente
+    loop.run_until_complete(main())
+except KeyboardInterrupt:
+    print("Saliendo...")
+finally:
+    loop.close()
 # def generate_signature(api_secret, data):
 #     expires = int(time.time()) + 5
 #     signature_payload = f"{data}{expires}"

@@ -1,5 +1,5 @@
 from datetime import (date,datetime)
-from telegram.ext import *
+from telegram import *
 from telegram import (Update,Bot)
 import asyncio
 from config import(chat_id,telegramAPIKey,strConnection,strConnection2)

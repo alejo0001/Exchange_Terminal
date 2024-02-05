@@ -1,10 +1,10 @@
 from os import system
-import TDB
-from common import (Order)
+#import TDB
+#from common import (Order)
 from common import (Order,CandleStick,telegramAPIKey,SendTelegramMessage)
 import ATR
-from telegram.ext import *
-from telegram import (Update,Bot)
+from telegram import *
+#from telegram import (Update,Bot)
 import asyncio
 import requests
 import yagmail
@@ -15,21 +15,52 @@ import hashlib
 import hmac
 import time
 from config import(email,clavecorreo,destinatarios,bybit_api_key,bybit_secret_key)
+from pybit.unified_trading import WebSocket
+from time import sleep
 
 API_KEY = ""
 API_SECRET = ""
 interval= 15
 connected_clients = set()
 loop = asyncio.get_event_loop()
+token="1000BONKUSDT"
+tokens =[]
+t = False
+custom_websocket = any
+ws = WebSocket(
+            testnet=True,
+            channel_type="linear",
+        )
 
-from pybit.unified_trading import WebSocket
-from time import sleep
 
 async def websocket_handler(websocket, path):
     connected_clients.add(websocket)
     while True:
+        
         # Espera a recibir mensajes desde el cliente
         mensaje = await websocket.recv()
+
+        if("USDT" in mensaje):
+            global token
+            global tokens
+            token = mensaje
+            print("token: "+mensaje)
+            global ws     
+            global custom_websocket
+            exists = False
+
+            for i in tokens:                
+                if(i == token):
+                    exists = True
+
+            if(exists == False):
+                tokens.append(token)
+                ws.kline_stream(
+                interval=interval,
+                symbol=token,                
+                callback = lambda message: loop.create_task(handle_message(message,custom_websocket),name="PybitWS")
+                )
+
         print(f"Mensaje recibido: {mensaje}")
 
         # Responde al cliente
@@ -58,10 +89,7 @@ def SendEmail(symbol = 'BTCUSDT',temporality = '15m',message=''):
     #yag.send(destinatarios,asunto,mensaje)
     
 
-ws = WebSocket(
-    testnet=True,
-    channel_type="linear",
-)
+
 
 async def enviarMensaje(message,ws):
     #print(message)
@@ -102,11 +130,13 @@ async def handle_message(message,custom_websocket):
     for client in connected_clients:
        
         try:
-            await client.send(json.dumps({
-                'symbol': message['topic'].split('.')[2],
-                'temporality': str(interval)+'m',
-                'percentage': str(round(porcentaje,4))+'%'
-            }))
+            symbol=message['topic'].split('.')[2]
+            if(symbol == token):
+                await client.send(json.dumps({
+                    'symbol': symbol,
+                    'temporality': str(interval)+'m',
+                    'percentage': str(round(porcentaje,4))+'%'
+                }))
         except websockets.exceptions.ConnectionClosedError:
             # Manejar casos donde la conexión está cerrada
             print(f"Conexión cerrada: {client}")
@@ -136,21 +166,26 @@ async def main():
         
 
         # Inicia la conexión al WebSocket personalizado después de iniciar el servidor
+        global custom_websocket
         custom_websocket = await websockets.connect("ws://localhost:8765")
 
         # Configura el cliente WebSocket para recibir mensajes
-        ws = WebSocket(
-            testnet=True,
-            channel_type="linear",
-        )
+        global ws
         # Configura el cliente WebSocket para recibir mensajes
         #asyncio.new_event_loop()
+        #v = loop.create_task(handle_message("adad",custom_websocket),name="PybitWS")
+        global tokens
+        tokens.append(token)
         ws.kline_stream(
             interval=interval,
-            symbol="1000BONKUSDT",
+            symbol=token,
             #callback=lambda message:asyncio.create_task(handle_message(message, custom_websocket,server))
-            callback = lambda message: loop.create_task(handle_message(message,custom_websocket))
+            callback = lambda message: loop.create_task(handle_message(message,custom_websocket),name="PybitWS")
         )
+        
+
+
+        
         #ws.subscribe_candle("1m")
         await server.wait_closed()
         while True:

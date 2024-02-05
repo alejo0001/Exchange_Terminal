@@ -26,6 +26,20 @@ let token = document.getElementById("token");
 let temporalidad = document.getElementById("temporalidad");
 let porcentaje = document.getElementById("porcentaje");
 const socket = new WebSocket("ws://localhost:8765");
+const select = document.querySelector('select'); 
+
+
+let listaTokens =['1000BONKUSDT','ICPUSDT'];
+
+listaTokens.forEach(i=>{let newOption = new Option(i,i);
+    select.add(newOption,undefined);
+    });
+
+function cambiarToken(){
+    let option=""
+    option = select.selectedOptions[0].label;
+    socket.send(option)
+}
 
         // Conexión abierta
         socket.addEventListener("open", (event) => {
@@ -36,9 +50,9 @@ const socket = new WebSocket("ws://localhost:8765");
 
         // Escucha mensajes del servidor
         socket.addEventListener("message", (event) => {
-            let token = document.getElementById("token");
+            let temporalidad = document.getElementById("temporalidad");
             console.log(`Mensaje del servidor: ${event.data}`);
-            token.innerHTML = event.data;
+            temporalidad.innerHTML = event.data;
             //alert(`Mensaje del servidor: ${event.data}`)
         });
 

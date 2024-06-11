@@ -1,0 +1,8 @@
+binance-futures-connector
+python-telegram-bot
+pandas
+yagmail
+websockets
+google-generativeai
+newsapi-python
+fastapi

@@ -1,78 +1,68 @@
+from time import sleep
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import Optional
+from AI_Analyzer_test import Analyze
+from common import AnalyzeResponse,SendTelegramMessage
+from typing import List
 import asyncio
-import websockets
+app = FastAPI()
+AnalysisList:List[AnalyzeResponse]=[]
 
-async def websocket_handler(websocket, path):
+#ejemplo validación de datos con baseModel:
+class Libro(BaseModel):
+    titulo:str
+    autor:str
+    paginas:int
+    editorial:Optional[str]
+
+#http://127.0.0.1:8000/
+@app.get("/")
+def index():
+    return {"message":"Prueba FastAPI"}
+
+@app.get("/{id}")
+def pruebaId(id:int):
+    return {"id":id}
+
+@app.post("/libros")
+def insertar_libro(libro:Libro):
+    return{"message": f"libro {libro.titulo} insertado"}
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(AIAnalysis()) 
+
+print ('server en funcionamiento')
+async def AIAnalysis():
+    counter : int = 0
+    
     while True:
-        # Espera a recibir mensajes desde el cliente
-        mensaje = await websocket.recv()
-        print(f"Mensaje recibido: {mensaje}")
+        if(counter == 0):
+            counter = 1
+            AnalysisList = Analyze()
+            messages : str =''
+            for item in AnalysisList:
+                if(item.score is not None and abs(item.score) >= 1):
+                    messages+=f'''noticia: {item.newsItemLink}
+análisis: {item.analysis}
+puntaje: {item.score}
+                                        
+'''
+                # print('análisis: '+str(item.analysis))
+            print(messages)
+            if(messages):
+                await SendTelegramMessage(messages)
+            
+        await asyncio.sleep(60)
+        counter = 0
 
-        # Responde al cliente
-        respuesta = f"Recibido: {mensaje}"
-        await websocket.send(respuesta)
-
-# Configura el servidor WebSocket
-async def main():
-    server = await websockets.serve(websocket_handler, "localhost", 8765)
-    print("Servidor WebSocket iniciado en ws://localhost:8765")
-
-    await server.wait_closed()
-
-# Inicia el bucle de eventos
-asyncio.get_event_loop().run_until_complete(main())
-
-
-
-
-
-# import asyncio 
-# import websockets
-# import ssl
-
-# all_clients=[]
-
-# ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-# ssl_context.load_cert_chain(certfile="certificate.pem", keyfile="private_key.pem")
-
-# async def send_message(message:str):
-#     for client in all_clients:
-#         await client.send(message)
-
-# async def new_client_connected(client_socket,path):
-#     print("New client connected")
-#     all_clients.append(client_socket)
-
-#     while True:
-#         new_message = await client_socket.recv()
-#         print("Client send: ",new_message)
-#         await send_message(new_message)
-
-# async def start_server():
-#     try:
-#        print("server started")
-#        await websockets.serve(new_client_connected,'localhost',8080, ssl=ssl_context)
-          
-#     except Exception as e:
-#         print("sadsadad1"+str(e))
 
 # if __name__ == "__main__":
-#     # event_loop = asyncio.get_event_loop()
-#     # event_loop.run_until_complete(start_server())
-#     # event_loop.run_forever()
+#     asyncio.run(AIAnalysis())
 
-#     # loop = asyncio.new_event_loop()
-#     # asyncio.set_event_loop(loop)
-#     # try:
-#     #     asyncio.run(start_server())
-#     #     loop.run_forever()
-#     # except Exception:
-#     #     print("sadsadad")
-#     loop = asyncio.new_event_loop()
-#     asyncio.set_event_loop(loop)
-#     try:
-#         asyncio.run(start_server())
-#         loop.run_forever()
-#     except Exception:
-#         print("sadsadad")
-#     except Exception as e:
-#         print("sadsadad2"+str(e))
+#print('análisis: '+str(item.analysis))
+
+#da60d6cb5ee743b3aa090e1121ad2247 API KEY GOOGLE NEWS
+
+

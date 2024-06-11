@@ -1,11 +1,30 @@
-from datetime import (date,datetime)
+from datetime import (date,datetime,timedelta)
 from telegram import *
 from telegram import (Update,Bot)
 import asyncio
 from config import(chat_id,telegramAPIKey,strConnection,strConnection2)
+import re
+from typing import List
 
+class AnalyzeResponse:
+    source: str
+    author:str
+    newsItemLink:str
+    newsItemDate:datetime
+    date: datetime
+    analysis:str
+    score:int
+    pairs:List[str]
 
-
+    def __init__(self, source: str, author: str,newsItemLink: str,newsItemDate: datetime,analysis: str,score: int,pairs: List[str]):
+        self.source = source
+        self.author= author
+        self.newsItemLink= newsItemLink
+        self.newsItemDate= newsItemDate
+        self.date= date
+        self.analysis = analysis
+        self.score = score
+        self.pairs = pairs
 
 class Moneda:
     simbolo = ''
@@ -158,10 +177,41 @@ async def enviar_mensaje(chat_id, mensaje):
     bot = Bot(token=telegramAPIKey)
     await bot.send_message(chat_id=chat_id, text=mensaje)
 
+# def enviar_mensaje(chat_id, mensaje):
+#     bot = Bot(token=telegramAPIKey)
+#     bot.send_message(chat_id=chat_id, text=mensaje)
+
     
 
-def SendTelegramMessage(message):
+async def SendTelegramMessage(message):
     mensaje = "Hola, esto es un mensaje enviado desde mi bot de Telegram."
 
-    asyncio.run(enviar_mensaje(chat_id, message))
+    #asyncio.run(enviar_mensaje(chat_id, message))
+    await enviar_mensaje(chat_id, message)
+# def SendTelegramMessage(message):
+#     mensaje = "Hola, esto es un mensaje enviado desde mi bot de Telegram."
+
+#     #asyncio.run(enviar_mensaje(chat_id, message))
+#     enviar_mensaje(chat_id, message)
+
+def subtratcFromCurrentDate(*args):
+    currentDate = datetime.now()
+
+    for arg in args:
+
+        quantity,unity = re.match(r"(\d+)([smhdw])",arg).groups()
+
+        if unity == "s":
+            currentDate -= timedelta(seconds= int(quantity))
+        elif unity == "m":
+            currentDate -= timedelta(minutes= int(quantity))
+        elif unity == "h":
+            currentDate -= timedelta(hours= int(quantity))
+        elif unity == "d":
+            currentDate -= timedelta(days= int(quantity))
+        elif unity == "w":
+            currentDate -= timedelta(weeks= int(quantity))
+
+    return currentDate
+
 

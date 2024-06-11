@@ -1,0 +1,10 @@
+<div class="asset-list">
+    <h2>Lista de Activos</h2>
+    <ul>
+      <li *ngFor="let asset of assets">
+        <span>{{ asset.symbol }}</span>
+        <span>{{ asset.name }}</span>
+        <span>{{ asset.price }}</span>
+      </li>
+    </ul>
+  </div>

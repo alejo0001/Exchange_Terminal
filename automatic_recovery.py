@@ -18,13 +18,13 @@ session = HTTP(
 
 
 stop = False
-s = "AKROUSDT"
+s = "IDUSDT"
 def handle_message(message):
     print(message)
 ws.order_stream(callback=handle_message)
 while True:
 
-    pos = session.get_positions(
+    pos = session.get_open_orders(
         category="linear",
         symbol=s,
     )
@@ -32,10 +32,10 @@ while True:
     if(len(pos['result']['list']) >0):
 
         side = pos['result']['list'][0]['side']
-        qty = float(pos['result']['list'][0]['size'])
-        price = float(pos['result']['list'][0]['avgPrice'])
-        # qty = float(pos['result']['list'][0]['qty'])
-        # price = float(pos['result']['list'][0]['price'])
+        # qty = float(pos['result']['list'][0]['size'])
+        # price = float(pos['result']['list'][0]['avgPrice'])
+        qty = float(pos['result']['list'][0]['qty'])
+        price = float(pos['result']['list'][0]['price'])
         op = ""
         hedge_pos = 0
         trigger_Direction = 0
@@ -45,12 +45,12 @@ while True:
             
 
             if(side =="Buy"):
-                hedge_pos = round(price - (price * 0.01),4)
+                hedge_pos = round(price - (price * 0.005),4)
                 op="Sell"
                 trigger_Direction = 2
                 position_Idx = 2
             else:
-                hedge_pos = round(price + (price * 0.01),4)
+                hedge_pos = round(price + (price * 0.005),4)
                 op="Buy"
                 trigger_Direction = 1
                 position_Idx = 1
@@ -65,7 +65,7 @@ while True:
                 orderType = 'Market',
                 triggerDirection = trigger_Direction,
                 side= op,
-                qty= qty,
+                qty= qty *2,
                 triggerPrice=hedge_pos,
                 positionIdx = position_Idx
                 ))

@@ -43,18 +43,19 @@ async def AIAnalysis():
             AnalysisList = Analyze()
             messages : str =''
             for item in AnalysisList:
-                if(item.score is not None and abs(item.score) >= 1):
+                if(item.score is not None and abs(int(item.score)) >= 1):
                     messages+=f'''noticia: {item.newsItemLink}
 análisis: {item.analysis}
 puntaje: {item.score}
-                                        
+fecha: {item.newsItemDate}
+pares: {str(item.pairs)}
 '''
                 # print('análisis: '+str(item.analysis))
             print(messages)
             if(messages):
                 await SendTelegramMessage(messages)
             
-        await asyncio.sleep(60)
+        await asyncio.sleep(540)
         counter = 0
 
 

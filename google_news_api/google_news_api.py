@@ -2,8 +2,9 @@ from newsapi import NewsApiClient
 from common import subtratcFromCurrentDate
 from google_news_api.reponse_classes import EverythingResponse,Article,Source
 from typing import List
+from config import googleNewsApiKey
 # Init
-newsapi = NewsApiClient(api_key='API_KEY')
+newsapi = NewsApiClient(api_key=googleNewsApiKey)
 
 
 # /v2/everything

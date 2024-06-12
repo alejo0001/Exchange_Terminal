@@ -4,8 +4,9 @@ from google_news_api import google_news_api
 from google_news_api.reponse_classes import EverythingResponse,Article
 from typing import List
 from common import AnalyzeResponse
+from config import generativeAiApiKey
 # Configura tu clave de API
-genai.configure(api_key="API_KEY")
+genai.configure(api_key=generativeAiApiKey)
 
 model = genai.GenerativeModel('gemini-pro')
 
@@ -27,6 +28,7 @@ def Analyze():
             newsItemPrompt = article.title+'. '+article.description
             response = model.generate_content(configPrompt+newsItemPrompt)
             if(response.text):
+                print(response.text)
                 datos = json.loads(response.text)
                 # print("Texto generado:")
                 # print(str(datos))

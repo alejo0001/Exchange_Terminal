@@ -6,3 +6,6 @@ websockets
 google-generativeai
 newsapi-python
 fastapi
+bybit-ws
+pyodbc
+websocket-client

@@ -1,10 +1,12 @@
 from datetime import (date,datetime,timedelta)
+from enum import Enum
+from pydantic import BaseModel
 from telegram import *
 from telegram import (Update,Bot)
 import asyncio
 from config import(chat_id,telegramAPIKey,strConnection,strConnection2)
 import re
-from typing import List
+from typing import ForwardRef, List, Optional
 
 class AnalyzeResponse:
     source: str
@@ -155,6 +157,171 @@ coins = [
     Moneda('CFXUSDT',['0.1','0.01','0.001','0.0001'])
     ]
 
+class BybitTickersResultTicker:
+    symbol: str
+    last_price: str
+    index_price: str
+    mark_price: str
+    prev_price24_h: str
+    price24_h_pcnt: str
+    high_price24_h: str
+    low_price24_h: str
+    prev_price1_h: str
+    open_interest: int
+    open_interest_value: str
+    turnover24_h: str
+    volume24_h: int
+    funding_rate: str
+    next_funding_time: str
+    predicted_delivery_price: str
+    basis_rate: str
+    delivery_fee_rate: str
+    delivery_time: int
+    ask1_size: int
+    bid1_price: str
+    ask1_price: str
+    bid1_size: int
+    basis: str
+
+    def __init__(self, symbol: str, last_price: str, index_price: str, mark_price: str, prev_price24_h: str, price24_h_pcnt: str, high_price24_h: str, low_price24_h: str, prev_price1_h: str, open_interest: int, open_interest_value: str, turnover24_h: str, volume24_h: int, funding_rate: str, next_funding_time: str, predicted_delivery_price: str, basis_rate: str, delivery_fee_rate: str, delivery_time: int, ask1_size: int, bid1_price: str, ask1_price: str, bid1_size: int, basis: str) -> None:
+        self.symbol = symbol
+        self.last_price = last_price
+        self.index_price = index_price
+        self.mark_price = mark_price
+        self.prev_price24_h = prev_price24_h
+        self.price24_h_pcnt = price24_h_pcnt
+        self.high_price24_h = high_price24_h
+        self.low_price24_h = low_price24_h
+        self.prev_price1_h = prev_price1_h
+        self.open_interest = open_interest
+        self.open_interest_value = open_interest_value
+        self.turnover24_h = turnover24_h
+        self.volume24_h = volume24_h
+        self.funding_rate = funding_rate
+        self.next_funding_time = next_funding_time
+        self.predicted_delivery_price = predicted_delivery_price
+        self.basis_rate = basis_rate
+        self.delivery_fee_rate = delivery_fee_rate
+        self.delivery_time = delivery_time
+        self.ask1_size = ask1_size
+        self.bid1_price = bid1_price
+        self.ask1_price = ask1_price
+        self.bid1_size = bid1_size
+        self.basis = basis
+
+class BybitKlinesResultKline:
+    startTime:str
+    openPrice:str
+    highPrice:str
+    lowPrice:str
+    closePrice:str
+    volume:str
+    turnover:str
+
+    def __init__(self,startTime,openPrice,highPrice,lowPrice,closePrice,volume,turnover):
+        self.startTime = startTime
+        self.openPrice =openPrice
+        self.highPrice =highPrice
+        self.lowPrice = lowPrice
+        self.closePrice = closePrice
+        self.volume = volume
+        self.turnover = turnover
+
+class BybitKlinesResponseResult:
+    category : str
+    symbol : str
+    list : List[BybitKlinesResultKline]
+
+    def __init__(self,category:str,symbol:str, list: List[BybitKlinesResultKline]):
+        self.category = category
+        self.symbol = symbol
+        self.list = list
+
+
+
+class BybitTickersResponseResult:
+    category: str
+    list: List[BybitTickersResultTicker]
+
+    def __init__(self, category: str, list: List[BybitTickersResultTicker]) -> None:
+        self.category = category
+        self.list = list
+
+
+class RetEXTInfo:
+    pass
+
+    def __init__(self, ) -> None:
+        pass
+
+
+class BybitTickersResponse:
+    ret_code: int
+    ret_msg: str
+    result: BybitTickersResponseResult
+    ret_ext_info: RetEXTInfo
+    time: int
+
+    def __init__(self, ret_code: int, ret_msg: str, result: BybitTickersResponseResult, ret_ext_info: RetEXTInfo, time: int) -> None:
+        self.ret_code = ret_code
+        self.ret_msg = ret_msg
+        self.result = result
+        self.ret_ext_info = ret_ext_info
+        self.time = time
+
+
+class BybitKlinesResponse:
+    ret_code: int
+    ret_msg: str
+    result: BybitKlinesResponseResult
+    ret_ext_info: RetEXTInfo
+    time: int
+
+    def __init__(self, ret_code: int, ret_msg: str, result: BybitKlinesResponseResult, ret_ext_info: RetEXTInfo, time: int) -> None:
+        self.ret_code = ret_code
+        self.ret_msg = ret_msg
+        self.result = result
+        self.ret_ext_info = ret_ext_info
+        self.time = time
+
+EntranceZone = ForwardRef('EntranceZone')
+class PriceGroup(BaseModel):
+    rangeValue: float
+    prices: List[float]
+    minPrice : float
+    maxPrice : float    
+    sellZone : Optional[EntranceZone] = None
+    buyZone : Optional[EntranceZone] = None
+
+    # def __init__(self, rangeValue: float, prices: List[float]) -> None:
+    #     self.rangeValue = rangeValue
+    #     self.prices = prices
+
+class EntranceZone(BaseModel):    
+    minPrice : float
+    maxPrice : float
+    zoneType: int
+    priceGroup: PriceGroup
+    # def __init__(self, minPrice: float, maxPrice: float, zoneType:int,priceGroup : PriceGroup) -> None:
+    #     self.minPrice = minPrice
+    #     self.maxPrice = maxPrice
+    #     self.zoneType = zoneType
+    #     self.priceGroup = priceGroup
+
+class zoneType(Enum):
+    buy = 0
+    sell = 1
+
+class PriceActionCalibrationDto(BaseModel):
+    rangeDivisor: float
+    precision: int
+    temporality: str
+    minBouncesAmount:int
+
+    # def __init__(self, divisor: float, precision:int,temporality : int) -> None:
+    #     self.divisor = divisor
+    #     self.precision = precision
+    #     self.temporality = temporality
 
 coin = [
     Moneda('NEOUSDT',['1','0.1','0.01','0.001'])
@@ -177,22 +344,11 @@ async def enviar_mensaje(chat_id, mensaje):
     bot = Bot(token=telegramAPIKey)
     await bot.send_message(chat_id=chat_id, text=mensaje)
 
-# def enviar_mensaje(chat_id, mensaje):
-#     bot = Bot(token=telegramAPIKey)
-#     bot.send_message(chat_id=chat_id, text=mensaje)
-
-    
 
 async def SendTelegramMessage(message):
     mensaje = "Hola, esto es un mensaje enviado desde mi bot de Telegram."
-
-    #asyncio.run(enviar_mensaje(chat_id, message))
     await enviar_mensaje(chat_id, message)
-# def SendTelegramMessage(message):
-#     mensaje = "Hola, esto es un mensaje enviado desde mi bot de Telegram."
 
-#     #asyncio.run(enviar_mensaje(chat_id, message))
-#     enviar_mensaje(chat_id, message)
 
 def subtratcFromCurrentDate(*args):
     currentDate = datetime.now()

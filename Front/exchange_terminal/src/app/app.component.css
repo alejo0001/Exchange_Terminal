@@ -19,3 +19,9 @@
     flex: 1;
     padding: 20px;
   }
+
+  :host {
+    display: block;
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    /* background-color: #171717; Aquí puedes poner el color que desees */
+  }

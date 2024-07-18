@@ -2,14 +2,14 @@ from datetime import datetime, timedelta
 import math
 from time import sleep
 import time
-from fastapi import FastAPI
+from fastapi import Body, FastAPI, Query
 import pandas as pd
 from pydantic import BaseModel
 from typing import Optional
 from AI_Analyzer_test import Analyze
-from price_action_strategy import getMarketZones
+from price_action_strategy import  EvaluatePriceAction, getEntranceZones, getMarketZones, setTicker
 from indicators import calculate_bollinger_bands, calculate_rsi
-from common import AnalyzeResponse, BybitKlinesResponse, PriceActionCalibrationDto, PriceGroup,SendTelegramMessage,BybitTickersResponse,BybitTickersResultTicker
+from common import AnalyzeResponse, BybitKlinesResponse, EntranceZone, PriceActionCalibrationDto, PriceGroup,SendTelegramMessage,BybitTickersResponse,BybitTickersResultTicker, Strategies
 from typing import List
 from getTickers import getBybitTickers
 from Klines import getBybitKlines
@@ -31,6 +31,8 @@ app.add_middleware(
 AnalysisList:List[AnalyzeResponse]=[]
 lstExceptionTickers = ['ETHUSDT', 'BTCUSDT', 'ADAUSDT','XRPUSDT','MATICUSDT','THETAUSDT','ALGOUSDT','TRXUSDT','DOGEUSDT']
 minFundingRate= 0.05
+strategy = Strategies.priceAction.value
+turnedOn = True
 #ejemplo validación de datos con baseModel:
 class Libro(BaseModel):
     titulo:str
@@ -51,13 +53,21 @@ def pruebaId(id:int):
 def insertar_libro(libro:Libro):
     return{"message": f"libro {libro.titulo} insertado"}
 
-# @app.on_event("startup")
-# async def startup_event():
-#     asyncio.create_task(realTimeExecutor()) 
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(realTimeExecutor()) 
 
 @app.post("/priceActionCalibration", response_model=List[PriceGroup])
 def priceActionCalibration(calibration:PriceActionCalibrationDto):
-    return getMarketZones(calibration.temporality,calibration.rangeDivisor,calibration.precision,calibration.minBouncesAmount)
+    return getMarketZones(calibration.temporality,calibration.rangeDivisor,calibration.precision,calibration.minBouncesAmount,calibration.calculationMode,calibration.percentage,calibration.depth )
+
+@app.post("/getEntranceZones", response_model=List[EntranceZone])
+def priceActionCalibration(pGroups:List[PriceGroup]):
+    return getEntranceZones(pGroups)
+
+@app.get("/setTicker/{symbol}")
+def setSymbol(symbol:str):
+    setTicker(symbol)
 
 print ('server en funcionamiento')
 async def AIAnalysis():
@@ -142,12 +152,14 @@ next funding time: {epoch +timedelta(seconds=int(ticker.next_funding_time)/1000)
     return messages
 
 async def realTimeExecutor():
-    temporality = '1m'
+    temporality = '15m'
     lastMinuteExecuted = None
     maxMinutesInterval = 60
     executingMinutes : List[int]=[]
     counter = 0
     messages : str = ''
+    global strategy
+    global turnedOn
 
     while counter <= maxMinutesInterval:
         counter += int(temporality.split('m')[0])
@@ -159,17 +171,21 @@ async def realTimeExecutor():
     while True:
         now = datetime.now()
         currentMinute = now.minute
-
         if(currentMinute in executingMinutes and currentMinute != lastMinuteExecuted):
             lastMinuteExecuted = currentMinute
             
-            messages = bollingerBandsAndRSIStrategy(temporality)
-            if(messages != ''):
-                await SendTelegramMessage(f'''alertas {temporality}: 
-{messages}
-''')
+            if(turnedOn):
+                if(strategy == 0):
+                    messages = bollingerBandsAndRSIStrategy(temporality)
+                    if(messages != ''):
+                        await SendTelegramMessage(f'''alertas {temporality}: 
+                        {messages}
+                        ''')
+                elif(strategy == 1):
+                    EvaluatePriceAction()
 
-        time.sleep(1)
+        #time.sleep(1)
+        await asyncio.sleep(1)
 
 
 

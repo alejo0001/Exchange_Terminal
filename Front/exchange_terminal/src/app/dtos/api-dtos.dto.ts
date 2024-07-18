@@ -18,3 +18,22 @@ export interface IEntranceZone  {
   
 }
 
+export class EntranceZonesResponse{
+    zones? : IEntranceZone[] = []
+    
+    constructor(jsonData: any) {
+        Object.assign(this.zones!, jsonData);
+    }
+}
+
+export class MarketZonesResponse{
+    zones? : IPriceGroup[] = []
+    
+    constructor(jsonData: any) {
+        Object.assign(this.zones!, jsonData);
+    }
+}
+
+
+
+

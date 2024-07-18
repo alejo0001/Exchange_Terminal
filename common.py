@@ -248,11 +248,10 @@ class BybitTickersResponseResult:
         self.list = list
 
 
-class RetEXTInfo:
+class RetEXTInfo(BaseModel):
     pass
 
-    def __init__(self, ) -> None:
-        pass
+    
 
 
 class BybitTickersResponse:
@@ -301,7 +300,7 @@ class EntranceZone(BaseModel):
     minPrice : float
     maxPrice : float
     zoneType: int
-    priceGroup: PriceGroup
+    # priceGroup: PriceGroup | None
     # def __init__(self, minPrice: float, maxPrice: float, zoneType:int,priceGroup : PriceGroup) -> None:
     #     self.minPrice = minPrice
     #     self.maxPrice = maxPrice
@@ -312,16 +311,126 @@ class zoneType(Enum):
     buy = 0
     sell = 1
 
+class CalculationMode(Enum):
+    percentage = 0
+    divisor = 1
+
+class Strategies(Enum):
+    bollingerAndRSI = 0
+    priceAction = 1
+
 class PriceActionCalibrationDto(BaseModel):
     rangeDivisor: float
     precision: int
     temporality: str
     minBouncesAmount:int
+    calculationMode : int
+    percentage: float
+    depth: int
 
     # def __init__(self, divisor: float, precision:int,temporality : int) -> None:
     #     self.divisor = divisor
     #     self.precision = precision
     #     self.temporality = temporality
+
+class BybitPositionsResponseResultItem(BaseModel):
+    positionIdx: int
+    riskId: int
+    riskLimitValue: str
+    symbol: str
+    side: str
+    size: str
+    avgPrice: str
+    positionValue: str
+    tradeMode: int
+    positionStatus: str
+    autoAddMargin: int
+    adlRankIndicator: int
+    leverage: str
+    positionBalance: str
+    markPrice: str
+    liqPrice: str
+    bustPrice: str
+    positionMM: str
+    positionIM: str
+    tpslMode: str
+    takeProfit: str
+    stopLoss: str
+    trailingStop: str
+    unrealisedPnl: str
+    curRealisedPnl: str
+    cumRealisedPnl: str
+    seq: float
+    isReduceOnly: bool
+    mmrSysUpdateTime: str
+    leverageSysUpdatedTime: str
+    sessionAvgPrice: str
+    createdTime: str
+    updatedTime: str
+
+class BybitPositionsResponseResult(BaseModel):
+    list : List[BybitPositionsResponseResultItem]
+    nextPageCursor: str
+    category: str
+
+class BybitPositionsResponse(BaseModel):
+    ret_code: int
+    ret_msg: str
+    result: BybitPositionsResponseResult
+    ret_ext_info: RetEXTInfo | None
+    time: int
+
+class LeverageFilter(BaseModel):
+    min_leverage: int
+    max_leverage: float
+    leverage_step: float
+class LotSizeFilter(BaseModel):
+    max_order_qty: float
+    min_order_qty: float
+    qty_step: float
+    post_only_max_order_qty: float
+    max_mkt_order_qty: float
+    min_notional_value: float
+class PriceFilter(BaseModel):
+    min_price: float
+    max_price: float
+    tick_size: float
+class BybitInstrumentsInfoResponseResultListItem(BaseModel):
+    symbol: str
+    contract_type: str
+    status: str
+    base_coin: str
+    quote_coin: str
+    launch_time: str
+    delivery_time: int
+    delivery_fee_rate: str
+    price_scale: int
+    leverage_filter: LeverageFilter
+    price_filter: PriceFilter
+    lot_size_filter: LotSizeFilter
+    unified_margin_trade: bool
+    funding_interval: int
+    settle_coin: str
+    copy_trading: str
+    upper_funding_rate: str
+    lower_funding_rate: str
+    is_pre_listing: bool
+    pre_listing_info: None
+
+
+class BybitInstrumentsInfoResponseResult(BaseModel):
+    category: str
+    list: List[BybitInstrumentsInfoResponseResultListItem]
+    next_page_cursor: str
+
+
+class BybitInstrumentsInfoResponse(BaseModel):
+    ret_code: int
+    ret_msg: str
+    result: BybitInstrumentsInfoResponseResult
+    ret_ext_info: RetEXTInfo | None
+    time: int
+
 
 coin = [
     Moneda('NEOUSDT',['1','0.1','0.01','0.001'])

@@ -28,6 +28,7 @@ export class AppComponent {
   chartOptions?: Highcharts.Options;
   calibrationForm: FormGroup;
   tickerForm : FormGroup;
+  preferencesForm : FormGroup;
   plotBands : Highcharts.YAxisPlotBandsOptions[] = []
   lstPlots : IPlot[] = [];
   public globalPriceGroups : IPriceGroup[]=[]
@@ -44,6 +45,12 @@ export class AppComponent {
   lstCalculationMode : ISelectList[]=[
     {text:'Porcentaje',value:'0'},
     {text:'Divisor',value:'1'},
+  ]
+
+  lstFirstEntryTypes: ISelectList[]=[
+    {text:'cualquiera',value:'0'},
+    {text:'short',value:'2'},
+    {text:'long',value:'1'}
   ]
 
 
@@ -84,6 +91,10 @@ export class AppComponent {
 
     this.tickerForm = this.fb.group({
       symbol:['']
+    });
+
+    this.preferencesForm = this.fb.group({
+      firstEntry:['']
     });
   }
 
@@ -226,6 +237,15 @@ export class AppComponent {
       })
   }
 
+  setFirstEntry(){
+    const type = parseInt(this.preferencesForm.get('firstEntry')!.value)
+   
+    this.http.get(this.apiDomain+'/setFirstEntry/'+type ).subscribe(data=>{
+        console.log(data);
+       
+      })
+  }
+
   calibrar() {
     if (this.calibrationForm!.valid) {
       
@@ -315,7 +335,7 @@ export class AppComponent {
           let plotBand ={  
             from: z.minPrice, // Valor desde donde empieza la franja
             to: z.maxPrice, // Valor hasta donde llega la franja
-            color:  z.zoneType == 0 ? 'rgba(0,51,42,0.7)' : 'rgba(178,40,51,0.7)',
+            color:  z.zoneType == 0 ? 'rgba(0,125,70,0.7)' : 'rgba(178,40,51,0.7)',
           }
           this.plotBands.push(plotBand)
         })

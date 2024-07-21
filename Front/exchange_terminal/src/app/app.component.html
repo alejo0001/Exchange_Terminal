@@ -8,6 +8,14 @@
     </select>
    
 </form>
+<form [formGroup]="preferencesForm" >
+  <label >Primera entrada:</label>
+  <select id="type" formControlName="firstEntry" (change)="setFirstEntry()">
+    <option value="" disabled selected>Selecciona una opción</option>
+    <option *ngFor="let option of lstFirstEntryTypes" [value]="option.value">{{ option.text }}</option>
+  </select>
+ 
+</form>
 <form [formGroup]="calibrationForm" (ngSubmit)="calibrar()">
     <label >Modo de cálculo:</label>
     <select id="calculationMode" formControlName="calculationMode">

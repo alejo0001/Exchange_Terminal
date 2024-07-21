@@ -7,7 +7,7 @@ import pandas as pd
 from pydantic import BaseModel
 from typing import Optional
 from AI_Analyzer_test import Analyze
-from price_action_strategy import  EvaluatePriceAction, getEntranceZones, getMarketZones, setTicker
+from price_action_strategy import  EvaluatePriceAction, getEntranceZones, getMarketZones, setFirstEntry, setTicker
 from indicators import calculate_bollinger_bands, calculate_rsi
 from common import AnalyzeResponse, BybitKlinesResponse, EntranceZone, PriceActionCalibrationDto, PriceGroup,SendTelegramMessage,BybitTickersResponse,BybitTickersResultTicker, Strategies
 from typing import List
@@ -68,6 +68,10 @@ def priceActionCalibration(pGroups:List[PriceGroup]):
 @app.get("/setTicker/{symbol}")
 def setSymbol(symbol:str):
     setTicker(symbol)
+
+@app.get("/setFirstEntry/{type}")
+def setSymbol(type:int):
+    return setFirstEntry(type)
 
 print ('server en funcionamiento')
 async def AIAnalysis():

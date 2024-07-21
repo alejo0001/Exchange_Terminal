@@ -16,7 +16,8 @@ filterGroups = True
 symbol = 'MAVIAUSDT'
 lstGlobalEntranceZones : List[EntranceZone]=[]
 accountMargin= 50
-marginPercentage = 0.10
+marginPercentage = 0.15
+firstEntry = 0
 
 session = HTTP(
     testnet=False,
@@ -27,6 +28,11 @@ session = HTTP(
 def setTicker(s:str):
     global symbol
     symbol = s
+
+def setFirstEntry(type:int):
+    global firstEntry
+    firstEntry = type
+    return firstEntry
 
 def _getZonesByPercentage(kline : BybitKlinesResultKline, index: int, klinesList: List[BybitKlinesResultKline],priceGroups: List[PriceGroup],percentage:float):
     
@@ -255,6 +261,7 @@ def EvaluatePriceAction():
     global symbol
     global accountMargin
     global marginPercentage
+    global firstEntry
     print('lstGlobalEntranceZones: '+str(lstGlobalEntranceZones))
     if(len(lstGlobalEntranceZones)>0):
         bybitTickersResponse : BybitTickersResponse = getBybitTickers(symbol)
@@ -305,7 +312,7 @@ def EvaluatePriceAction():
                         finalSize = tickerInfoResponse.result.list[0].lot_size_filter.min_order_qty
                     else:
                         finalSize = math.ceil(sizePosition)
-                    if(eZ.zoneType == 0):
+                    if(eZ.zoneType == 0 and (firstEntry == 0 or firstEntry == 1) ):
                         response = session.place_order(
                                                 category="linear",
                                                 symbol=symbol,
@@ -317,7 +324,7 @@ def EvaluatePriceAction():
                                                 stopLoss = round(last_price -(last_price *0.1),6)
                                             )
 
-                    else:
+                    elif(eZ.zoneType == 1 and (firstEntry == 0 or firstEntry == 2)):
                         response = session.place_order(
                                                 category="linear",
                                                 symbol=symbol,

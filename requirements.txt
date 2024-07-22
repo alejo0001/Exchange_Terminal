@@ -9,3 +9,5 @@ fastapi
 bybit-ws
 pyodbc
 websocket-client
+uvicorn
+pybit

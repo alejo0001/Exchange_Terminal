@@ -380,6 +380,61 @@ class BybitPositionsResponse(BaseModel):
     ret_ext_info: RetEXTInfo | None
     time: int
 
+class BybitOrdersResponseResultItem(BaseModel):
+    order_id: str
+    order_link_id: str
+    block_trade_id: str
+    symbol: str
+    price: str
+    qty: str
+    side: str
+    is_leverage: str
+    position_idx: int
+    order_status: str
+    cancel_type: str
+    reject_reason: str
+    avg_price: str
+    leaves_qty: str
+    leaves_value: str
+    cum_exec_qty: str
+    cum_exec_value: int
+    cum_exec_fee: int
+    time_in_force: str
+    order_type: str
+    stop_order_type: str
+    order_iv: str
+    trigger_price: str
+    take_profit: str
+    stop_loss: str
+    tp_trigger_by: str
+    sl_trigger_by: str
+    trigger_direction: int
+    trigger_by: str
+    last_price_on_created: str
+    reduce_only: bool
+    close_on_trigger: bool
+    smp_type: str
+    smp_group: int
+    smp_order_id: str
+    tpsl_mode: str
+    tp_limit_price: str
+    sl_limit_price: str
+    place_type: str
+    created_time: str
+    updated_time: str
+
+class BybitOrdersResponseResult(BaseModel):
+    list : List[BybitOrdersResponseResultItem]
+    nextPageCursor: str
+    category: str
+
+class BybitOrdersResponse(BaseModel):
+    ret_code: int
+    ret_msg: str
+    result: BybitOrdersResponseResult
+    ret_ext_info: RetEXTInfo | None
+    time: int
+
 class LeverageFilter(BaseModel):
     min_leverage: int
     max_leverage: float

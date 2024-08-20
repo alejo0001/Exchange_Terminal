@@ -14,7 +14,8 @@ def getBybitPositions(symbol:str=''):
     bybitPositionsResultList: List[BybitPositionsResponseResultItem] = []
     if(symbol == ''):
         pos = session.get_positions(
-        category="linear"
+        category="linear",
+        settleCoin = 'USDT'
     )
     else:
         pos = session.get_positions(

@@ -101,7 +101,7 @@ while True:
                     )
                     
                     if(len(orders['result']['list']) >0):
-                        print('orders discharge section: ')
+                        print('discharge orders section: ')
                         print(orders)
                         ##Las órdenes de take profit parcial se identificarán si están marcadas con reduce-only == True:
                         discharge_order_exists = False

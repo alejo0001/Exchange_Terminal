@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from datetime import (date,datetime,timedelta)
 from enum import Enum
 from pydantic import BaseModel
@@ -6,7 +7,7 @@ from telegram import (Update,Bot)
 import asyncio
 from config import(chat_id,telegramAPIKey,strConnection,strConnection2)
 import re
-from typing import ForwardRef, List, Optional
+from typing import Any, ForwardRef, List, Optional
 
 class AnalyzeResponse:
     source: str
@@ -487,6 +488,198 @@ class BybitInstrumentsInfoResponse(BaseModel):
     time: int
 
 
+class BybitPositionsWSResponseResultItem:
+
+    def __init__(self, positionIdx=None, tradeMode=None, riskId=None, riskLimitValue=None,
+                 symbol=None, side=None, size=None, entryPrice=None, sessionAvgPrice=None,
+                 leverage=None, positionValue=None, positionBalance=None, markPrice=None,
+                 positionIM=None, positionMM=None, takeProfit=None, stopLoss=None,
+                 trailingStop=None, unrealisedPnl=None, cumRealisedPnl=None,
+                 curRealisedPnl=None, createdTime=None, updatedTime=None, tpslMode=None,
+                 liqPrice=None, bustPrice=None, category=None, positionStatus=None,
+                 adlRankIndicator=None, autoAddMargin=None, leverageSysUpdatedTime=None,
+                 mmrSysUpdatedTime=None, seq=None, isReduceOnly=None):
+                self.positionIdx = positionIdx
+                self.tradeMode = tradeMode
+                self.riskId = riskId
+                self.riskLimitValue = riskLimitValue
+                self.symbol = symbol
+                self.side = side
+                self.size = size
+                self.entryPrice = entryPrice
+                self.sessionAvgPrice = sessionAvgPrice
+                self.leverage = leverage
+                self.positionValue = positionValue
+                self.positionBalance = positionBalance
+                self.markPrice = markPrice
+                self.positionIM = positionIM
+                self.positionMM = positionMM
+                self.takeProfit = takeProfit
+                self.stopLoss = stopLoss
+                self.trailingStop = trailingStop
+                self.unrealisedPnl = unrealisedPnl
+                self.cumRealisedPnl = cumRealisedPnl
+                self.curRealisedPnl = curRealisedPnl
+                self.createdTime = createdTime
+                self.updatedTime = updatedTime
+                self.tpslMode = tpslMode
+                self.liqPrice = liqPrice
+                self.bustPrice = bustPrice
+                self.category = category
+                self.positionStatus = positionStatus
+                self.adlRankIndicator = adlRankIndicator
+                self.autoAddMargin = autoAddMargin
+                self.leverageSysUpdatedTime = leverageSysUpdatedTime
+                self.mmrSysUpdatedTime = mmrSysUpdatedTime
+                self.seq = seq
+                self.isReduceOnly = isReduceOnly
+
+   
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
+class BybitPositionsWSResponseResult:
+    def __init__(self, id=None, topic=None, creationTime=None, data=None):
+        self.id = id
+        self.topic = topic
+        self.creationTime = creationTime
+        self.data = [BybitPositionsWSResponseResultItem.from_dict(item) for item in data] if data else []
+
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
+    
+
+
+class BybitOrders_Response_Result_Item:
+
+    def __init__(self
+        ,symbol= None
+        ,orderType= None
+        ,orderLinkId= None
+        ,slLimitPrice= None
+        ,orderId= None
+        ,cancelType= None
+        ,avgPrice= None
+        ,stopOrderType= None
+        ,lastPriceOnCreated= None
+        ,orderStatus= None
+        ,createType= None
+        ,takeProfit= None
+        ,cumExecValue= None
+        ,tpslMode = None
+        ,smpType = None
+        ,triggerDirection = None
+        ,blockTradeId = None
+        ,isLeverage = None
+        ,rejectReason = None
+        ,price = None
+        ,orderIv = None
+        ,createdTime = None
+        ,tpTriggerBy = None
+        ,positionIdx = None
+        ,timeInForce = None
+        ,leavesValue = None
+        ,updatedTime = None
+        ,side = None
+        ,smpGroup = None
+        ,triggerPrice = None
+        ,tpLimitPrice = None
+        ,cumExecFee = None
+        ,leavesQty = None
+        ,slTriggerBy = None
+        ,closeOnTrigger = None
+        ,placeType = None
+        ,cumExecQty = None
+        ,reduceOnly = None
+        ,qty = None
+        ,stopLoss = None
+        ,marketUnit = None
+        ,smpOrderId = None
+        ,triggerBy = None
+    ):
+        self.symbol= symbol
+        self.orderType= orderType
+        self.orderLinkId= orderLinkId
+        self.slLimitPrice= slLimitPrice
+        self.orderId= orderId
+        self.cancelType= cancelType
+        self.avgPrice= avgPrice
+        self.stopOrderType= stopOrderType
+        self.lastPriceOnCreated= lastPriceOnCreated
+        self.orderStatus= orderStatus
+        self.createType= createType
+        self.takeProfit= takeProfit
+        self.cumExecValue= cumExecValue
+        self.tpslMode = tpslMode
+        self.smpType=smpType
+        self.triggerDirection=triggerDirection
+        self.blockTradeId=blockTradeId
+        self.isLeverage=isLeverage
+        self.rejectReason=rejectReason
+        self.price=price
+        self.orderIv=orderIv
+        self.createdTime=createdTime
+        self.tpTriggerBy=tpTriggerBy
+        self.positionIdx=positionIdx
+        self.timeInForce=timeInForce
+        self.leavesValue=leavesValue
+        self.updatedTime=updatedTime
+        self.side=side
+        self.smpGroup=smpGroup
+        self.triggerPrice=triggerPrice
+        self.tpLimitPrice=tpLimitPrice
+        self.cumExecFee=cumExecFee
+        self.leavesQty=leavesQty
+        self.slTriggerBy=slTriggerBy
+        self.closeOnTrigger=closeOnTrigger
+        self.placeType=placeType
+        self.cumExecQty=cumExecQty
+        self.reduceOnly=reduceOnly
+        self.qty=qty
+        self.stopLoss=stopLoss
+        self.marketUnit=marketUnit
+        self.smpOrderId=smpOrderId
+        self.triggerBy=triggerBy
+
+
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
+
+class BybitOrdersResponse_Result:
+
+    def __init__(self, list=None, nextPageCursor=None, category=None):
+        self.list = [BybitOrders_Response_Result_Item.from_dict(item) for item in list] if list else []
+        self.nextPageCursor = nextPageCursor
+        self.category = category
+
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
+
+class BybitOrders_Response:
+    def __init__(self, retCode=None, retMsg=None, result=None, retExtInfo=None,time=None):
+        self.retCode = retCode
+        self.retMsg = retMsg
+        self.result = BybitOrdersResponse_Result.from_dict(result)
+        self.retExtInfo = retExtInfo
+        self.time = time
+
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
+    
+class simpleCandleStick:
+    def __init__(self,open,close,high,low):
+        self.open = open
+        self.close = close
+        self.high = high
+        self.low  = low
+  
+    @classmethod
+    def from_dict(cls, obj):
+        return cls(**obj)
 coin = [
     Moneda('NEOUSDT',['1','0.1','0.01','0.001'])
     ]
@@ -512,6 +705,8 @@ async def enviar_mensaje(chat_id, mensaje):
 async def SendTelegramMessage(message):
     mensaje = "Hola, esto es un mensaje enviado desde mi bot de Telegram."
     await enviar_mensaje(chat_id, message)
+
+
 
 
 def subtratcFromCurrentDate(*args):

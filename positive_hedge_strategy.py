@@ -114,7 +114,7 @@ while True:
                                 discharge_order_exists = True
                                 ##Se puede dar el caso de que se haya tomado otra recompra antes de descargarse,
                                 ##si es así, debe cancelarse dicha orden y crear una nueva,
-                                ##para esto se compara el tamaño de esa orden con el tamaño que debería tener:
+                                ##para esto, se compara el tamaño de esa orden con el tamaño que debería tener:
 
                                 if(float(o['qty']) != orderSizeToSearch):
                                     print('orderSizeToSearch: '+str(orderSizeToSearch))

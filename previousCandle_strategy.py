@@ -117,7 +117,7 @@ def on_message(message):
                 qty = 20  # Tamaño de la posición
                 if account_mode == "Hedge":
                     # Si el modo es Hedge, colocamos la posición en índice 1 (hedge)
-                    place_order("Sell", qty, short_stop_loss, short_take_profit, position_idx=1)
+                    place_order("Sell", qty, short_stop_loss, short_take_profit, position_idx=2)
                 else:
                     # Si el modo es One-way, colocamos la posición en índice 0
                     place_order("Sell", qty, short_stop_loss, short_take_profit, position_idx=0)

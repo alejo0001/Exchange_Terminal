@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: bybit-ws
+Version: 0.1.8
+Summary: bybit websocket client
+Home-page: https://github.com/bybit-exchange/api-connectors/tree/master/official-ws/python
+Author: Simon
+Author-email: simon.zhang@bybit.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: websocket-client (==0.53.0)
+
+UNKNOWN
+
+

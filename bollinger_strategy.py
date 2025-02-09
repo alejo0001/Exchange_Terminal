@@ -5,12 +5,12 @@ from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 import math
 from config import (bybit_api_key,bybit_secret_key)
 
-symbol= "XRPUSDT"
-timeframe="5"
+symbol= "SWARMSUSDT"
+timeframe="3"
 usdt = 10
 
-tp_percent = 0.2
-sl_percent = 0.4
+tp_percent = 2
+sl_percent = 1
 
 client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
@@ -51,13 +51,22 @@ def qty_step(price):
 
     return result
 
-def crear_orden(symbol,side,order_type,qty):
+def crear_orden(symbol,side,order_type,qty,stop_loss,take_profit):
     pIdx = 0
     if side == "Sell":
         pIdx=2
     else:
         pIdx=1
-    response = client.place_order(category="linear",symbol=symbol,side=side,order_type=order_type,qty=qty,timeInForce="GoodTillCancel",positionIdx=pIdx)
+    response = client.place_order(
+        category="linear",
+        symbol=symbol,
+        side=side,
+        order_type=order_type,
+        qty=qty,
+        timeInForce="GoodTillCancel",
+        positionIdx=pIdx,
+        takeProfit=take_profit,
+        stopLoss=stop_loss)
     print("orden creada con éxito")
 
 def establecer_stop_loss(symbol,sl,side):
@@ -89,22 +98,22 @@ while True:
         posiciones=client.get_positions(category="linear",symbol=symbol)
         if float(posiciones['result']['list'][0]['size']) != 0:
             print("Hay una posición abierta en: "+symbol)
-            if not stop:
-                precio_de_entrada = float(posiciones['result']['list'][0]['avgPrice'])
-                if posiciones['result']['list'][0]['side'] == 'Buy':
-                    stop_loss_price = precio_de_entrada*(1-sl_percent/100)
-                    take_profit_price = precio_de_entrada*(1+tp_percent/100)
-                    establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
-                    establecer_take_profit(symbol,take_profit_price,"Sell",qty)
-                    print("Stop loss y take profit activado")
-                    stop = True
-                else:
-                    stop_loss_price = precio_de_entrada*(1+sl_percent/100)
-                    take_profit_price = precio_de_entrada*(1-tp_percent/100)
-                    establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
-                    establecer_take_profit(symbol,take_profit_price,"Buy",qty)
-                    print("Stop loss y take profit activado")
-                    stop = True
+            # if not stop:
+            #     precio_de_entrada = float(posiciones['result']['list'][0]['avgPrice'])
+            #     if posiciones['result']['list'][0]['side'] == 'Buy':
+            #         stop_loss_price = precio_de_entrada*(1-sl_percent/100)
+            #         take_profit_price = precio_de_entrada*(1+tp_percent/100)
+            #         establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
+            #         establecer_take_profit(symbol,take_profit_price,"Sell",qty)
+            #         print("Stop loss y take profit activado")
+            #         stop = True
+            #     else:
+            #         stop_loss_price = precio_de_entrada*(1+sl_percent/100)
+            #         take_profit_price = precio_de_entrada*(1-tp_percent/100)
+            #         establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
+            #         establecer_take_profit(symbol,take_profit_price,"Buy",qty)
+            #         print("Stop loss y take profit activado")
+            #         stop = True
 
         else:
             data= obtener_datos_historicos(symbol,timeframe)
@@ -119,8 +128,10 @@ while True:
                 if qty.is_integer():
                     qty = int(qty)
                 print("Cantidad de monedas: "+str(qty))
+                stop_loss_price = precio*(1+sl_percent/100)
+                take_profit_price = precio*(1-tp_percent/100)
                 if tipo =="long" or tipo == "":
-                    crear_orden(symbol,"Sell","Market",qty)
+                    crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
                     tipo = "short"
             
             if precio <=data['LowerBand']:
@@ -130,8 +141,10 @@ while True:
                 if qty.is_integer():
                     qty = int(qty)
                 print("Cantidad de monedas: "+str(qty))
+                stop_loss_price = precio*(1-sl_percent/100)
+                take_profit_price = precio*(1+tp_percent/100)
                 if tipo =="short" or tipo == "":
-                    crear_orden(symbol,"Buy","Market",qty)
+                    crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
                     tipo = "long"
             
     except Exception as e:

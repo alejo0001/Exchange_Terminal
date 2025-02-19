@@ -3,11 +3,18 @@ from datetime import (date,datetime,timedelta)
 from enum import Enum
 from pydantic import BaseModel
 from telegram import *
+
 from telegram import (Update,Bot)
 import asyncio
 from config import(chat_id,telegramAPIKey,strConnection,strConnection2)
 import re
 from typing import Any, ForwardRef, List, Optional
+
+from config import (bybit_api_key,bybit_secret_key)
+from pybit.unified_trading import HTTP
+import pandas as pd
+
+client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
 class AnalyzeResponse:
     source: str
@@ -729,4 +736,20 @@ def subtratcFromCurrentDate(*args):
 
     return currentDate
 
+def obtener_datos_historicos(symbol,interval,limite=200):
+    response= client.get_kline(symbol=symbol,interval=interval,limite=limite)
+    if "result" in response:
+        data = pd.DataFrame(response['result']['list']).astype(float)
+        data[0] = pd.to_datetime(data[0],unit='ms')
+        data.set_index(0,inplace=True)
+        data= data[::-1].reset_index(drop=True)
+        return data
+    else:
+        raise Exception("Error al obtener datos históricos: "+ str(response))
+    
+def calcular_bandas_bollinger(data,ventana=20,desviacion=2):
+    data['MA'] = data[4].rolling(window=ventana).mean()
+    data['UpperBand'] = data['MA'] + (data[4].rolling(window=ventana).std() * desviacion)
+    data['LowerBand'] = data['MA'] - (data[4].rolling(window=ventana).std() * desviacion)
+    return data.iloc[-1]
 

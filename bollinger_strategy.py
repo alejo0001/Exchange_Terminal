@@ -115,7 +115,7 @@ def enviar_mensaje_telegram(mensaje):
     asyncio.run(SendTelegramMessage(mensaje))
 
 stop = False
-tipo='long'
+tipo='short'
 qty=0
 
 while True:

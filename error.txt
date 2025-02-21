@@ -1,0 +1,330 @@
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:367: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:368: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+/home/alejandro/Apps/Exchange_Terminal/powerfull_pattern_strategy.py:463: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback

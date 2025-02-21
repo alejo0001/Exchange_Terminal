@@ -77,12 +77,37 @@ def crear_orden(symbol,side,order_type,qty,stop_loss,take_profit):
     print("orden creada con éxito")
 
 def calculate_rsi(prices, n=14):
+    # deltas = prices.diff()
+    # seed = deltas[:n+1]
+    # up = seed[seed>=0].sum()/n
+    # down = -seed[seed<0].sum()/n
+    # rs = up/down
+    # rsi = pd.Series(100 - (100/(1 + rs)), index=prices.index)
+    # return rsi
+
+    # deltas = prices.diff()  # Diferencias entre precios consecutivos
+    # gain = deltas.where(deltas > 0, 0)  # Solo valores positivos
+    # loss = -deltas.where(deltas < 0, 0)  # Solo valores negativos (convertidos a positivos)
+
+    # # Promedios exponenciales de ganancias y pérdidas
+    # avg_gain = gain.ewm(span=n, adjust=False).mean()
+    # avg_loss = loss.ewm(span=n, adjust=False).mean()
+
+    # # Cálculo de RSI
+    # rs = avg_gain / avg_loss
+    # rsi = 100 - (100 / (1 + rs))
+    
+
     deltas = prices.diff()
-    seed = deltas[:n+1]
-    up = seed[seed>=0].sum()/n
-    down = -seed[seed<0].sum()/n
-    rs = up/down
-    rsi = pd.Series(100 - (100/(1 + rs)), index=prices.index)
+    gain = deltas.where(deltas > 0, 0)
+    loss = -deltas.where(deltas < 0, 0)
+
+    avg_gain = gain.rolling(window=n, min_periods=n).mean()
+    avg_loss = loss.rolling(window=n, min_periods=n).mean()
+
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+
     return rsi
 
 def calculate_bollinger_bands(prices, window=20, num_std=2):
@@ -329,7 +354,7 @@ def on_message(message):
 
         for v in bBKlines.result.list:            
 
-            lstLatestPrices.append(v.closePrice)
+            lstLatestPrices.append(float(v.closePrice))
 
         prices = pd.Series(lstLatestPrices)
         rsi = calculate_rsi(prices)
@@ -339,40 +364,54 @@ def on_message(message):
         price_scale = int(step['result']['list'][0]['priceScale'])
         step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])
 
-        currentBBPDistance = (((data['UpperBand'] - data['LowerBand']) / data['MA']) * 100)
+        data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+        data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+        data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
 
-        shortCondition = precio >= data['UpperBand'] & (rsi[0] >= upperRsi) & currentBBPDistance >= bBPercentageDistance
-        longCondition = precio <= data['LowerBand'] & (rsi[0] <= lowerRsi) & currentBBPDistance >= bBPercentageDistance
+        if pd.isna(data['UpperBand']) or pd.isna(data['LowerBand']) or pd.isna(data['MA']):
+            print("Error: Se detectaron valores NaN en las Bandas de Bollinger.")
+        else:
 
-        if shortCondition:
-            precission = step_precission
-            qty = getUsdtOrderSize(marginPercentage)/precio
-            qty = qty_precission(qty,precission)
-            if qty.is_integer():
-                qty = int(qty)
-            print("Cantidad de monedas: "+str(qty))
-            stop_loss_price = precio*(1+sl_percent/100)
-            take_profit_price = precio*(1-tp_percent/100)
-            
-            crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
-            establecer_take_profit(symbol,take_profit_price,"Buy",qty)
+            currentBBPDistance = (((float(data['UpperBand']) - float(data['LowerBand'])) / float(data['MA'])) * 100)
 
-        if longCondition:
-            precission = step_precission                
-            qty = getUsdtOrderSize(marginPercentage)/precio
-            qty = qty_precission(qty,precission)
-            if qty.is_integer():
-                qty = int(qty)
-            print("Cantidad de monedas: "+str(qty))
-            stop_loss_price = precio*(1-sl_percent/100)
-            take_profit_price = precio*(1+tp_percent/100)
-            
-            crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
-            establecer_take_profit(symbol,take_profit_price,"Sell",qty)
+            shortCondition = precio >= float(data['UpperBand']) and (rsi.iloc[-1] >= upperRsi) and currentBBPDistance >= bBPercentageDistance
+            longCondition = precio <= float(data['LowerBand']) and (rsi.iloc[-1]<= lowerRsi) and currentBBPDistance >= bBPercentageDistance
+
+            if shortCondition:
+                precission = step_precission
+                qty = getUsdtOrderSize(marginPercentage)/precio
+                qty = qty_precission(qty,precission)
+                if qty.is_integer():
+                    qty = int(qty)
+                print("Cantidad de monedas: "+str(qty))
+                stop_loss_price = precio*(1+sl_percent/100)
+                take_profit_price = precio*(1-tp_percent/100)
                 
+                crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
+                establecer_take_profit(symbol,take_profit_price,"Buy",qty)
+
+            if longCondition:
+                precission = step_precission                
+                qty = getUsdtOrderSize(marginPercentage)/precio
+                qty = qty_precission(qty,precission)
+                if qty.is_integer():
+                    qty = int(qty)
+                print("Cantidad de monedas: "+str(qty))
+                stop_loss_price = precio*(1-sl_percent/100)
+                take_profit_price = precio*(1+tp_percent/100)
+                
+                crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
+                establecer_take_profit(symbol,take_profit_price,"Sell",qty)
+            
+            print('rsi: ',rsi.iloc[-1])
+            print('upperband: ',data['UpperBand'])
+            print('lowerband: ',data['LowerBand'])
     except Exception as e:
     # Registrar el error
         print("Error onMessage: "+str(e))
+        
+        print(data[['MA', 'UpperBand', 'LowerBand']].dtypes)  # Debe mostrar float64
+
         print("Ejecutando de nuevo")
         calculate_powerfull_patternV2("3",['SWARMSUSDT'])
 

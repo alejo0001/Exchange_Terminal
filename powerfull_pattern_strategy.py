@@ -1,3 +1,4 @@
+from asyncio import sleep
 import logging
 import math
 from typing import List
@@ -19,7 +20,7 @@ import orders
 import sys
 
 import exchange_info
-import TDB
+#import TDB
 from common import (Order,CandleStick,telegramAPIKey,SendTelegramMessage,obtener_datos_historicos)
 import ATR
 from pybit.unified_trading import (WebSocket,HTTP)
@@ -239,7 +240,7 @@ def calculate_powerfull_pattern(temporality='15m',limit = True,coinList= coins):
                             o.order_message = simbolo+': banda superior: '+c[1]+"; banda inferior: "+c[2]+"; rsi: "+c[3]+"; precio de cierre : "+c[4]
                             o.timeframe = int(interval.split('m')[0])
 
-                            TDB.create_DB_order(o,True)
+                            #TDB.create_DB_order(o,True)
                 SendEmail(coinsCollection,interval+' test')
 
                             
@@ -287,7 +288,7 @@ def crear_orden(symbol,side,order_type,qty,stop_loss,take_profit):
         timeInForce="GoodTillCancel",
         positionIdx=pIdx,
         #takeProfit=take_profit,
-        stopLoss=stop_loss
+        #stopLoss=stop_loss
         )
     print("orden creada con éxito")
 
@@ -372,11 +373,14 @@ def on_message(message):
     except Exception as e:
     # Registrar el error
         print("Error onMessage: "+str(e))
-
+        print("Ejecutando de nuevo")
+        calculate_powerfull_patternV2("3",['SWARMSUSDT'])
 
 def handle_message(message):
     if(message['data'][0]['confirm']== True):
-        #on_message(message)
+        posiciones=client.get_positions(category="linear",symbol=symbol)
+        if float(posiciones['result']['list'][0]['size']) == 0:
+            on_message(message)
         print(message)
 
 def calculate_powerfull_patternV2(temporality = "1",coinList : List[str]= [],maxRsi=70,minRsi=30,minBBPercentageDistance=3):
@@ -396,21 +400,28 @@ def calculate_powerfull_patternV2(temporality = "1",coinList : List[str]= [],max
         for co in coinList:
             symbol = co
             
-            ws.kline_stream(
-                interval=int(temporality),
-                symbol=symbol,
-                callback=handle_message
-            )
+           
 
         
     except Exception as e:
     # Registrar el error
         print("Error: "+str(e))
+        print("volviendo a ejecutar... ")
+        calculate_powerfull_patternV2("3",['SWARMSUSDT'])
         logging.error(str(e)+' '+symbol)
 
 
-calculate_powerfull_patternV2("1",['SWARMSUSDT'])
+calculate_powerfull_patternV2("3",['SWARMSUSDT'])
+ws.kline_stream(
+                interval=int(interval),
+                symbol=symbol,
+                callback=handle_message
+            )
 
+while True:
+    # This while loop is required for the program to run. You may execute
+    # additional code for your trading logic here.
+    sleep(1)
 
 
 

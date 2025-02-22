@@ -40,7 +40,7 @@ logging.basicConfig(filename='powerfull_pattern.txt', level=logging.ERROR,filemo
 sys.stderr = open('error.txt', 'w')
 
 symbol=''
-interval='15'
+interval='3'
 upperRsi = 70
 lowerRsi=30
 bBPercentageDistance = 3
@@ -352,6 +352,7 @@ def on_message(message):
         precio = float(message['data'][0]['close'])
         lstLatestPrices = []        
 
+        bBKlines.result.list = bBKlines.result.list[:: -1]
         for v in bBKlines.result.list:            
 
             lstLatestPrices.append(float(v.closePrice))
@@ -422,7 +423,7 @@ def handle_message(message):
             on_message(message)
         print(message)
 
-def calculate_powerfull_patternV2(temporality = "1",coinList : List[str]= [],maxRsi=70,minRsi=30,minBBPercentageDistance=3):
+def calculate_powerfull_patternV2(temporality = "3",coinList : List[str]= [],maxRsi=70,minRsi=30,minBBPercentageDistance=3):
 
     try:
         global symbol

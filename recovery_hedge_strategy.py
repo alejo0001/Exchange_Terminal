@@ -59,9 +59,9 @@ def handle_message(message):
     global takeProfit
     global totalMargin
     global symbol
+    global is_updating_orders
 
-    try:
-       
+    try:       
 
     # Si hay un ciclo for cancelando o colocando órdenes, no procesar el mensaje.
         if is_updating_orders:
@@ -80,39 +80,57 @@ def handle_message(message):
 
         if(len(positions.data) <2 and len(positions.data) > 0):      
             is_updating_orders = True
-            print('Sólo existe una posición, creando orden de cobertura...')
-
-            
+            print('Sólo existe una posición, validando orden de cobertura...')
 
             side = positions.data[0].side
-           
-            qty = float(positions.data[0].size) * recoveryMultiplier
-            price = float(positions.data[0].entryPrice)
-            triggerPrice = price*(1-recoveryPercentageDistance/100) if side == 'Buy' else price*(1+recoveryPercentageDistance/100)
-            recoveryPrice = qty_step(triggerPrice,priceScale,tickSize)
             recoverySide = 'Sell' if side == 'Buy' else 'Buy'
-            recoveryTriggerDirection = 2 if side == 'Buy' else 1
-            recoveryPositionIdx = 2 if side == 'Buy' else 1
+            recoveryOrderSide = 1 if side == 'Sell' else 2
 
-            res = session.place_order(
-                                category="linear",
-                                symbol=symbol,
-                                side=recoverySide,
-                                orderType="Market",
-                                qty=qty,
-                                triggerPrice = recoveryPrice,
-                                triggerDirection =recoveryTriggerDirection,
-                                positionIdx = recoveryPositionIdx
-                            )
-
+            orders = session.get_open_orders(
+                        category="linear",
+                        symbol= symbol,
+                    )
+                    
+            recoveryExists = False       
+            tPExists = False   
+            for o in orders['result']['list']:
+                if(o.get('reduceOnly', False) == False and o.get('triggerDirection')== recoveryOrderSide):
+                    recoveryExists = True
+                if(o.get('reduceOnly', False) == True ): 
+                    tPExists = True
             
-            print('Orden de cobertura creada con éxito.')
+            if(not recoveryExists):
 
-            #Crear takeProfit de la posición existente:
-            takeProfitPrice = float(price)*(1+takeProfit/100) if side == 'Buy' else float(price)*(1-takeProfit/100)
-            tpSide = 'Buy' if side == 'Sell' else 'Sell'
-            SetTakeprofit(symbol,takeProfitPrice,tpSide,float(positions.data[0].size),priceScale,tickSize)
-            return
+           
+           
+                qty = float(positions.data[0].size) * recoveryMultiplier
+                price = float(positions.data[0].entryPrice)
+                triggerPrice = price*(1-recoveryPercentageDistance/100) if side == 'Buy' else price*(1+recoveryPercentageDistance/100)
+                recoveryPrice = qty_step(triggerPrice,priceScale,tickSize)
+                
+                recoveryTriggerDirection = 2 if side == 'Buy' else 1
+                recoveryPositionIdx = 2 if side == 'Buy' else 1
+
+                res = session.place_order(
+                                    category="linear",
+                                    symbol=symbol,
+                                    side=recoverySide,
+                                    orderType="Market",
+                                    qty=qty,
+                                    triggerPrice = recoveryPrice,
+                                    triggerDirection =recoveryTriggerDirection,
+                                    positionIdx = recoveryPositionIdx
+                                )
+
+                
+                print('Orden de cobertura creada con éxito.')
+
+            if(not tPExists):
+                #Crear takeProfit de la posición existente:
+                takeProfitPrice = float(price)*(1+takeProfit/100) if side == 'Buy' else float(price)*(1-takeProfit/100)
+                tpSide = 'Buy' if side == 'Sell' else 'Sell'
+                SetTakeprofit(symbol,takeProfitPrice,tpSide,float(positions.data[0].size),priceScale,tickSize)
+            
         elif(len(positions.data) == 0):
             is_updating_orders = True
             print('sin posiciones, validando órdenes abiertas...')
@@ -131,6 +149,11 @@ def handle_message(message):
                                 )
                     
                 print('Órdenes canceladas con éxito.')
+            else:
+                print('no hay órdenes abiertas para cancelar.')
+
+            totalMargin = getMarginBalance()
+             
         else:
             is_updating_orders = True
             orders = session.get_open_orders(
@@ -266,6 +289,7 @@ def handle_message(message):
         is_updating_orders = False
 
         print(message)
+        return
     except websocket._exceptions.WebSocketConnectionClosedException:
         print("Conexión WebSocket cerrada. Reconectando...")
         connect_to_websocket()

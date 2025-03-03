@@ -1,0 +1,441 @@
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:465: RuntimeWarning: coroutine 'sleep' was never awaited
+  sleep(1)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:369: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:370: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+d:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:371: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+Exception ignored in: <coroutine object sleep at 0x00000231572BE540>
+Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Local\Programs\Python\Python311\Lib\warnings.py", line 518, in _warn_unawaited_coroutine
+    def _warn_unawaited_coroutine(coro):
+    
+KeyboardInterrupt: 

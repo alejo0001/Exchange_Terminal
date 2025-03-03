@@ -13,6 +13,8 @@ from typing import Any, ForwardRef, List, Optional
 from config import (bybit_api_key,bybit_secret_key)
 from pybit.unified_trading import HTTP
 import pandas as pd
+from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
+import math
 
 client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
@@ -736,6 +738,76 @@ def subtratcFromCurrentDate(*args):
 
     return currentDate
 
+def CreateOrder(symbol,side,order_type,qty,stop_loss,take_profit):
+    pIdx = 0
+    if side == "Sell":
+        pIdx=2
+    else:
+        pIdx=1
+    response = client.place_order(
+        category="linear",
+        symbol=symbol,
+        side=side,
+        order_type=order_type,
+        qty=qty,
+        timeInForce="GoodTillCancel",
+        positionIdx=pIdx,
+        #takeProfit=take_profit,
+        #stopLoss=stop_loss
+        )
+    print("orden creada con éxito")
+
+def qty_step(price,priceScale,tickSize):
+    precission = Decimal(f"{10** priceScale}")
+    tickdec=Decimal(f"{tickSize}")
+    precio_final = (Decimal(f"{price}")*precission)/precission
+    precide = precio_final.quantize(Decimal(f"{1/precission}"),rounding=ROUND_FLOOR)
+    operaciondec=(precide/tickdec).quantize(Decimal('1'),rounding=ROUND_FLOOR)*tickdec
+    result = float(operaciondec)
+
+    return result
+
+def SetStopLoss(symbol,sl,side,priceScale,tickSize):
+    sl = qty_step(sl,priceScale,tickSize)
+    pIdx = 0
+    if side == "Sell":
+        pIdx=2
+    else:
+        pIdx=1
+    order = client.set_trading_stop(category="linear",symbol=symbol,stopLoss=sl,slTriggerB="LastPrice",positionIdx=pIdx)
+    return order
+
+def SetTakeprofit(symbol,tp,side,qty,priceScale,tickSize):
+    price = qty_step(tp,priceScale,tickSize)
+    pIdx = 0
+    if side == "Sell":
+        pIdx=1
+    else:
+        pIdx=2
+    order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Limit",reduceOnly=True,qty=qty,price=price,positionIdx=pIdx)
+    return order
+
+def qty_precission(qty,precission):
+    qty = math.floor(qty/precission) * precission
+    return qty
+
+def getMarginBalance():
+    response = client.get_wallet_balance(accountType="UNIFIED",coin = "USDT")
+    if response["retCode"] == 0:
+        margin_balance = response["result"]["list"]
+    # print("Saldo de margen por moneda:")
+    # print(response)
+    
+    moneda=margin_balance[0]['coin'][0]['coin']
+    margenTotal = float(margin_balance[0]['totalEquity'])
+    print(f"Moneda: {moneda}, Total: {margenTotal}")
+    return margenTotal
+
+def getUsdtOrderSize(marginPercentage=33):
+    balance = getMarginBalance()
+    orderSize = balance * (marginPercentage/100)
+    return round(orderSize)
+
 def obtener_datos_historicos(symbol,interval,limite=200):
     response= client.get_kline(symbol=symbol,interval=interval,limite=limite)
     if "result" in response:
@@ -747,9 +819,32 @@ def obtener_datos_historicos(symbol,interval,limite=200):
     else:
         raise Exception("Error al obtener datos históricos: "+ str(response))
     
+def calculateRelativePercentageDiff(initial, final):
+    return ((final - initial)/initial) * 100
+    
+def CalculateMovingAverage(data,window=20):
+    data['MA'] = data[4].rolling(window=window).mean()
+    return data.iloc[-1]
+    
 def calcular_bandas_bollinger(data,ventana=20,desviacion=2):
     data['MA'] = data[4].rolling(window=ventana).mean()
     data['UpperBand'] = data['MA'] + (data[4].rolling(window=ventana).std() * desviacion)
     data['LowerBand'] = data['MA'] - (data[4].rolling(window=ventana).std() * desviacion)
     return data.iloc[-1]
+
+def calculate_rsiV2(data):
+
+    n = 14
+
+    deltas = data[4].diff()
+    gain = deltas.where(deltas > 0, 0)
+    loss = -deltas.where(deltas < 0, 0)
+
+    avg_gain = gain.rolling(window=n, min_periods=n).mean()
+    avg_loss = loss.rolling(window=n, min_periods=n).mean()
+
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+
+    return rsi
 

@@ -21,7 +21,7 @@ import sys
 
 import exchange_info
 #import TDB
-from common import (Order,CandleStick,telegramAPIKey,SendTelegramMessage,obtener_datos_historicos)
+from common import (Order,CandleStick,telegramAPIKey,SendTelegramMessage,obtener_datos_historicos,calculate_rsiV2)
 import ATR
 from pybit.unified_trading import (WebSocket,HTTP)
 
@@ -358,7 +358,8 @@ def on_message(message):
             lstLatestPrices.append(float(v.closePrice))
 
         prices = pd.Series(lstLatestPrices)
-        rsi = calculate_rsi(prices)
+        #rsi = calculate_rsi(prices)
+        rsi = calculate_rsiV2(candlesticksDataFrame)
 
         step = client.get_instruments_info(category="linear",symbol=symbol)
         ticksize = float(step['result']['list'][0]['priceFilter']['tickSize'])
@@ -414,7 +415,7 @@ def on_message(message):
         print(data[['MA', 'UpperBand', 'LowerBand']].dtypes)  # Debe mostrar float64
 
         print("Ejecutando de nuevo")
-        calculate_powerfull_patternV2("3",['SWARMSUSDT'])
+        calculate_powerfull_patternV2("3",['BANUSDT'])
 
 def handle_message(message):
     if(message['data'][0]['confirm']== True):
@@ -447,11 +448,11 @@ def calculate_powerfull_patternV2(temporality = "3",coinList : List[str]= [],max
     # Registrar el error
         print("Error: "+str(e))
         print("volviendo a ejecutar... ")
-        calculate_powerfull_patternV2("3",['SWARMSUSDT'])
+        calculate_powerfull_patternV2("3",['BANUSDT'])
         logging.error(str(e)+' '+symbol)
 
 
-calculate_powerfull_patternV2("3",['SWARMSUSDT'])
+calculate_powerfull_patternV2("3",['BANUSDT'])
 ws.kline_stream(
                 interval=int(interval),
                 symbol=symbol,

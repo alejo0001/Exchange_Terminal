@@ -68,8 +68,10 @@ def handle_message(message):
             print("Actualización en progreso. Mensaje ignorado.")
             return
         
+        print ('raw positions: ',str(message))
 
         positions = BybitPositionsWSResponseResult.from_dict(message)
+        print(str(positions))
         symbol =  positions.data[0].symbol
 
         step = session.get_instruments_info(category="linear",symbol=symbol)
@@ -78,11 +80,12 @@ def handle_message(message):
         step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])        
         
 
-        if(len(positions.data) <2 and len(positions.data) > 0):      
+        if((float(positions.data[0].size) > 0 and float(positions.data[1].size) == 0) or (float(positions.data[0].size) == 0 and float(positions.data[1].size) > 0)):      
             is_updating_orders = True
+            openedPos = positions.data[0] if float(positions.data[0].size) > 0 else positions.data[1]
             print('Sólo existe una posición, validando orden de cobertura...')
 
-            side = positions.data[0].side
+            side = openedPos.side
             recoverySide = 'Sell' if side == 'Buy' else 'Buy'
             recoveryOrderSide = 1 if side == 'Sell' else 2
 
@@ -101,10 +104,10 @@ def handle_message(message):
             
             if(not recoveryExists):
 
+                
            
-           
-                qty = float(positions.data[0].size) * recoveryMultiplier
-                price = float(positions.data[0].entryPrice)
+                qty = float(openedPos.size) * recoveryMultiplier
+                price = float(openedPos.entryPrice)
                 triggerPrice = price*(1-recoveryPercentageDistance/100) if side == 'Buy' else price*(1+recoveryPercentageDistance/100)
                 recoveryPrice = qty_step(triggerPrice,priceScale,tickSize)
                 
@@ -129,9 +132,9 @@ def handle_message(message):
                 #Crear takeProfit de la posición existente:
                 takeProfitPrice = float(price)*(1+takeProfit/100) if side == 'Buy' else float(price)*(1-takeProfit/100)
                 tpSide = 'Buy' if side == 'Sell' else 'Sell'
-                SetTakeprofit(symbol,takeProfitPrice,tpSide,float(positions.data[0].size),priceScale,tickSize)
+                SetTakeprofit(symbol,takeProfitPrice,tpSide,float(openedPos.size),priceScale,tickSize)
             
-        elif(len(positions.data) == 0):
+        elif(float(positions.data[0].size) <= 0 and float(positions.data[1].size <= 0)):
             is_updating_orders = True
             print('sin posiciones, validando órdenes abiertas...')
             orders = session.get_open_orders(
@@ -160,7 +163,7 @@ def handle_message(message):
                         category="linear",
                         symbol= symbol,
                     )
-            if(positions.data[0].size == positions.data[1].size):
+            if(float(positions.data[0].size) == float(positions.data[1].size) and float(positions.data[0].size) > 0 and float(positions.data[1].size > 0)):
                 print('Posiciones igualadas')                
                     
                 if(len(orders['result']['list']) >0):
@@ -179,7 +182,7 @@ def handle_message(message):
                 if(len(orders['result']['list'])<5):
                     buySide = positions.data[0] if positions.data[0].side == 'Buy' else positions.data[1]
                     sellSide = positions.data[0] if positions.data[0].side == 'Sell' else positions.data[1]
-                    biggerSide = 'Buy' if buySide.size > sellSide.size else 'Sell'
+                    biggerSide = 'Buy' if float(buySide.size) > float(sellSide.size) else 'Sell'
                     recoveryOrderSide = 1 if biggerSide == 'Sell' else 2
 
 
@@ -212,13 +215,13 @@ def handle_message(message):
 
                         biggerPos = buySide if biggerSide == 'Buy' else sellSide
                         smallerPos = sellSide if biggerSide == 'Buy' else buySide
-                        nextRecoveryQty = biggerPos.size * recoveryMultiplier
+                        nextRecoveryQty = float(biggerPos.size) * recoveryMultiplier
 
-                        nextRecoveryQtyAvaliable = (nextRecoveryQty/biggerPos.entryPrice) <= (totalMargin*3)
+                        nextRecoveryQtyAvaliable = (nextRecoveryQty/float(biggerPos.entryPrice)) <= (totalMargin*3)
 
 
-                        qty = nextRecoveryQty - smallerPos.size if nextRecoveryQtyAvaliable else biggerPos.size - smallerPos.size
-                        price = biggerPos.entryPrice
+                        qty = nextRecoveryQty - float(smallerPos.size) if nextRecoveryQtyAvaliable else float(biggerPos.size) - float(smallerPos.size)
+                        price = float(biggerPos.entryPrice)
                         triggerPrice = price*(1-recoveryPercentageDistance/100) if biggerSide == 'Buy' else price*(1+recoveryPercentageDistance/100)
                         recoveryPrice = qty_step(triggerPrice,priceScale,tickSize)
                         recoverySide = 'Sell' if biggerSide == 'Buy' else 'Buy'

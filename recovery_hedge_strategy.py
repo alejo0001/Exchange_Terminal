@@ -163,7 +163,7 @@ def handle_message(message):
                         category="linear",
                         symbol= symbol,
                     )
-            if(float(positions.data[0].size) == float(positions.data[1].size) and float(positions.data[0].size) > 0 and float(positions.data[1].size > 0)):
+            if(float(positions.data[0].size) == float(positions.data[1].size) and float(positions.data[0].size) > 0 and float(positions.data[1].size) > 0):
                 print('Posiciones igualadas')                
                     
                 if(len(orders['result']['list']) >0):

@@ -134,7 +134,7 @@ def handle_message(message):
                 tpSide = 'Buy' if side == 'Sell' else 'Sell'
                 SetTakeprofit(symbol,takeProfitPrice,tpSide,float(openedPos.size),priceScale,tickSize)
             
-        elif(float(positions.data[0].size) <= 0 and float(positions.data[1].size <= 0)):
+        elif(float(positions.data[0].size) <= 0 and float(positions.data[1].size) <= 0):
             is_updating_orders = True
             print('sin posiciones, validando órdenes abiertas...')
             orders = session.get_open_orders(
@@ -281,7 +281,7 @@ def handle_message(message):
                         stopLossPrice = float(buySide.entryPrice)*(1-(recoveryPercentageDistance + takeProfit)/100)-tickSize
                         SetStopLoss(symbol,stopLossPrice,"Buy",priceScale,tickSize)
                     if not shortSLExists:
-                        stopLossPrice = float(buySide.entryPrice)*(1+(recoveryPercentageDistance + takeProfit)/100)+tickSize
+                        stopLossPrice = float(sellSide.entryPrice)*(1+(recoveryPercentageDistance + takeProfit)/100)+tickSize
                         SetStopLoss(symbol,stopLossPrice,"Sell",priceScale,tickSize)
 
                     

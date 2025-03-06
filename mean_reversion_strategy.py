@@ -28,7 +28,7 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='WIFUSDT'
+symbol='GRIFFAINUSDT'
 interval='1'
 
 currentMAValue = 0
@@ -133,16 +133,22 @@ def ValidateEntry(wsMessage):
     print(wsMessage["data"][-1]['p'])
 
 
-ws.kline_stream(
-                interval=int(interval),
-                symbol=symbol,
-                callback=CalculateValues
-            )
+def start_kline_stream():
+    ws.kline_stream(
+        interval=int(interval),
+        symbol=symbol,
+        callback=CalculateValues
+    )
+
+# Iniciar kline_stream en un hilo normal (no daemon)
+kline_thread = threading.Thread(target=start_kline_stream)
+kline_thread.start()
 
 ws.trade_stream(
                 symbol=symbol,
                 callback=ValidateEntry
             )
+kline_thread.join()
 
 def enviar_mensaje_telegram(mensaje):
     asyncio.run(SendTelegramMessage(mensaje))
@@ -164,14 +170,14 @@ while True:
                     stop_loss_price = precio_de_entrada*(1-sl_percent/100)
                     take_profit_price = precio_de_entrada*(1+tp_percent/100)
                     #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Buy")
-                    SetTakeprofit(symbol,take_profit_price,"Sell",qty,priceScale,tickSize)
+                    #SetTakeprofit(symbol,take_profit_price,"Sell",qty,priceScale,tickSize)
                     print("Take profit activado")
                     takeProfit = True
                 else:
                     stop_loss_price = precio_de_entrada*(1+sl_percent/100)
                     take_profit_price = precio_de_entrada*(1-tp_percent/100)
                     #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
-                    SetTakeprofit(symbol,take_profit_price,"Buy",qty,priceScale,tickSize)
+                    #SetTakeprofit(symbol,take_profit_price,"Buy",qty,priceScale,tickSize)
                     print("Take profit activado")
                     takeProfit = True
        

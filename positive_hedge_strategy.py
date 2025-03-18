@@ -1,3 +1,4 @@
+import math
 from pybit.unified_trading import (WebSocket,HTTP)
 from time import sleep
 from config import(email,clavecorreo,destinatarios,bybit_api_key,bybit_secret_key)
@@ -18,7 +19,7 @@ session = HTTP(
 
 
 stop = False
-s = "1000TURBOUSDT"
+s = "B3USDT"
 def handle_message(message):
     print(message)
 ws.position_stream(callback=handle_message)
@@ -41,13 +42,13 @@ while True:
         hedge_pos = 0
         discharge_order_pos = 0
         discharge_order_type = ""
-        discharge_order_percentage_distance = 0.002 ## 0.2%
+        discharge_order_percentage_distance = 0.01 ## 0.002 = 0.2%
         discharge_order_trigger_Direction = 0
         discharge_order_position_Idx = 0
         orders_per_side_quantity = 3
         precision_round = 6
-        percentage_distance_between_orders = 0.01 ## 1%
-        buyback_size = 2 ##Tamaño de las recompras, no se recompra la misma cantidad como en un martingala, se recompra el doble
+        percentage_distance_between_orders = 0.035 ## 0.01 = 1%
+        buyback_size = 3 ##Tamaño de las recompras, 1  para igualar el tamaño de la posición actual
         charged_pos = 0
         trigger_Direction = 0
         position_Idx= 0 ##necesario para identificar el modo cobertura
@@ -292,7 +293,7 @@ while True:
                                                 symbol=s,
                                                 side="Sell",
                                                 orderType="Limit",
-                                                qty=round(quantity,precision_round),
+                                                qty=math.ceil(round(quantity,precision_round)),
                                                 price = p,
                                                 positionIdx = 2
                                             )
@@ -303,7 +304,7 @@ while True:
                                             symbol=s,
                                             side="Buy",
                                             orderType="Market",
-                                            qty=round(quantity_sum -float(sell_pos['size']),precision_round),
+                                            qty=math.ceil(round(quantity_sum -float(sell_pos['size']),precision_round)),
                                             triggerPrice = round(last_sell_order_price +(last_sell_order_price * percentage_distance_between_orders),precision_round),
                                             triggerDirection = 1,
                                             positionIdx = 1
@@ -360,7 +361,7 @@ while True:
                                                 symbol=s,
                                                 side="Buy",
                                                 orderType="Limit",
-                                                qty=round(quantity,precision_round),
+                                                qty=math.ceil(round(quantity,precision_round)),
                                                 price = p,
                                                 positionIdx = 1
                                             )
@@ -371,7 +372,7 @@ while True:
                                             symbol=s,
                                             side="Sell",
                                             orderType="Market",
-                                            qty=round(quantity_sum -float(buy_pos['size']),precision_round),
+                                            qty=math.ceil(round(quantity_sum -float(buy_pos['size']),precision_round)),
                                             triggerPrice = round(last_buy_order_price -(last_buy_order_price * percentage_distance_between_orders),precision_round),
                                             triggerDirection = 2,
                                             positionIdx = 2

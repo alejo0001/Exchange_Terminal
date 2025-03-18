@@ -848,3 +848,6 @@ def calculate_rsiV2(data):
 
     return rsi
 
+def safe_float(value):
+    return float(value) if value and value != '' else 0.0
+

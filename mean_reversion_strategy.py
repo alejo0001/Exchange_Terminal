@@ -28,12 +28,15 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='GRIFFAINUSDT'
+symbol='1000XUSDT'
 interval='1'
+fastWindow = 10
+slowWindow = 200
 
 currentMAValue = 0
-avgDistanceFromMA = 1 #%
-distanceMultiplier = 2 #%
+currentSlowMAValue = 0
+avgDistanceFromMA =1 #%
+distanceMultiplier = 1 #%
 openedPosition = False
 
 
@@ -46,7 +49,8 @@ qty = 0
 takeProfit = False
 isEvaluating = False
 usdt = 6
-marginPercentage = 15 #porcentaje a utilizar para entrar en las operaciones
+marginPercentage = 30 #porcentaje a utilizar para entrar en las operaciones
+useSlowMA = True
 
 ws = WebSocket(
     testnet=False,
@@ -58,7 +62,9 @@ client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False
 
 def CalculateValues(wsMessage):
     global currentMAValue
+    global currentSlowMAValue
     global symbol
+    global useSlowMA
 
     if(wsMessage['data'][0]['confirm']== True):
         # posiciones=client.get_positions(category="linear",symbol=symbol)
@@ -66,7 +72,9 @@ def CalculateValues(wsMessage):
         #     on_message(message)
 
         data= obtener_datos_historicos(symbol,interval)
-        data = CalculateMovingAverage(data)
+        if(useSlowMA == True):
+            currentSlowMAValue = CalculateMovingAverage(data,slowWindow)['MA']
+        data = CalculateMovingAverage(data,fastWindow)
         currentMAValue = data['MA']
         print("Actualización de valores: ")
         print(wsMessage)
@@ -74,6 +82,8 @@ def CalculateValues(wsMessage):
 def ValidateEntry(wsMessage):
 
     global currentMAValue
+    global currentSlowMAValue
+    global useSlowMA
     global symbol
     global openedPosition
     global tickSize
@@ -92,12 +102,21 @@ def ValidateEntry(wsMessage):
                 openedPosition = True
                 print('posición abierta...')
                 return
-            last_trade = wsMessage["data"][-1]
-            last_price = float(last_trade['p'])
+            #last_trade = wsMessage["data"][-1]
+            last_trade = wsMessage["data"]
+            #last_price = float(last_trade['p'])
+            last_price = float(last_trade['lastPrice'])
             if(currentMAValue > 0 ):
                 percentageDistance = abs(calculateRelativePercentageDiff(currentMAValue,last_price))
 
-                if(percentageDistance >= (avgDistanceFromMA*distanceMultiplier)):
+                entryCondition = False
+
+                if(useSlowMA == True):
+                    entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier) and ((last_price > currentMAValue and last_price < currentSlowMAValue) or (last_price < currentMAValue and last_price > currentSlowMAValue))
+                else:
+                    entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier)
+
+                if(entryCondition == True):
                     side = 'Buy' if currentMAValue > last_price else 'Sell'
 
                     step = client.get_instruments_info(category="linear",symbol=symbol)
@@ -130,7 +149,8 @@ def ValidateEntry(wsMessage):
         
 
     print("Actualización en tiempo real: ")
-    print(wsMessage["data"][-1]['p'])
+    #print(wsMessage["data"][-1]['p'])
+    print(wsMessage["data"]['lastPrice'])
 
 
 def start_kline_stream():
@@ -144,7 +164,7 @@ def start_kline_stream():
 kline_thread = threading.Thread(target=start_kline_stream)
 kline_thread.start()
 
-ws.trade_stream(
+ws.ticker_stream(
                 symbol=symbol,
                 callback=ValidateEntry
             )
@@ -161,7 +181,12 @@ while True:
 
     try:
         posiciones=client.get_positions(category="linear",symbol=symbol)
-        if float(posiciones['result']['list'][0]['size']) != 0:
+        oP = 0
+        for p in posiciones['result']['list']:
+            if float(p['size']) != 0:
+                oP = oP +1
+
+        if oP > 0:
             print("Hay una posición abierta en: "+symbol)
             openedPosition = True
             if not takeProfit:

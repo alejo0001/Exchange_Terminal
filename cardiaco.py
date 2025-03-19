@@ -8,8 +8,8 @@ API_SECRET = bybit_secret_key
 SYMBOL = ""
 MAX_RECOMPRAS = 6
 DISTANCIA_RECOMPRA = 0.03  # 1% de distancia
-MULTIPLICADOR = 2
-RIESGO_CUENTA = 0.1  # 0.02 = 2% de la cuenta
+MULTIPLICADOR = 1
+RIESGO_CUENTA = 0.3  # 0.02 = 2% de la cuenta
 TAKE_PROFIT_DISTANCIA = 0.01  # 2% desde la posición actual
 PRECISION_ROUND = 4
 
@@ -25,12 +25,13 @@ def obtener_saldo():
     return float(saldo['result']['list'][0]['totalEquity'])
 
 # Calcular el stop loss en base al riesgo
-def calcular_stop_loss(entry_price, position_size):
+def calcular_stop_loss(entry_price, position_size,side):
     global RIESGO_CUENTA
     global PRECISION_ROUND
     saldo = obtener_saldo()
     riesgo_maximo = saldo * RIESGO_CUENTA
-    stop_loss = entry_price - (riesgo_maximo / position_size)
+    stop_loss = math.abs(entry_price - (riesgo_maximo / (position_size*entry_price))) if side == "Buy" else math.abs(entry_price + (riesgo_maximo / (position_size*entry_price)))
+    print('stopLoss: ',round(stop_loss, PRECISION_ROUND))
     return round(stop_loss, PRECISION_ROUND)
 
 # Manejo de posiciones abiertas
@@ -51,15 +52,39 @@ def manejar_posicion(msg):
     is_updating_orders = True
 
     if 'data' in msg:
+        cantPos = True
         print('msg: ',msg)
-        # if(len(msg['data'])> 1):
-        #     pos = msg['data'][0] if float(msg['data'][0]['size']) > 0 else msg['data'][1]
-        # else:
-        #     pos = msg['data'][0]
+
+        if msg['data'][0]["symbol"] == 'PROSUSDT':
+            return
+        if(len(msg['data'])> 1):
+            
+            if float(msg['data'][0]["size"]) == 0 and  float(msg['data'][1]["size"]) ==0:
+                cantPos = False                
+
+        else:
+            float(msg['data'][0]["size"]) == 0
+            cantPos = False
+
+        if cantPos == False:
+            print('sin posiciones abiertas, validando órdenes pendientes...')
+            ordenes = http.get_open_orders(category="linear", symbol=SYMBOL)
+            if len(ordenes) > 0:
+                for o in ordenes['result']['list']:
+                    http.cancel_order(
+                                category="linear",
+                                symbol=o["symbol"],
+                                orderId=o["orderId"]
+                            )
+                print('órdenes canceladas con éxito')
+
+            is_updating_orders=False            
+            return
 
         for pos in msg['data']:
             SYMBOL =  pos['symbol']
-            if pos['symbol'] == SYMBOL and float(pos['size']) > 0:
+            if float(pos['size']) > 0:
+                print('posición: ',pos)
                 position_size = float(pos['size'])
                 entry_price = float(pos['entryPrice'])
                 side = pos['side']
@@ -72,51 +97,57 @@ def manejar_posicion(msg):
                 if not ordenes_abiertas:
                     # Crear órdenes de recompra
                     for i in range(MAX_RECOMPRAS):
-                        tamaño_recompra = position_size * (MULTIPLICADOR ** i) - position_size if i > 0 else position_size * MULTIPLICADOR
+                        tamaño_recompra = position_size * (MULTIPLICADOR ** i) if i > 0 else position_size 
                         precio_recompra = entry_price * (1 - DISTANCIA_RECOMPRA * (i + 1)) if side == "Buy" else entry_price * (1 + DISTANCIA_RECOMPRA * (i + 1))
                         
                         http.place_order(
                             category="linear",
                             symbol=SYMBOL,
-                            side="Buy" if side == "Sell" else "Sell",
+                            side=side,
                             orderType="Limit",
                             qty=math.ceil(tamaño_recompra),
                             price=round(precio_recompra, PRECISION_ROUND),
-                            positionIdx=position_idx,
+                            positionIdx=int(position_idx),
                             reduceOnly=False,
                             closeOnTrigger=False
                         )
                 
                 # Calcular y actualizar stop loss
-                stop_loss = calcular_stop_loss(entry_price, position_size)
+                stop_loss = calcular_stop_loss(entry_price, position_size,side)
+                print('stop Loss: ',str(stop_loss))
                 http.set_trading_stop(
                     category="linear",
                     symbol=SYMBOL,
                     side=side,
-                    stopLoss=stop_loss
+                    stopLoss=stop_loss,
+                    position_idx = int(position_idx) 
                 )
                 
 
                 # Configurar Take Profit
                 
                 if ordenes_abiertas:
-                    tp_orders = [order for order in ordenes if order["reduce_only"] and order["side"] != side]
+                    tp_orders = [order for order in ordenes if order["reduceOnly"] == True and order["side"] != side]
 
                     if tp_orders:
+                        print('cancelando órdenes TP...')
                         for order in tp_orders:
                             http.cancel_order(symbol=SYMBOL, order_id=order["order_id"])
-                
+                        print('órdenes TP canceladas con éxito')
                 take_profit = entry_price * (1 + TAKE_PROFIT_DISTANCIA) if side == "Buy" else entry_price * (1 - TAKE_PROFIT_DISTANCIA)
+                print ('takeProfit: ',take_profit)
+                print('entry_price: ',entry_price)
+                print('side: ',side)
                 # 4️⃣ Crear nueva orden límite para el TP
                 http.place_order(
                     symbol=SYMBOL,
                     side="Sell" if side == "Buy" else "Buy",  # Si estamos en Long, el TP es una venta; en Short, una compra
                     order_type="Limit",
                     qty=position_size,  # Tamaño actualizado
-                    price=take_profit,  # Precio de TP calculado
-                    time_in_force="GoodTillCancel",
+                    price=round(take_profit,PRECISION_ROUND),  # Precio de TP calculado
+                    #time_in_force="GoodTillCancel",
                     reduce_only=True,  # Asegura que solo cierre la posición
-                    position_idx=position_idx  # Para modo cobertura
+                    position_idx=int(position_idx)  # Para modo cobertura
                 )
               
                 # 
@@ -127,9 +158,9 @@ def manejar_posicion(msg):
                 #     takeProfit=round(take_profit, 2)
                 # )
             
-            elif pos['symbol'] == SYMBOL and float(pos['size']) == 0:
+            #elif pos['symbol'] == SYMBOL and float(pos['size']) == 0:
                 # Cancelar órdenes pendientes
-                http.cancel_all_orders(category="linear", symbol=SYMBOL)
+                #http.cancel_all_orders(category="linear", symbol=SYMBOL)
     else:
         print('sin información: ',msg)
     is_updating_orders = False

@@ -28,7 +28,7 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='1000XUSDT'
+symbol='ROAMUSDT'
 interval='1'
 fastWindow = 10
 slowWindow = 200
@@ -49,7 +49,7 @@ qty = 0
 takeProfit = False
 isEvaluating = False
 usdt = 6
-marginPercentage = 30 #porcentaje a utilizar para entrar en las operaciones
+marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
 ws = WebSocket(

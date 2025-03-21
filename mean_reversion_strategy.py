@@ -235,7 +235,18 @@ def monitor_websockets():
 
         time.sleep(5)  # Revisar cada 5 segundos
 
+# Iniciar ambos WebSockets en hilos separados
+kline_thread = threading.Thread(target=start_kline_ws)
+ticker_thread = threading.Thread(target=start_ticker_ws)
+monitor_thread = threading.Thread(target=monitor_websockets, daemon=True)
 
+kline_thread.start()
+ticker_thread.start()
+monitor_thread.start()
+
+# Esperar a que los hilos terminen
+kline_thread.join()
+ticker_thread.join()
 
 while True:
     # This while loop is required for the program to run. You may execute

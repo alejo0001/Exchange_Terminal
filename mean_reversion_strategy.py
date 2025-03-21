@@ -52,7 +52,7 @@ usdt = 6
 marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
-mode = 1 #0 ambas, 1 long, 2 short
+mode = 0 #0 ambas, 1 long, 2 short
 # Variables para monitorear el estado de los websockets
 last_kline_time = time.time()
 last_ticker_time = time.time()
@@ -124,6 +124,17 @@ def ValidateEntry(wsMessage):
 
                 if(entryCondition == True):
                     side = 'Buy' if currentMAValue > last_price else 'Sell'
+
+                    response = client.get_tickers(category="linear", symbol=symbol)
+
+                    # Extraer el funding rate
+                    funding_rate = float(response["result"]["list"][0]["fundingRate"])
+
+                    if funding_rate >= 0.1:
+                        mode = 2
+                    elif funding_rate >= -0.1:
+                        mode = 1
+
 
                     if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):
 

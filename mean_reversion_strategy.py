@@ -53,6 +53,9 @@ marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
 mode = 1 #0 ambas, 1 long, 2 short
+# Variables para monitorear el estado de los websockets
+last_kline_time = time.time()
+last_ticker_time = time.time()
 
 ws = WebSocket(
     testnet=False,
@@ -158,25 +161,79 @@ def ValidateEntry(wsMessage):
     print(wsMessage["data"]['lastPrice'])
 
 
-def start_kline_stream():
-    ws.kline_stream(
-        interval=int(interval),
-        symbol=symbol,
-        callback=CalculateValues
-    )
+# def start_kline_stream():
+#     ws.kline_stream(
+#         interval=int(interval),
+#         symbol=symbol,
+#         callback=CalculateValues
+#     )
 
-# Iniciar kline_stream en un hilo normal (no daemon)
-kline_thread = threading.Thread(target=start_kline_stream)
-kline_thread.start()
+# # Iniciar kline_stream en un hilo normal (no daemon)
+# kline_thread = threading.Thread(target=start_kline_stream)
+# kline_thread.start()
 
-ws.ticker_stream(
-                symbol=symbol,
-                callback=ValidateEntry
-            )
-kline_thread.join()
+# ws.ticker_stream(
+#                 symbol=symbol,
+#                 callback=ValidateEntry
+#             )
+# kline_thread.join()
 
 def enviar_mensaje_telegram(mensaje):
     asyncio.run(SendTelegramMessage(mensaje))
+
+
+# Función para iniciar WebSocket de Kline
+def start_kline_ws():
+    global ws_kline
+    while True:
+        try:
+            print("Conectando WebSocket de Kline...")
+            ws_kline = WebSocket(testnet=False, channel_type="linear")
+
+            ws_kline.kline_stream(
+                interval=int(interval),
+                symbol=symbol,
+                callback=CalculateValues
+            )
+            print("WebSocket de Kline conectado.")
+            break  # Salir del bucle si la conexión es exitosa
+
+        except Exception as e:
+            print(f"Error en WebSocket de Kline: {e}")
+            time.sleep(5)  # Esperar antes de reintentar
+
+# Función para iniciar WebSocket de Ticker
+def start_ticker_ws():
+    global ws_ticker
+    while True:
+        try:
+            print("Conectando WebSocket de Ticker...")
+            ws_ticker = WebSocket(testnet=False, channel_type="linear")
+
+            ws_ticker.ticker_stream(
+                symbol=symbol,
+                callback=ValidateEntry
+            )
+            print("WebSocket de Ticker conectado.")
+            break  # Salir del bucle si la conexión es exitosa
+
+        except Exception as e:
+            print(f"Error en WebSocket de Ticker: {e}")
+            time.sleep(5)  # Esperar antes de reintentar
+
+# Función para monitorear desconexiones
+def monitor_websockets():
+    global last_kline_time, last_ticker_time
+    while True:
+        if time.time() - last_kline_time > 120:
+            print("Reiniciando WebSocket de Kline...")
+            start_kline_ws()
+
+        if time.time() - last_ticker_time > 10:
+            print("Reiniciando WebSocket de Ticker...")
+            start_ticker_ws()
+
+        time.sleep(5)  # Revisar cada 5 segundos
 
 
 

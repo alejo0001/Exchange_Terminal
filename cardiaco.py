@@ -195,17 +195,27 @@ def manejar_posicion(msg):
         
 
 # Suscribirse al stream de posiciones
-try:
-
-    
-    # Suscribirse al canal de posiciones con el callback
-
-    ws.subscribe("position", callback=manejar_posicion)
-    print("Conectado al WebSocket.")
-        
+def iniciar_websocket():
+    global ws
+    while True:
+        try:
+            print("Conectando al WebSocket...")
+            ws = WebSocket(testnet=False, channel_type="private", api_key=API_KEY, api_secret=API_SECRET)
+            ws.subscribe("position", callback=manejar_posicion)
+            print("WebSocket conectado con éxito.")
             
-except Exception as e:
-    print(f"Error conectando al WebSocket: {e}")
+            while True:
+                time.sleep(1)  # Mantener el WebSocket vivo
+            
+        except Exception as e:
+            print(f"⚠️ Error en WebSocket: {e}")
+            print("Reconectando en 60 segundos...")
+            time.sleep(60)  # Espera 1 minuto antes de reconectar
+
+# 🔥 Iniciar WebSocket en un hilo separado
+threading.Thread(target=iniciar_websocket, daemon=True).start()
+            
+
 
 # Mantener la conexión abierta
 while True:

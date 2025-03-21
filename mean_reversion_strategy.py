@@ -28,7 +28,7 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='ROAMUSDT'
+symbol='VIDTUSDT'
 interval='1'
 fastWindow = 10
 slowWindow = 200
@@ -51,6 +51,8 @@ isEvaluating = False
 usdt = 6
 marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
+
+mode = 1 #0 ambas, 1 long, 2 short
 
 ws = WebSocket(
     testnet=False,
@@ -92,6 +94,7 @@ def ValidateEntry(wsMessage):
     global takeProfit 
     global isEvaluating
     global marginPercentage
+    global mode
 
     if(not isEvaluating):
         isEvaluating = True
@@ -119,24 +122,26 @@ def ValidateEntry(wsMessage):
                 if(entryCondition == True):
                     side = 'Buy' if currentMAValue > last_price else 'Sell'
 
-                    step = client.get_instruments_info(category="linear",symbol=symbol)
-                    tickSize = float(step['result']['list'][0]['priceFilter']['tickSize'])
-                    priceScale = int(step['result']['list'][0]['priceScale'])
-                    step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])
-                    #qty = float(step['result']['list'][0]['lotSizeFilter']["minOrderQty"])
-                    precission = step_precission
-                    qty = usdt/last_price
-                    qty = getUsdtOrderSize(marginPercentage)/last_price
-                    qty = qty_precission(qty,precission)
-                    if qty.is_integer():
-                        qty = int(qty)
+                    if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):
 
-                    stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
-                    take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
+                        step = client.get_instruments_info(category="linear",symbol=symbol)
+                        tickSize = float(step['result']['list'][0]['priceFilter']['tickSize'])
+                        priceScale = int(step['result']['list'][0]['priceScale'])
+                        step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])
+                        #qty = float(step['result']['list'][0]['lotSizeFilter']["minOrderQty"])
+                        precission = step_precission
+                        qty = usdt/last_price
+                        qty = getUsdtOrderSize(marginPercentage)/last_price
+                        qty = qty_precission(qty,precission)
+                        if qty.is_integer():
+                            qty = int(qty)
 
-                    CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price)
-                    openedPosition = True
-                    takeProfit = False
+                        stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
+                        take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
+
+                        CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price)
+                        openedPosition = True
+                        takeProfit = False
         
         else:
             isEvaluating = False

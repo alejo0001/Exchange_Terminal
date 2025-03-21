@@ -167,9 +167,9 @@ def ValidateEntry(wsMessage):
 
         
 
-    print("Actualización en tiempo real: ")
+    print("Actualización en tiempo real: ", wsMessage["data"]['lastPrice'])
     #print(wsMessage["data"][-1]['p'])
-    print(wsMessage["data"]['lastPrice'])
+    
 
 
 # def start_kline_stream():
@@ -240,7 +240,7 @@ def monitor_websockets():
             print("Reiniciando WebSocket de Kline...")
             start_kline_ws()
 
-        if time.time() - last_ticker_time > 10:
+        if time.time() - last_ticker_time > 60:
             print("Reiniciando WebSocket de Ticker...")
             start_ticker_ws()
 

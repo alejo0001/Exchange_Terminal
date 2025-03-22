@@ -28,7 +28,7 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='VIDTUSDT'
+symbol='ACHUSDT'
 interval='1'
 fastWindow = 10
 slowWindow = 200
@@ -53,6 +53,7 @@ marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
 mode = 0 #0 ambas, 1 long, 2 short
+prevPrice = 0
 # Variables para monitorear el estado de los websockets
 last_kline_time = time.time()
 last_ticker_time = time.time()
@@ -98,6 +99,12 @@ def ValidateEntry(wsMessage):
     global isEvaluating
     global marginPercentage
     global mode
+    global prevPrice
+
+    if float(wsMessage["data"]['lastPrice']) == prevPrice:
+        return
+    else:
+        prevPrice = float(wsMessage["data"]['lastPrice'])
 
     if(not isEvaluating):
         isEvaluating = True
@@ -211,7 +218,11 @@ def start_kline_ws():
 
         except Exception as e:
             print(f"Error en WebSocket de Kline: {e}")
+            print("Reiniciando WebSocket de Kline...")
+            
+
             time.sleep(5)  # Esperar antes de reintentar
+            start_kline_ws()
 
 # Función para iniciar WebSocket de Ticker
 def start_ticker_ws():
@@ -230,19 +241,22 @@ def start_ticker_ws():
 
         except Exception as e:
             print(f"Error en WebSocket de Ticker: {e}")
+            print("Reiniciando WebSocket de Ticker...")
+            
             time.sleep(5)  # Esperar antes de reintentar
+            start_ticker_ws()
 
 # Función para monitorear desconexiones
 def monitor_websockets():
     global last_kline_time, last_ticker_time
     while True:
-        if time.time() - last_kline_time > 120:
-            print("Reiniciando WebSocket de Kline...")
-            start_kline_ws()
+        #if time.time() - last_kline_time > 120:
+            # print("Reiniciando WebSocket de Kline...")
+            # start_kline_ws()
 
-        if time.time() - last_ticker_time > 60:
-            print("Reiniciando WebSocket de Ticker...")
-            start_ticker_ws()
+        #if time.time() - last_ticker_time > 60:
+            # print("Reiniciando WebSocket de Ticker...")
+            # start_ticker_ws()
 
         time.sleep(5)  # Revisar cada 5 segundos
 

@@ -9,13 +9,13 @@ lock = threading.Lock()
 # Configuración de la API
 API_KEY = bybit_api_key
 API_SECRET = bybit_secret_key
-SYMBOL = "ACHUSDT"
-MAX_RECOMPRAS = 5
+SYMBOL = "MOVEUSDT"
+MAX_RECOMPRAS = 4
 DISTANCIA_RECOMPRA = 0.035  # 1% de distancia
 MULTIPLICADOR = 1
-RIESGO_CUENTA = 0.3  # 0.02 = 2% de la cuenta
+RIESGO_CUENTA = 0.1  # 0.02 = 2% de la cuenta
 TAKE_PROFIT_DISTANCIA = 0.01  # 2% desde la posición actual
-PRECISION_ROUND = 6
+PRECISION_ROUND = 4
 
 is_updating_orders = False
 
@@ -157,7 +157,7 @@ def manejar_posicion(msg):
                                 reduceOnly=False,
                                 closeOnTrigger=False
                             )
-                            time.sleep(0.5)  # Pausa entre órdenes para evitar saturación
+                            ##time.sleep(0.5)  # Pausa entre órdenes para evitar saturación
                     
                 else:
                     posiciones=http.get_positions(category="linear",symbol=SYMBOL)

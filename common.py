@@ -787,6 +787,29 @@ def SetTakeprofit(symbol,tp,side,qty,priceScale,tickSize):
     order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Limit",reduceOnly=True,qty=qty,price=price,positionIdx=pIdx)
     return order
 
+def SetLimitOrder(symbol,tp,side,qty,priceScale,tickSize):
+    price = qty_step(tp,priceScale,tickSize)
+    pIdx = 0
+    if side == "Sell":
+        pIdx=2
+    else:
+        pIdx=1
+    order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Limit",qty=qty,price=price,positionIdx=pIdx)
+    return order
+
+def SetHedgeOrder(symbol,tp,side,qty,priceScale,tickSize):
+    price = qty_step(tp,priceScale,tickSize)
+    pIdx = 0
+    triggerDirection = 1
+    if side == "Sell":
+        pIdx=2
+        triggerDirection = 2
+    else:
+        pIdx=1
+        triggerDirection = 1
+    order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Market",qty=qty,positionIdx=pIdx,triggerPrice = price,triggerDirection = triggerDirection)
+    return order
+
 def qty_precission(qty,precission):
     qty = math.floor(qty/precission) * precission
     return qty

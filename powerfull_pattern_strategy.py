@@ -1,4 +1,5 @@
 from asyncio import sleep
+import asyncio
 import logging
 import math
 from typing import List
@@ -48,6 +49,7 @@ bBPercentageDistance = 3
 marginPercentage = 33 #porcentaje a utilizar para entrar en las operaciones
 tp_percent = 2
 sl_percent = 1
+alerta = True
 
 ws = WebSocket(
     testnet=False,
@@ -338,15 +340,29 @@ def getUsdtOrderSize(marginPercentage=33):
     orderSize = balance * (marginPercentage/100)
     return round(orderSize)
 
-def on_message(message):
+def enviar_mensaje_telegram(mensaje):
+    asyncio.run(SendTelegramMessage(mensaje))
+
+def on_message(message,s=" ",i=" "):
     try:
         global symbol
         global interval
         global upperRsi
         global lowerRsi
         global bBPercentageDistance
+        global alerta
+
+        if(s != " "):
+            symbol = s
+        if(i != " "):
+            interval = i
 
         candlesticksDataFrame =  obtener_datos_historicos(symbol,interval)
+        rsi = calculate_rsiV2(candlesticksDataFrame)
+        if float(rsi.iloc[-1]) < upperRsi and float(rsi.iloc[-1]) > lowerRsi:
+            print(f"rsi insuficiente: {rsi.iloc[-1]}")
+            return
+
         data = calcular_bandas_bollinger(candlesticksDataFrame)
         bBKlines : BybitKlinesResponse = getBybitKlines(symbol, 200, int(interval))
         precio = float(message['data'][0]['close'])
@@ -359,7 +375,7 @@ def on_message(message):
 
         prices = pd.Series(lstLatestPrices)
         #rsi = calculate_rsi(prices)
-        rsi = calculate_rsiV2(candlesticksDataFrame)
+        
 
         step = client.get_instruments_info(category="linear",symbol=symbol)
         ticksize = float(step['result']['list'][0]['priceFilter']['tickSize'])
@@ -389,8 +405,13 @@ def on_message(message):
                 stop_loss_price = precio*(1+sl_percent/100)
                 take_profit_price = precio*(1-tp_percent/100)
                 
-                crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
-                establecer_take_profit(symbol,take_profit_price,"Buy",qty)
+                if alerta == True:
+                    mensaje = f"posible short:\n{symbol}\n{interval}"
+                    print(mensaje)
+                    threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
+                else:
+                    crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
+                    establecer_take_profit(symbol,take_profit_price,"Buy",qty)
 
             if longCondition:
                 precission = step_precission                
@@ -402,8 +423,13 @@ def on_message(message):
                 stop_loss_price = precio*(1-sl_percent/100)
                 take_profit_price = precio*(1+tp_percent/100)
                 
-                crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
-                establecer_take_profit(symbol,take_profit_price,"Sell",qty)
+                if alerta == True:
+                    mensaje = f"posible long:\n{symbol}\n{interval}"
+                    print(mensaje)
+                    threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
+                else:
+                    crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
+                    establecer_take_profit(symbol,take_profit_price,"Sell",qty)
             
             print('rsi: ',rsi.iloc[-1])
             print('upperband: ',data['UpperBand'])
@@ -412,10 +438,10 @@ def on_message(message):
     # Registrar el error
         print("Error onMessage: "+str(e))
         
-        print(data[['MA', 'UpperBand', 'LowerBand']].dtypes)  # Debe mostrar float64
+        #print(data[['MA', 'UpperBand', 'LowerBand']].dtypes)  # Debe mostrar float64
 
-        print("Ejecutando de nuevo")
-        calculate_powerfull_patternV2("3",['BANUSDT'])
+        #print("Ejecutando de nuevo")
+        #calculate_powerfull_patternV2("3",['BANUSDT'])
 
 def handle_message(message):
     if(message['data'][0]['confirm']== True):
@@ -452,17 +478,17 @@ def calculate_powerfull_patternV2(temporality = "3",coinList : List[str]= [],max
         logging.error(str(e)+' '+symbol)
 
 
-calculate_powerfull_patternV2("3",['BANUSDT'])
-ws.kline_stream(
-                interval=int(interval),
-                symbol=symbol,
-                callback=handle_message
-            )
+#calculate_powerfull_patternV2("3",['BANUSDT'])
+#ws.kline_stream(
+               # interval=int(interval),
+                #symbol=symbol,
+                #callback=handle_message
+           # )
 
-while True:
+#while True:
     # This while loop is required for the program to run. You may execute
     # additional code for your trading logic here.
-    sleep(1)
+    #sleep(1)
 
 
 

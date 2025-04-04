@@ -9,13 +9,13 @@ lock = threading.Lock()
 # Configuración de la API
 API_KEY = bybit_api_key
 API_SECRET = bybit_secret_key
-SYMBOL = "MOVEUSDT"
+SYMBOL = "SWELLUSDT"
 MAX_RECOMPRAS = 4
 DISTANCIA_RECOMPRA = 0.035  # 1% de distancia
 MULTIPLICADOR = 1
 RIESGO_CUENTA = 0.1  # 0.02 = 2% de la cuenta
 TAKE_PROFIT_DISTANCIA = 0.01  # 2% desde la posición actual
-PRECISION_ROUND = 4
+PRECISION_ROUND = 5
 
 is_updating_orders = False
 

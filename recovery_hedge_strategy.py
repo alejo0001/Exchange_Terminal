@@ -32,11 +32,11 @@ import websocket
 
 is_updating_orders = False
 recoveryMultiplier = 1.5
-recoveryPercentageDistance = 0.5
+recoveryPercentageDistance = 2.5
 totalMargin = getMarginBalance()
 symbol = ''
 
-takeProfit = 2 #%
+takeProfit = recoveryPercentageDistance * 3 #%
 takeProfitFirstPos = 1
 prevBuySize = 0
 prevSellSize = 0

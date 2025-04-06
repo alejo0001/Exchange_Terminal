@@ -1603,6 +1603,1611 @@ A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:385: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['UpperBand'] = pd.to_numeric(data['UpperBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:386: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['LowerBand'] = pd.to_numeric(data['LowerBand'], errors='coerce')
+D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_strategy.py:387: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data['MA'] = pd.to_numeric(data['MA'], errors='coerce')
 Traceback (most recent call last):
   File "D:\Apps\Exchange_Terminal\Exchange_Terminal\powerfull_pattern_bybit.py", line 76, in <module>
     validarTickers()

@@ -31,13 +31,15 @@ import websocket
 import threading
 import queue
 
+from automatic_entry import handle_event
+
 lock = threading.Lock()
 event_queue = queue.Queue()
 
 
 is_updating_orders = False
 recoveryMultiplier = 1.5
-recoveryPercentageDistance = 2.5
+recoveryPercentageDistance = 1
 totalMargin = getMarginBalance()
 symbol = ''
 
@@ -45,6 +47,7 @@ takeProfit = recoveryPercentageDistance * 3 #%
 takeProfitFirstPos = 1
 prevBuySize = 0
 prevSellSize = 0
+useAutomaticEntry = False
 
 
 ws = WebSocket(
@@ -71,6 +74,7 @@ def handle_message(message):
     global prevBuySize 
     global prevSellSize 
     global takeProfitFirstPos
+    global useAutomaticEntry
 
     try:      
 
@@ -214,6 +218,11 @@ def handle_message(message):
                             print('no hay órdenes abiertas para cancelar.')
 
                         totalMargin = getMarginBalance()
+
+                        if useAutomaticEntry == True:
+                            time.sleep(1)
+                            print('Creando entrada automática.')
+                            handle_event()
                         
                     elif(safe_float(positions.data[0].size) == safe_float(positions.data[1].size) and safe_float(positions.data[0].size) > 0 and safe_float(positions.data[1].size) > 0):
                             print('Posiciones igualadas')                
@@ -290,7 +299,7 @@ def handle_message(message):
                                 print('totalMargin: ')
                                 print(totalMargin)
 
-                                nextRecoveryQtyAvaliable = ((nextRecoveryQty)*safe_float(biggerPos.entryPrice)) <= (totalMargin*10)
+                                nextRecoveryQtyAvaliable = ((nextRecoveryQty)*safe_float(biggerPos.entryPrice)) <= (totalMargin*15)
 
                                 print('nextRecoveryQtyAvaliable:')
                                 print(nextRecoveryQtyAvaliable)
@@ -320,6 +329,8 @@ def handle_message(message):
                                 print('No existe TP Long')
                                 takeProfitPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)
                                 SetTakeprofit(symbol,takeProfitPrice,"Sell",safe_float(buySide.size),priceScale,tickSize)
+                                stopLossShortPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)+tickSize
+                                SetStopLoss(symbol,stopLossShortPrice,"Sell",priceScale,tickSize)
                                 
                                 
 
@@ -333,11 +344,15 @@ def handle_message(message):
                                 
                                 takeProfitPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)
                                 SetTakeprofit(symbol,takeProfitPrice,"Sell",safe_float(buySide.size),priceScale,tickSize)
+                                stopLossShortPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)+tickSize
+                                SetStopLoss(symbol,stopLossShortPrice,"Sell",priceScale,tickSize)
 
                             if not shortTPExists:
                                 print('No existe TP short')
                                 takeProfitPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)
                                 SetTakeprofit(symbol,takeProfitPrice,"Buy",safe_float(sellSide.size),priceScale,tickSize)
+                                stopLossLongPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)-tickSize
+                                SetStopLoss(symbol,stopLossLongPrice,"Buy",priceScale,tickSize)
                                 
                                 
 
@@ -351,15 +366,17 @@ def handle_message(message):
                                 
                                 takeProfitPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)
                                 SetTakeprofit(symbol,takeProfitPrice,"Buy",safe_float(sellSide.size),priceScale,tickSize)
+                                stopLossLongPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)-tickSize
+                                SetStopLoss(symbol,stopLossLongPrice,"Buy",priceScale,tickSize)
 
-                            if not longSLExists:
-                                print('No existe SL Long')
-                                stopLossPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)-tickSize
-                                SetStopLoss(symbol,stopLossPrice,"Buy",priceScale,tickSize)
-                            if not shortSLExists:
-                                print('No existe SL Short')
-                                stopLossPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)+tickSize
-                                SetStopLoss(symbol,stopLossPrice,"Sell",priceScale,tickSize)
+                            # if not longSLExists:
+                            #     print('No existe SL Long')
+                            #     stopLossPrice = safe_float(sellSide.entryPrice)*(1-takeProfit/100)-tickSize
+                            #     SetStopLoss(symbol,stopLossPrice,"Buy",priceScale,tickSize)
+                            # if not shortSLExists:
+                            #     print('No existe SL Short')
+                            #     stopLossPrice = safe_float(buySide.entryPrice)*(1+takeProfit/100)+tickSize
+                            #     SetStopLoss(symbol,stopLossPrice,"Sell",priceScale,tickSize)
 
                             
                                 

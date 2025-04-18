@@ -50,6 +50,7 @@ marginPercentage = 33 #porcentaje a utilizar para entrar en las operaciones
 tp_percent = 2
 sl_percent = 1
 alerta = True
+modoAlerta = 0 #0 ambas direcciones, 1 solo longs, 2 solo shorts
 
 ws = WebSocket(
     testnet=False,
@@ -351,6 +352,7 @@ def on_message(message,s=" ",i=" "):
         global lowerRsi
         global bBPercentageDistance
         global alerta
+        global modoAlerta
 
         if(s != " "):
             symbol = s
@@ -406,9 +408,10 @@ def on_message(message,s=" ",i=" "):
                 take_profit_price = precio*(1-tp_percent/100)
                 
                 if alerta == True:
-                    mensaje = f"posible short:\n{symbol}\n{interval}"
-                    print(mensaje)
-                    threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
+                    if (modoAlerta == 0 or modoAlerta == 2):
+                        mensaje = f"posible short:\n{symbol}\n{interval}"
+                        print(mensaje)
+                        threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
                 else:
                     crear_orden(symbol,"Sell","Market",qty,stop_loss_price,take_profit_price)
                     establecer_take_profit(symbol,take_profit_price,"Buy",qty)
@@ -423,10 +426,11 @@ def on_message(message,s=" ",i=" "):
                 stop_loss_price = precio*(1-sl_percent/100)
                 take_profit_price = precio*(1+tp_percent/100)
                 
-                if alerta == True:
-                    mensaje = f"posible long:\n{symbol}\n{interval}"
-                    print(mensaje)
-                    threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
+                if alerta == True :
+                    if (modoAlerta == 0 or modoAlerta == 1):
+                        mensaje = f"posible long:\n{symbol}\n{interval}"
+                        print(mensaje)
+                        threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
                 else:
                     crear_orden(symbol,"Buy","Market",qty,stop_loss_price,take_profit_price)
                     establecer_take_profit(symbol,take_profit_price,"Sell",qty)

@@ -299,7 +299,7 @@ def handle_message(message):
                                 print('totalMargin: ')
                                 print(totalMargin)
 
-                                nextRecoveryQtyAvaliable = ((nextRecoveryQty)*safe_float(biggerPos.entryPrice)) <= (totalMargin*15)
+                                nextRecoveryQtyAvaliable = ((nextRecoveryQty)*safe_float(biggerPos.entryPrice)) <= (totalMargin*10)
 
                                 print('nextRecoveryQtyAvaliable:')
                                 print(nextRecoveryQtyAvaliable)

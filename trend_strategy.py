@@ -21,7 +21,7 @@ import sys
 
 import exchange_info
 #import TDB
-from common import (CreateOrder, Order,CandleStick, SetTakeprofit, calculateRelativePercentageDiff, getUsdtOrderSize, qty_precission, telegramAPIKey,SendTelegramMessage,obtener_datos_historicos,CalculateMovingAverage)
+from common import (CalculateExponentialMovingAverage, CreateOrder, Order,CandleStick, SetTakeprofit, calculateRelativePercentageDiff, getUsdtOrderSize, is_in_range, qty_precission, telegramAPIKey,SendTelegramMessage,obtener_datos_historicos,CalculateMovingAverage)
 import ATR
 from pybit.unified_trading import (WebSocket,HTTP)
 
@@ -33,15 +33,15 @@ interval='1'
 fastWindow = 10
 slowWindow = 200
 
-currentMAValue = 0
+currentEMAValue = 0
 currentSlowMAValue = 0
 avgDistanceFromMA =1 #%
 distanceMultiplier = 1 #%
 openedPosition = False
 
 
-tp_percent = 1
-sl_percent = 1
+tp_percent = 4
+sl_percent = 2
 tickSize = 0
 priceScale = 0
 qty = 0
@@ -49,7 +49,7 @@ qty = 0
 takeProfit = False
 isEvaluating = False
 usdt = 6
-marginPercentage = 25 #porcentaje a utilizar para entrar en las operaciones
+marginPercentage =100 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
 mode = 0 #0 ambas, 1 long, 2 short
@@ -57,6 +57,9 @@ prevPrice = 0
 # Variables para monitorear el estado de los websockets
 last_kline_time = time.time()
 last_ticker_time = time.time()
+
+inRange = False
+lastData = []
 
 ws = WebSocket(
     testnet=False,
@@ -67,10 +70,12 @@ ws = WebSocket(
 client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
 def CalculateValues(wsMessage):
-    global currentMAValue
+    global currentEMAValue
     global currentSlowMAValue
     global symbol
     global useSlowMA
+    global inRange
+    global lastData
 
     if(wsMessage['data'][0]['confirm']== True):
         # posiciones=client.get_positions(category="linear",symbol=symbol)
@@ -78,12 +83,20 @@ def CalculateValues(wsMessage):
         #     on_message(message)
 
         data= obtener_datos_historicos(symbol,interval)
-        if(useSlowMA == True):
-            currentSlowMAValue = CalculateMovingAverage(data,slowWindow)['MA']
-        data = CalculateMovingAverage(data,fastWindow)
-        currentMAValue = data['MA']
+        lastData = data['result']['list'][1:]
+        data = CalculateExponentialMovingAverage(data,fastWindow)
+        currentEMAValue = data['EMA']
+
+      
+       
         print("Actualización de valores: ")
         print(wsMessage)
+
+        ValidateEntry(item = {
+            "data": {
+                "lastPrice": float(wsMessage['data'][0]['close'])
+            }
+        })
 
 def ValidateEntry(wsMessage):
 
@@ -100,6 +113,8 @@ def ValidateEntry(wsMessage):
     global marginPercentage
     global mode
     global prevPrice
+    global inRange
+    global lastData
 
     if float(wsMessage["data"]['lastPrice']) == prevPrice:
         return
@@ -119,50 +134,58 @@ def ValidateEntry(wsMessage):
             last_trade = wsMessage["data"]
             #last_price = float(last_trade['p'])
             last_price = float(last_trade['lastPrice'])
-            if(currentMAValue > 0 ):
-                percentageDistance = abs(calculateRelativePercentageDiff(currentMAValue,last_price))
+            if(currentEMAValue > 0 ):
+                #percentageDistance = abs(calculateRelativePercentageDiff(currentEMAValue,last_price))
 
                 entryCondition = False
 
-                if(useSlowMA == True):
-                    entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier) and ((last_price > currentMAValue and last_price < currentSlowMAValue) or (last_price < currentMAValue and last_price > currentSlowMAValue))
+                # if(useSlowMA == True):
+                #     entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier) and ((last_price > currentMAValue and last_price < currentSlowMAValue) or (last_price < currentMAValue and last_price > currentSlowMAValue))
+                # else:
+                #entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier)
+
+                #if(entryCondition == True):
+
+                if len(lastData) > 0:
+                    if is_in_range(lastData,last_price) == True:
+                        print("precio en rango, no se opera")
+                        return
+                
+                side = 'Buy' if currentEMAValue > last_price else 'Sell'
+
+                response = client.get_tickers(category="linear", symbol=symbol)
+
+                # Extraer el funding rate
+                funding_rate = float(response["result"]["list"][0]["fundingRate"])
+
+                if funding_rate >= 0.1:
+                    mode = 2
+                elif funding_rate >= -0.1:
+                    mode = 1
                 else:
-                    entryCondition = percentageDistance >= (avgDistanceFromMA*distanceMultiplier)
-
-                if(entryCondition == True):
-                    side = 'Buy' if currentMAValue > last_price else 'Sell'
-
-                    response = client.get_tickers(category="linear", symbol=symbol)
-
-                    # Extraer el funding rate
-                    funding_rate = float(response["result"]["list"][0]["fundingRate"])
-
-                    if funding_rate >= 0.1:
-                        mode = 2
-                    elif funding_rate >= -0.1:
-                        mode = 1
+                    mode : 0
 
 
-                    if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):
+                if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):
 
-                        step = client.get_instruments_info(category="linear",symbol=symbol)
-                        tickSize = float(step['result']['list'][0]['priceFilter']['tickSize'])
-                        priceScale = int(step['result']['list'][0]['priceScale'])
-                        step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])
-                        #qty = float(step['result']['list'][0]['lotSizeFilter']["minOrderQty"])
-                        precission = step_precission
-                        qty = usdt/last_price
-                        qty = getUsdtOrderSize(marginPercentage)/last_price
-                        qty = qty_precission(qty,precission)
-                        if qty.is_integer():
-                            qty = int(qty)
+                    step = client.get_instruments_info(category="linear",symbol=symbol)
+                    tickSize = float(step['result']['list'][0]['priceFilter']['tickSize'])
+                    priceScale = int(step['result']['list'][0]['priceScale'])
+                    step_precission = float(step['result']['list'][0]['lotSizeFilter']["qtyStep"])
 
-                        stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
-                        take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
+                    precission = step_precission
+                    qty = usdt/last_price
+                    qty = getUsdtOrderSize(marginPercentage)/last_price
+                    qty = qty_precission(qty,precission)
+                    if qty.is_integer():
+                        qty = int(qty)
 
-                        CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price,False)
-                        openedPosition = True
-                        takeProfit = False
+                    stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
+                    take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
+
+                    CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price,True,priceScale,tickSize)
+                    openedPosition = True
+                    takeProfit = False
         
         else:
             isEvaluating = False
@@ -179,22 +202,7 @@ def ValidateEntry(wsMessage):
     
 
 
-# def start_kline_stream():
-#     ws.kline_stream(
-#         interval=int(interval),
-#         symbol=symbol,
-#         callback=CalculateValues
-#     )
 
-# # Iniciar kline_stream en un hilo normal (no daemon)
-# kline_thread = threading.Thread(target=start_kline_stream)
-# kline_thread.start()
-
-# ws.ticker_stream(
-#                 symbol=symbol,
-#                 callback=ValidateEntry
-#             )
-# kline_thread.join()
 
 def enviar_mensaje_telegram(mensaje):
     asyncio.run(SendTelegramMessage(mensaje))
@@ -262,16 +270,16 @@ def monitor_websockets():
 
 # Iniciar ambos WebSockets en hilos separados
 kline_thread = threading.Thread(target=start_kline_ws)
-ticker_thread = threading.Thread(target=start_ticker_ws)
-monitor_thread = threading.Thread(target=monitor_websockets, daemon=True)
+# ticker_thread = threading.Thread(target=start_ticker_ws)
+# monitor_thread = threading.Thread(target=monitor_websockets, daemon=True)
 
 kline_thread.start()
-ticker_thread.start()
-monitor_thread.start()
+# ticker_thread.start()
+# monitor_thread.start()
 
 # Esperar a que los hilos terminen
 kline_thread.join()
-ticker_thread.join()
+#ticker_thread.join()
 
 while True:
     # This while loop is required for the program to run. You may execute
@@ -287,22 +295,7 @@ while True:
         if oP > 0:
             print("Hay una posición abierta en: "+symbol)
             openedPosition = True
-            if not takeProfit:
-                precio_de_entrada = float(posiciones['result']['list'][0]['avgPrice'])
-                if posiciones['result']['list'][0]['side'] == 'Buy':
-                    stop_loss_price = precio_de_entrada*(1-sl_percent/100)
-                    take_profit_price = precio_de_entrada*(1+tp_percent/100)
-                    #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Buy")
-                    #SetTakeprofit(symbol,take_profit_price,"Sell",qty,priceScale,tickSize)
-                    print("Take profit activado")
-                    takeProfit = True
-                else:
-                    stop_loss_price = precio_de_entrada*(1+sl_percent/100)
-                    take_profit_price = precio_de_entrada*(1-tp_percent/100)
-                    #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
-                    #SetTakeprofit(symbol,take_profit_price,"Buy",qty,priceScale,tickSize)
-                    print("Take profit activado")
-                    takeProfit = True
+     
        
         
         else:

@@ -738,23 +738,47 @@ def subtratcFromCurrentDate(*args):
 
     return currentDate
 
-def CreateOrder(symbol,side,order_type,qty,stop_loss,take_profit):
+def SetTakeprofit(symbol,tp,side,qty,priceScale,tickSize):
+    price = qty_step(tp,priceScale,tickSize)
+    pIdx = 0
+    if side == "Sell":
+        pIdx=1
+    else:
+        pIdx=2
+    order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Limit",reduceOnly=True,qty=qty,price=price,positionIdx=pIdx)
+    return order
+
+def CreateOrder(symbol,side,order_type,qty,stop_loss,take_profit, takeProfitLimit=True,priceScale = 0, tickSize = 0):
     pIdx = 0
     if side == "Sell":
         pIdx=2
     else:
         pIdx=1
-    response = client.place_order(
-        category="linear",
-        symbol=symbol,
-        side=side,
-        order_type=order_type,
-        qty=qty,
-        timeInForce="GoodTillCancel",
-        positionIdx=pIdx,
-        #takeProfit=take_profit,
-        #stopLoss=stop_loss
-        )
+    if takeProfitLimit:
+        response = client.place_order(
+                category="linear",
+                symbol=symbol,
+                side=side,
+                order_type=order_type,
+                qty=qty,
+                timeInForce="GoodTillCancel",
+                positionIdx=pIdx,            
+                stopLoss=stop_loss
+                )
+        
+        SetTakeprofit(symbol,take_profit,"Buy"if side == "Sell" else "Sell",qty,priceScale,tickSize)
+    else:
+        response = client.place_order(
+            category="linear",
+            symbol=symbol,
+            side=side,
+            order_type=order_type,
+            qty=qty,
+            timeInForce="GoodTillCancel",
+            positionIdx=pIdx,
+            takeProfit=take_profit,
+            stopLoss=stop_loss
+            )
     print("orden creada con éxito")
 
 def qty_step(price,priceScale,tickSize):
@@ -777,15 +801,7 @@ def SetStopLoss(symbol,sl,side,priceScale,tickSize):
     order = client.set_trading_stop(category="linear",symbol=symbol,stopLoss=sl,slTriggerB="LastPrice",positionIdx=pIdx)
     return order
 
-def SetTakeprofit(symbol,tp,side,qty,priceScale,tickSize):
-    price = qty_step(tp,priceScale,tickSize)
-    pIdx = 0
-    if side == "Sell":
-        pIdx=1
-    else:
-        pIdx=2
-    order=client.place_order(category="linear",symbol=symbol,side=side,orderType="Limit",reduceOnly=True,qty=qty,price=price,positionIdx=pIdx)
-    return order
+
 
 def SetLimitOrder(symbol,tp,side,qty,priceScale,tickSize):
     price = qty_step(tp,priceScale,tickSize)
@@ -848,6 +864,10 @@ def calculateRelativePercentageDiff(initial, final):
 def CalculateMovingAverage(data,window=20):
     data['MA'] = data[4].rolling(window=window).mean()
     return data.iloc[-1]
+
+def CalculateExponentialMovingAverage(data,window=20):
+    data['EMA'] = data[4].ewm(span=window, adjust=False).mean()
+    return data.iloc[-1]
     
 def calcular_bandas_bollinger(data,ventana=20,desviacion=2):
     data['MA'] = data[4].rolling(window=ventana).mean()
@@ -873,4 +893,22 @@ def calculate_rsiV2(data):
 
 def safe_float(value):
     return float(value) if value and value != '' else 0.0
+
+def is_in_range(data, lastPrice, window=100):
+    """
+    Verifica si el lastPrice está dentro del rango de las últimas 'window' velas.
+
+    Args:
+        data: DataFrame con columna 'close'.
+        lastPrice: Precio actual o último precio a evaluar.
+        window: Número de velas a evaluar.
+
+    Returns:
+        True si el lastPrice está dentro del rango (min, max), False si no.
+    """
+    recent = data['close'].iloc[-window:]
+    max_price = recent.max()
+    min_price = recent.min()
+    
+    return float(min_price) <= float(lastPrice) <= float(max_price)
 

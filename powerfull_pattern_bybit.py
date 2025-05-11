@@ -12,7 +12,7 @@ API_SECRET = bybit_secret_key
 # Configuración
 interval = 3  # Temporalidad en minutos
 minMarketCap = 20  # En millones de dólares
-min_volatility = 0.25  # Porcentaje mínimo de movimiento promedio por vela 
+min_volatility = 0.5  # Porcentaje mínimo de movimiento promedio por vela 
 
 # Inicializar cliente de Bybit
 session = HTTP(testnet=False, api_key=API_KEY, api_secret=API_SECRET)
@@ -109,7 +109,7 @@ def validarTickers():
 
             print(f"Tickers volátiles encontrados: {len(volatile_tickers)}")
             
-            for ticker in volatile_tickers:
+            for ticker in filtered_tickers:
                 symbol = ticker['symbol']
                 message = {'data': [{'close': ticker['lastPrice']}]}
                 on_message(message, symbol, str(interval))

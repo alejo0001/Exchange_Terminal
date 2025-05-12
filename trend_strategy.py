@@ -30,7 +30,7 @@ from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
 symbol='1000PEPEUSDT'
 interval='1'
-fastWindow = 10
+fastWindow = 50
 slowWindow = 200
 
 currentEMAValue = 0
@@ -66,6 +66,7 @@ ws = WebSocket(
     channel_type="linear",
 )
 
+ws_kline : WebSocket
 
 client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
@@ -186,7 +187,7 @@ def ValidateEntry(wsMessage):
 
                     stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
                     take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
-                    print('Creando orden...')
+                    print(f'Creando orden...: side={side} currenEMA: {currentEMAValue} lastPrice: {last_price}')
                     CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price,True,priceScale,tickSize)
                     print('Orden creada con éxito...')
                     openedPosition = True
@@ -218,7 +219,7 @@ def enviar_mensaje_telegram(mensaje):
 # Función para iniciar WebSocket de Kline
 def start_kline_ws():
     global ws_kline
-    global ws_kline
+    
     while True:
         try:
             print("Conectando WebSocket de Kline...")
@@ -319,6 +320,15 @@ while True:
         print(f"Error en el bot: {e}")
         mensaje = f"Reiniciar bot: {e}. "
         threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
+        try:
+            if ws_kline:
+                ws_kline.exit()  # Cierra la conexión si existe
+                print("WebSocket cerrado.")
+                start_kline_ws()
+        except:
+            pass  # Ignora errores al cerrar
+
+            
         time.sleep(60)
 
     time.sleep(1)

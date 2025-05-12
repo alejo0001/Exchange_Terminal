@@ -218,6 +218,7 @@ def enviar_mensaje_telegram(mensaje):
 # Función para iniciar WebSocket de Kline
 def start_kline_ws():
     global ws_kline
+    global ws_kline
     while True:
         try:
             print("Conectando WebSocket de Kline...")
@@ -229,15 +230,20 @@ def start_kline_ws():
                 callback=CalculateValues
             )
             print("WebSocket de Kline conectado.")
-            break  # Salir del bucle si la conexión es exitosa
+            break  # Salir del bucle si la conexión fue exitosa
 
         except Exception as e:
             print(f"Error en WebSocket de Kline: {e}")
             print("Reiniciando WebSocket de Kline...")
-            
 
-            time.sleep(5)  # Esperar antes de reintentar
-            start_kline_ws()
+            try:
+                if ws_kline:
+                    ws_kline.exit()  # Cierra la conexión si existe
+                    print("WebSocket cerrado.")
+            except:
+                pass  # Ignora errores al cerrar
+
+            time.sleep(5)  # Espera antes de reconectar
 
 # Función para iniciar WebSocket de Ticker
 def start_ticker_ws():

@@ -28,7 +28,7 @@ from pybit.unified_trading import (WebSocket,HTTP)
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 
-symbol='ACHUSDT'
+symbol='1000PEPEUSDT'
 interval='1'
 fastWindow = 10
 slowWindow = 200
@@ -49,7 +49,7 @@ qty = 0
 takeProfit = False
 isEvaluating = False
 usdt = 6
-marginPercentage =100 #porcentaje a utilizar para entrar en las operaciones
+marginPercentage =10 #porcentaje a utilizar para entrar en las operaciones
 useSlowMA = True
 
 mode = 0 #0 ambas, 1 long, 2 short
@@ -83,16 +83,18 @@ def CalculateValues(wsMessage):
         #     on_message(message)
 
         data= obtener_datos_historicos(symbol,interval)
-        lastData = data['result']['list'][1:]
+        lastData = data[1:][::-1]
+        print('data histórica:')
+        print(lastData)
         data = CalculateExponentialMovingAverage(data,fastWindow)
-        currentEMAValue = data['EMA']
+        currentEMAValue = float(data['EMA'])
 
       
        
         print("Actualización de valores: ")
         print(wsMessage)
 
-        ValidateEntry(item = {
+        ValidateEntry({
             "data": {
                 "lastPrice": float(wsMessage['data'][0]['close'])
             }
@@ -135,6 +137,7 @@ def ValidateEntry(wsMessage):
             #last_price = float(last_trade['p'])
             last_price = float(last_trade['lastPrice'])
             if(currentEMAValue > 0 ):
+                print('EMA: ',currentEMAValue)
                 #percentageDistance = abs(calculateRelativePercentageDiff(currentEMAValue,last_price))
 
                 entryCondition = False
@@ -149,9 +152,10 @@ def ValidateEntry(wsMessage):
                 if len(lastData) > 0:
                     if is_in_range(lastData,last_price) == True:
                         print("precio en rango, no se opera")
+                        isEvaluating = False
                         return
                 
-                side = 'Buy' if currentEMAValue > last_price else 'Sell'
+                side = 'Buy' if currentEMAValue < last_price else 'Sell'
 
                 response = client.get_tickers(category="linear", symbol=symbol)
 
@@ -163,7 +167,7 @@ def ValidateEntry(wsMessage):
                 elif funding_rate >= -0.1:
                     mode = 1
                 else:
-                    mode : 0
+                    mode = 0
 
 
                 if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):
@@ -182,11 +186,14 @@ def ValidateEntry(wsMessage):
 
                     stop_loss_price = last_price*(1+sl_percent/100) if side == 'Sell' else last_price*(1-sl_percent/100)
                     take_profit_price = last_price*(1-tp_percent/100)  if side == 'Sell' else last_price*(1+tp_percent/100)
-
+                    print('Creando orden...')
                     CreateOrder(symbol,side,'Market',qty,stop_loss_price,take_profit_price,True,priceScale,tickSize)
+                    print('Orden creada con éxito...')
                     openedPosition = True
                     takeProfit = False
-        
+
+            
+            isEvaluating = False
         else:
             isEvaluating = False
             print('posición abierta')

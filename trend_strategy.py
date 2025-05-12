@@ -84,7 +84,7 @@ def CalculateValues(wsMessage):
         #     on_message(message)
 
         data= obtener_datos_historicos(symbol,interval)
-        lastData = data[1:][::-1]
+        lastData = data[1:]
         print('data histórica:')
         print(lastData)
         data = CalculateExponentialMovingAverage(data,fastWindow)

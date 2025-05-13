@@ -906,9 +906,13 @@ def is_in_range(data, lastPrice, window=100):
     Returns:
         True si el lastPrice está dentro del rango (min, max), False si no.
     """
-    recent = data[4].iloc[-window:]
+    recent = data[4].iloc[-window:-2]
     max_price = recent.max()
     min_price = recent.min()
+
+    print(f'minPrice: {min_price}')
+    print(f'max_price: {max_price}')
+    print(f'last_price: {lastPrice}')
     
     return float(min_price) <= float(lastPrice) <= float(max_price)
 

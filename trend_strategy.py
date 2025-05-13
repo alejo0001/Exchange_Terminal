@@ -84,7 +84,7 @@ def CalculateValues(wsMessage):
         #     on_message(message)
 
         data= obtener_datos_historicos(symbol,interval)
-        lastData = data[1:]
+        lastData = data[2:]
         print('data histórica:')
         print(lastData)
         data = CalculateExponentialMovingAverage(data,fastWindow)
@@ -163,12 +163,12 @@ def ValidateEntry(wsMessage):
                 # Extraer el funding rate
                 funding_rate = float(response["result"]["list"][0]["fundingRate"])
 
-                if funding_rate >= 0.1:
-                    mode = 2
-                elif funding_rate >= -0.1:
-                    mode = 1
-                else:
-                    mode = 0
+                # if funding_rate >= 0.1:
+                #     mode = 2
+                # elif funding_rate >= -0.1:
+                #     mode = 1
+                # else:
+                #     mode = 0
 
 
                 if(side == 'Buy' and (mode == 0  or mode == 1)) or (side == 'Sell' and (mode == 0  or mode == 2)):

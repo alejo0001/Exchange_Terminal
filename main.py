@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from datetime import datetime, timedelta
 import math
 from time import sleep
@@ -16,18 +17,12 @@ from Klines import getBybitKlines
 import asyncio
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+
 origins = [
     "http://localhost:4200"
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 AnalysisList:List[AnalyzeResponse]=[]
 lstExceptionTickers = ['ETHUSDT', 'BTCUSDT', 'ADAUSDT','XRPUSDT','MATICUSDT','THETAUSDT','ALGOUSDT','TRXUSDT','DOGEUSDT']
 minFundingRate= 0.05
@@ -40,6 +35,22 @@ class Libro(BaseModel):
     paginas:int
     editorial:Optional[str]
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("La aplicación ha iniciado")  # startup
+    asyncio.create_task(realTimeExecutor()) 
+    yield
+    print("La aplicación se está cerrando")  # shutdown
+
+app = FastAPI(lifespan=lifespan)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 #http://127.0.0.1:8000/
 @app.get("/")
 def index():
@@ -53,9 +64,10 @@ def pruebaId(id:int):
 def insertar_libro(libro:Libro):
     return{"message": f"libro {libro.titulo} insertado"}
 
-@app.on_event("startup")
-async def startup_event():
-    asyncio.create_task(realTimeExecutor()) 
+# @app.on_event("startup")
+# async def startup_event():
+#     asyncio.create_task(realTimeExecutor()) 
+
 
 @app.post("/priceActionCalibration", response_model=List[PriceGroup])
 def priceActionCalibration(calibration:PriceActionCalibrationDto):
@@ -72,6 +84,8 @@ def setSymbol(symbol:str):
 @app.get("/setFirstEntry/{type}")
 def setSymbol(type:int):
     return setFirstEntry(type)
+
+
 
 print ('server en funcionamiento')
 async def AIAnalysis():

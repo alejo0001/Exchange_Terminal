@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -24,4 +24,69 @@
     display: block;
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
     /* background-color: #171717; Aquí puedes poner el color que desees */
+  /*}*/ 
+
+  .exchange-container {
+    display: flex;
+    height: 100vh;
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+  
+  .sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #333;
+  }
+  
+  .sidebar label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #ccc;
+  }
+  
+  .sidebar select,
+  .sidebar input {
+    width: 100%;
+    padding: 8px;
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar select:focus,
+  .sidebar input:focus {
+    outline: none;
+    border-color: #ffcc00;
+  }
+  
+  .sidebar button,
+  .secondary-btn {
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .sidebar button:hover,
+  .secondary-btn:hover {
+    background-color: #e6b800;
+  }
+  
+  .main-chart {
+    flex-grow: 1;
+    padding: 10px;
+  }
+  

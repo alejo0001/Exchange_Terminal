@@ -6,5 +6,10 @@ export const temporalityColors: { [temporality: string]: string } = {
     "60": "rgba(160, 32, 240, 1",
     "240": "rgba(255, 165, 0, 1)",
     "D": "rgba(255, 255, 0, 1)",
-    // Agrega más temporalidades y colores según tus necesidades
+};
+
+export const strategies: { [strategy: string]: string } = {
+    "0": "Zonas de acción de precio",
+    "1": "Reversión a la media",
+    "2": "Tendencia"
 };

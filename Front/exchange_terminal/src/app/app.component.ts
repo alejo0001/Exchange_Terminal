@@ -12,7 +12,7 @@ import { IPlot, ISelectList } from './dtos/dtos.dto';
 import { IPriceActionCalibrationDto } from './dtos/price-action-calibration.dto';
 import { EntranceZonesResponse, IPriceGroup, MarketZonesResponse } from './dtos/api-dtos.dto';
 import { IBybitTickersResponse, IBybitTickersResponseItem } from './dtos/bybit-tickers-response.dto';
-import {temporalityColors}from './dtos/constants';
+import {temporalityColors,strategies}from './dtos/constants';
 import { bybitApiKey, bybitApiSecret } from './config';
 @Component({
   selector: 'app-root',
@@ -25,13 +25,17 @@ export class AppComponent {
   title = 'exchange_terminal';
   Highcharts: typeof Highcharts = Highcharts;
   updateFlag = false;
-  chartOptions?: Highcharts.Options;
+  chartOptions!: Highcharts.Options;
   calibrationForm: FormGroup;
+
   tickerForm : FormGroup;
   preferencesForm : FormGroup;
   plotBands : Highcharts.YAxisPlotBandsOptions[] = []
   lstPlots : IPlot[] = [];
   public globalPriceGroups : IPriceGroup[]=[]
+
+  private refreshInterval: any;
+  private intervalStarted = false;
 
   lstTemporalities: ISelectList[] = [
     {text:'1m',value:'1'},
@@ -55,6 +59,11 @@ export class AppComponent {
 
 
   lstTickers : IBybitTickersResponseItem[]=[]
+
+  lstStrategies =  Object.entries(strategies).map(([key, value]) => ({
+    strategy: key,
+    label: value
+  }));
 
   //apiUrl = 'https://api-testnet.bybit.com/v5/market/kline?category=linear&symbol=1000TURBOUSDT&interval=15&limit=200';
   //apiUrl = 'https://api.bybit.com/v5/market/kline?category=linear&symbol=1000TURBOUSDT&interval=15&limit=200';
@@ -101,6 +110,23 @@ export class AppComponent {
   ngOnInit(): void {
     // this.fetchKlinesData();
     this.getTickers();
+   // Escuchar cuando los campos cambian
+    this.tickerForm.get('symbol')?.valueChanges.subscribe(() => this.tryStartInterval());
+    this.calibrationForm.get('temporality')?.valueChanges.subscribe(() => this.tryStartInterval());
+    
+  }
+
+  tryStartInterval(): void {
+    const symbol = this.tickerForm.get('symbol')?.value;
+    const interval = this.calibrationForm.get('temporality')?.value;
+  
+    if (symbol && interval && !this.intervalStarted) {
+      this.intervalStarted = true; // prevenir múltiples intervalos
+      this.refreshInterval = setInterval(() => {
+        this.fetchKlinesData();
+      }, 1000);
+      console.log('Intervalo iniciado con:', symbol, interval);
+    }
   }
   fetchKlinesData(): void {
     const  params = {
@@ -123,7 +149,7 @@ export class AppComponent {
         parseFloat(kline[4])
       ]);
       ohlc.reverse();
-      console.log('ohlc: ',ohlc)
+      //console.log('ohlc: ',ohlc)
       this.chartOptions = {
         rangeSelector: {
           selected: 1

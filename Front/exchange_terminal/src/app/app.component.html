@@ -1,4 +1,4 @@
-<highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions!" [(update)]="updateFlag" style="width: 100%;">
+<!-- <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="updateFlag" style="width: 100%;">
 </highcharts-chart>
 <form [formGroup]="tickerForm" >
     <label >Ticker:</label>
@@ -49,4 +49,80 @@
     </select>
     <button type="submit">Calibrar</button>
 </form>
-<button (click)="getEntranceZones()" *ngIf="globalPriceGroups.length">Zonas de Entrada</button>
+<button (click)="getEntranceZones()" *ngIf="globalPriceGroups.length">Zonas de Entrada</button> -->
+
+
+<div class="exchange-container">
+  <div class="sidebar">
+    <form [formGroup]="tickerForm">
+      <label>Ticker</label>
+      <select formControlName="symbol" (change)="fetchKlinesData()">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option *ngFor="let option of lstTickers" [value]="option.symbol">{{ option.symbol }}</option>
+      </select>
+    </form>
+
+    <form [formGroup]="tickerForm">
+      <label>Estrategia</label>
+      <select formControlName="strategy">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option *ngFor="let option of lstStrategies" [value]="option.strategy">
+          {{ option.label }}
+        </option>
+      </select>
+    </form>
+
+    <form [formGroup]="preferencesForm">
+      <label>Primera entrada</label>
+      <select formControlName="firstEntry" (change)="setFirstEntry()">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option *ngFor="let option of lstFirstEntryTypes" [value]="option.value">{{ option.text }}</option>
+      </select>
+    </form>
+
+    <form [formGroup]="calibrationForm" (ngSubmit)="calibrar()">
+      <label>Modo de cálculo</label>
+      <select formControlName="calculationMode">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option *ngFor="let option of lstCalculationMode" [value]="option.value">{{ option.text }}</option>
+      </select>
+
+      <div *ngIf="calibrationForm.get('calculationMode')!.value == '1'">
+        <label>Divisor de rangos</label>
+        <input type="number" formControlName="rangeDivisor" step="0.01">
+        <label>Precisión</label>
+        <input type="number" formControlName="precision" step="1">
+      </div>
+
+      <div *ngIf="calibrationForm.get('calculationMode')!.value == '0'">
+        <label>Porcentaje</label>
+        <input type="number" formControlName="percentage" step="0.01">
+      </div>
+
+      <label>Profundidad</label>
+      <input type="number" formControlName="depth" step="1">
+
+      <label>Cantidad mínima de rebotes</label>
+      <input type="number" formControlName="minBouncesAmount" step="1">
+
+      <label>Temporalidad</label>
+      <select formControlName="temporality" (change)="fetchKlinesData()">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option *ngFor="let option of lstTemporalities" [value]="option.value">{{ option.text }}</option>
+      </select>
+
+      <button type="submit">Calibrar</button>
+    </form>
+
+    <button class="secondary-btn" (click)="getEntranceZones()" *ngIf="globalPriceGroups.length">Zonas de Entrada</button>
+  </div>
+
+  <div class="main-chart">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      [(update)]="updateFlag"
+      style="width: 100%; height: 100%;">
+    </highcharts-chart>
+  </div>
+</div>

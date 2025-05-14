@@ -27,6 +27,8 @@ from pybit.unified_trading import (WebSocket,HTTP)
 
 from config import (bybit_api_key,bybit_secret_key)
 from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
+import os
+import sys
 
 symbol='1000PEPEUSDT'
 interval='1'
@@ -295,6 +297,11 @@ kline_thread.start()
 kline_thread.join()
 #ticker_thread.join()
 
+def restart_script():
+    print("Reiniciando el script automáticamente...")
+    python = sys.executable
+    os.execv(python, [python] + sys.argv)
+
 while True:
     # This while loop is required for the program to run. You may execute
     # additional code for your trading logic here.
@@ -320,14 +327,7 @@ while True:
         print(f"Error en el bot: {e}")
         mensaje = f"Reiniciar bot: {e}. "
         threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
-        try:
-            if ws_kline:
-                ws_kline.exit()  # Cierra la conexión si existe
-                print("WebSocket cerrado.")
-                start_kline_ws()
-        except:
-            pass  # Ignora errores al cerrar
-
+        restart_script()
             
         time.sleep(60)
 

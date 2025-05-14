@@ -3,8 +3,8 @@ import asyncio
 import logging
 import math
 from typing import List
-from binance.um_futures import UMFutures
-from binance.lib.utils import config_logging
+# from binance.um_futures import UMFutures
+# from binance.lib.utils import config_logging
 import pandas as pd
 
 import numpy as np
@@ -22,7 +22,7 @@ import sys
 import exchange_info
 #import TDB
 from common import (CalculateExponentialMovingAverage, CreateOrder, Order,CandleStick, SetTakeprofit, calculateRelativePercentageDiff, getUsdtOrderSize, is_in_range, qty_precission, telegramAPIKey,SendTelegramMessage,obtener_datos_historicos,CalculateMovingAverage)
-import ATR
+# import ATR
 from pybit.unified_trading import (WebSocket,HTTP)
 
 from config import (bybit_api_key,bybit_secret_key)

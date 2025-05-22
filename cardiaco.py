@@ -1,6 +1,9 @@
+import os
+import sys
 from pybit.unified_trading import WebSocket, HTTP
 import time
-from common import safe_float
+from ATR import calculate_ATR
+from common import CalculateDistancePercentage, CandleStick, SetHedgeOrder, safe_float
 from config import(bybit_api_key,bybit_secret_key)
 import math
 import threading
@@ -9,15 +12,20 @@ lock = threading.Lock()
 # Configuración de la API
 API_KEY = bybit_api_key
 API_SECRET = bybit_secret_key
-SYMBOL = "SWELLUSDT"
-MAX_RECOMPRAS = 4
-DISTANCIA_RECOMPRA = 0.035  # 1% de distancia
-MULTIPLICADOR = 1
-RIESGO_CUENTA = 0.1  # 0.02 = 2% de la cuenta
+SYMBOL = "1000PEPEUSDT"
+MAX_RECOMPRAS = 3
+DISTANCIA_RECOMPRA = 0.01  # 0.01 = 1% de distancia
+MULTIPLICADOR = 2
+RIESGO_CUENTA = 0.01  # 0.02 = 2% de la cuenta
 TAKE_PROFIT_DISTANCIA = 0.01  # 2% desde la posición actual
-PRECISION_ROUND = 5
+PRECISION_ROUND = 7
+ATR_MULTIPLIER = 2
+INTERVAL = 1 #minutos
+MIN_PERCENTAGE_DISTANCE = 1 # %
 
 is_updating_orders = False
+calculateByATR = True
+hedgeInsteadStop = True
 
 # Conectar a Bybit
 http = HTTP(testnet=False, api_key=API_KEY, api_secret=API_SECRET)
@@ -34,8 +42,10 @@ def calcular_stop_loss(entry_price, position_size,side):
     global PRECISION_ROUND
     saldo = obtener_saldo()
     riesgo_maximo = saldo * RIESGO_CUENTA
-    stop_loss = abs(entry_price - (riesgo_maximo / (position_size*entry_price))) if side == "Buy" else abs(entry_price + (riesgo_maximo / (position_size*entry_price)))
+    stop_loss = abs (entry_price * (1- (riesgo_maximo / (position_size*entry_price)))) if side == "Buy" else abs(entry_price * (1 +(riesgo_maximo / (position_size*entry_price))))
     print('stopLoss: ',round(stop_loss, PRECISION_ROUND))
+    if stop_loss < 0:
+        stop_loss = 0
     return round(stop_loss, PRECISION_ROUND)
 
 # Manejo de posiciones abiertas
@@ -131,20 +141,97 @@ def manejar_posicion(msg):
 
                         # Calcular y actualizar stop loss
                         stop_loss = calcular_stop_loss(entry_price, position_size,side)
-                        http.set_trading_stop(
-                            category="linear",
-                            symbol=SYMBOL,
-                            side=side,
-                            stopLoss=stop_loss,
-                            position_idx = int(position_idx) 
-                        )
-                
+                        if stop_loss > 0:
+                            if hedgeInsteadStop == False:
+                                http.set_trading_stop(
+                                    category="linear",
+                                    symbol=SYMBOL,
+                                    side=side,
+                                    stopLoss=stop_loss,
+                                    position_idx = int(position_idx) 
+                                )
+                            else:
+
+                                #Validar si existe ya una cobertura con el tamaño de posición correspondiente:
+                                print('Validando orden de cobertura...')
+                                hedgeSide = "Sell" if side == "Buy" else "Buy"
+                                hedgeOrder = [o for o in ordenes['result']['list'] if o['side'] == hedgeSide]
+                                placeHedge = False
+
+                                if not hedgeOrder:
+                                    placeHedge = True
+                                elif safe_float(hedgeOrder[0]['qty']) != position_size:
+                                    http.cancel_order(
+                                            category="linear",
+                                            symbol=hedgeOrder[0]["symbol"],
+                                            orderId=hedgeOrder[0]["orderId"]
+                                        )
+                                    
+                                    placeHedge = True
+
+                                
+                                if placeHedge == True:
+                                    step = http.get_instruments_info(category="linear",symbol=SYMBOL)
+                                    tickSize = float(step['result']['list'][0]['priceFilter']['tickSize'])
+                                    price_scale = int(step['result']['list'][0]['priceScale'])
+
+                                    # se evalúa si la orden de cobertura que dentro del rango de las recompras, si es así, se ajusta su valor:
+                                    if ordenes_abiertas:
+                                        last_DCA_Order = max(ordenes_abiertas, key=lambda x: float(x["price"])) if side == "Sell" else  min(ordenes_abiertas, key=lambda x: float(x["price"]))
+                                        if side == "Buy":
+                                            if stop_loss > float(last_DCA_Order['price']):
+                                                stop_loss = float(last_DCA_Order['price']) * (1 - DISTANCIA_RECOMPRA)
+                                        else:
+                                            if stop_loss < float(last_DCA_Order['price']):
+                                                stop_loss = float(last_DCA_Order['price']) * (1 + DISTANCIA_RECOMPRA)
+
+
+                                    SetHedgeOrder(SYMBOL,stop_loss,"Sell" if side == "Buy" else "Buy",position_size,price_scale,tickSize)
+                                    print('Orden de cobertura colocada con éxito')
+                    
                     
                     if not ordenes_abiertas:
+                        distancia_Recompra_ATR = 0
+                        if calculateByATR : 
+                            print('recompras por porcentaje según ATR...')
+                            prices = http.get_kline(
+                                    category="linear",
+                                    symbol=SYMBOL,
+                                    interval=str(INTERVAL),
+                                    limit = 20
+                                )
+                            candlesticksList = []
+                            for v in prices['result']['list']:
+                                candleStick = CandleStick()                                    
+
+                                candleStick.open = float(v[1])
+                                candleStick.high = float(v[2])
+                                candleStick.low = float(v[3])
+                                candleStick.close = float(v[4])
+                                candlesticksList.append(candleStick)
+                                
+                            ATR = calculate_ATR(candlesticksList)
+                            print(f'ATR: {ATR}...')
+                            ATR_price = entry_price - ATR if side == "Buy" else entry_price + ATR
+                            ATR_percentage_distance = abs(CalculateDistancePercentage(entry_price,ATR_price))/100
+                            print(f'Porcentaje ATR: {ATR_percentage_distance}...')
+                            if ATR_percentage_distance < MIN_PERCENTAGE_DISTANCE:
+                                ATR_percentage_distance = 1
+
+                            distancia_Recompra_ATR = (ATR_percentage_distance * ATR_MULTIPLIER)/100
+
+                        else:
+                            print(f'recompras por porcentaje Fijo({DISTANCIA_RECOMPRA}%)...')
                         # Crear órdenes de recompra
                         for i in range(MAX_RECOMPRAS):
                             tamaño_recompra = position_size * (MULTIPLICADOR ** i) if i > 0 else position_size 
-                            precio_recompra = entry_price * (1 - DISTANCIA_RECOMPRA * (i + 1)) if side == "Buy" else entry_price * (1 + DISTANCIA_RECOMPRA * (i + 1))
+                            precio_recompra = 0
+
+                            if calculateByATR == False:
+
+                                precio_recompra = entry_price * (1 - DISTANCIA_RECOMPRA * (i + 1)) if side == "Buy" else entry_price * (1 + DISTANCIA_RECOMPRA * (i + 1))
+                            else:                               
+                                precio_recompra = entry_price * (1 - distancia_Recompra_ATR * (i + 1)) if side == "Buy" else entry_price * (1 + distancia_Recompra_ATR * (i + 1))
                             
                             http.place_order(
                                 category="linear",
@@ -193,7 +280,10 @@ def manejar_posicion(msg):
     finally:
         lock.release()  # Liberar el lock al finalizar
         
-
+def restart_script():
+    print("Reiniciando el script automáticamente...")
+    python = sys.executable
+    os.execv(python, [python] + sys.argv)
 # Suscribirse al stream de posiciones
 def iniciar_websocket():
     global ws
@@ -209,7 +299,8 @@ def iniciar_websocket():
             
         except Exception as e:
             print(f"⚠️ Error en WebSocket: {e}")
-            print("Reconectando en 60 segundos...")
+            print("Reiniciando script...")
+            restart_script()
             time.sleep(60)  # Espera 1 minuto antes de reconectar
 
 # 🔥 Iniciar WebSocket en un hilo separado

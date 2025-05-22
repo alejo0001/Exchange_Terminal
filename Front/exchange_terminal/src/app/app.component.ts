@@ -99,7 +99,8 @@ export class AppComponent {
     });
 
     this.tickerForm = this.fb.group({
-      symbol:['']
+      symbol:[''],
+      strategy: ['']
     });
 
     this.preferencesForm = this.fb.group({

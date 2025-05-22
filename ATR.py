@@ -18,20 +18,11 @@ key=""
 secret=""
 
 
-um_futures_client = UMFutures(key=key, secret=secret)
 
-candlesticks = um_futures_client.klines('BTCUSDT', '1h', **{"limit": 20})        
 
 candlesticksList = []
             
-# for v in candlesticks:
-#     candleStick = CandleStick()
 
-#     candleStick.open = float(v[1])
-#     candleStick.high = float(v[2])
-#     candleStick.low = float(v[3])
-#     candleStick.close = float(v[4])
-#     candlesticksList.append(candleStick)
 
 def calculate_ATR(prices=[],periods = 14):
     atr = 0
@@ -54,4 +45,13 @@ def calculate_ATR(prices=[],periods = 14):
 
     return atr.mean()
 
-#print(calculate_ATR(candlesticksList))
+def setup():
+    um_futures_client = UMFutures(key=key, secret=secret)
+
+    candlesticks = um_futures_client.klines('BTCUSDT', '1h', **{"limit": 20})        
+
+def main():
+    setup()
+
+if __name__ == "__main__":
+    main()

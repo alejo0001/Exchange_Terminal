@@ -200,7 +200,8 @@ async def realTimeExecutor():
                         {messages}
                         ''')
                 elif(strategy == 1):
-                    EvaluatePriceAction()
+                    print('Evaluar acción de precio')
+                    #EvaluatePriceAction()
 
         #time.sleep(1)
         await asyncio.sleep(1)

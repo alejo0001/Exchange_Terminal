@@ -44,7 +44,7 @@ symbol=''
 interval='3'
 upperRsi = 70
 lowerRsi=30
-bBPercentageDistance = 3
+bBPercentageDistance = 5
 
 marginPercentage = 33 #porcentaje a utilizar para entrar en las operaciones
 tp_percent = 2

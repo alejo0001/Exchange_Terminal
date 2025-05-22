@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    //AppComponent,
     //CandleChartComponent
   ],
   imports: [
@@ -19,6 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  //bootstrap: [AppComponent]
 })
 export class AppModule { }

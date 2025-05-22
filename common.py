@@ -899,14 +899,14 @@ def is_in_range(data, lastPrice, window=100):
     Verifica si el lastPrice está dentro del rango de las últimas 'window' velas.
 
     Args:
-        data: DataFrame con columna 'close'.
+        data: DataFrame con columna 'close'. Debe ir ordenado de manera ascendente (último elemento debe ser el más reciente)
         lastPrice: Precio actual o último precio a evaluar.
         window: Número de velas a evaluar.
 
     Returns:
         True si el lastPrice está dentro del rango (min, max), False si no.
     """
-    recent = data[4].iloc[-window:-2]
+    recent = data[4].iloc[-window:-2] # toma las últimas 100 velas excepto las dos últimas, es decir ,  desde la antepenúltima(incluida) hacia atrás
     max_price = recent.max()
     min_price = recent.min()
 
@@ -915,4 +915,29 @@ def is_in_range(data, lastPrice, window=100):
     print(f'last_price: {lastPrice}')
     
     return float(min_price) <= float(lastPrice) <= float(max_price)
+
+def CalculateDistancePercentage(initialPrice, finalPrice):
+    percentage = (finalPrice-initialPrice/initialPrice)*100
+    return percentage
+
+def GetConfirmationByEngulfingCandle(side,currentCandle,prevCandle):
+    isEngulfing = False
+
+    currentOpen = currentCandle[1]
+    currentClose = currentCandle[4]
+    prevOpen = prevCandle[1]
+    prevClose = prevCandle[4]
+
+    if side == "Buy":
+        if currentClose > currentOpen and prevClose < prevOpen:
+            if currentOpen <= prevClose and currentClose > prevOpen:
+                isEngulfing = True
+
+    elif side == "Sell":
+        if currentClose < currentOpen and prevClose > prevOpen:
+            if currentOpen >= prevClose and currentClose < prevOpen:
+                isEngulfing = True
+
+    return isEngulfing
+    
 

@@ -69,10 +69,10 @@ longReversionThresholdMultiplier = 2 #%
 meanReversionAvgShort = 0
 meanReversionAvgLong = 0
 
-ws = WebSocket(
-    testnet=False,
-    channel_type="linear",
-)
+# ws = WebSocket(
+#     testnet=False,
+#     channel_type="linear",
+# )
 
 ws_kline : WebSocket
 

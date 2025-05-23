@@ -70,7 +70,7 @@ def manejar_posicion(msg):
 
         if 'data' in msg:
             cantPos = True
-            print('msg: ',msg)
+            #print('msg: ',msg)
 
             if msg['data'][0]["symbol"] == 'PROSUSDT':
                 return
@@ -90,7 +90,7 @@ def manejar_posicion(msg):
             for pos in msg['data']:
                 SYMBOL =  pos['symbol']
                 if float(pos['size']) > 0:
-                    print('posición: ',pos)
+                    #print('posición: ',pos)
                     position_size = float(pos['size'])
                     entry_price = float(pos['entryPrice'])
                     side = pos['side']

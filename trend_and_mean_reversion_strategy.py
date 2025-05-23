@@ -63,7 +63,7 @@ last_ticker_time = time.time()
 
 inRange = False
 lastData = []
-trendThreshold = 1 #%
+trendThreshold = 0.5 #%
 meanReversionThreshold = 5 #%
 longReversionThresholdMultiplier = 2 #%
 meanReversionAvgShort = 0

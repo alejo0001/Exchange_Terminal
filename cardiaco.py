@@ -191,61 +191,69 @@ def manejar_posicion(msg):
                     
                     
                     if not ordenes_abiertas:
-                        distancia_Recompra_ATR = 0
-                        if calculateByATR : 
-                            print('recompras por porcentaje según ATR...')
-                            prices = http.get_kline(
+                        print('Sin recompras. Validando orden de cobertura...')
+                        hedgeSide = "Sell" if side == "Buy" else "Buy"
+                        hedgeOrder = [o for o in ordenes['result']['list'] if o['side'] == hedgeSide]
+
+                        if not hedgeOrder:
+                            distancia_Recompra_ATR = 0
+                            if calculateByATR : 
+                                print('recompras por porcentaje según ATR...')
+                                prices = http.get_kline(
+                                        category="linear",
+                                        symbol=SYMBOL,
+                                        interval=str(INTERVAL),
+                                        limit = 20
+                                    )
+                                candlesticksList = []
+                                for v in prices['result']['list']:
+                                    candleStick = CandleStick()                                    
+
+                                    candleStick.open = float(v[1])
+                                    candleStick.high = float(v[2])
+                                    candleStick.low = float(v[3])
+                                    candleStick.close = float(v[4])
+                                    candlesticksList.append(candleStick)
+                                    
+                                ATR = calculate_ATR(candlesticksList)
+                                print(f'ATR: {ATR}...')
+                                ATR_price = entry_price - ATR if side == "Buy" else entry_price + ATR
+                                ATR_percentage_distance = abs(CalculateDistancePercentage(entry_price,ATR_price))/100
+                                print(f'Porcentaje ATR: {ATR_percentage_distance}...')
+                                if ATR_percentage_distance < MIN_PERCENTAGE_DISTANCE:
+                                    ATR_percentage_distance = 1
+
+                                distancia_Recompra_ATR = (ATR_percentage_distance * ATR_MULTIPLIER)/100
+
+                            else:
+                                print(f'recompras por porcentaje Fijo({DISTANCIA_RECOMPRA}%)...')
+                            # Crear órdenes de recompra
+                            for i in range(MAX_RECOMPRAS):
+                                tamaño_recompra = position_size * (MULTIPLICADOR ** i) if i > 0 else position_size 
+                                precio_recompra = 0
+
+                                if calculateByATR == False:
+
+                                    precio_recompra = entry_price * (1 - DISTANCIA_RECOMPRA * (i + 1)) if side == "Buy" else entry_price * (1 + DISTANCIA_RECOMPRA * (i + 1))
+                                else:                               
+                                    precio_recompra = entry_price * (1 - distancia_Recompra_ATR * (i + 1)) if side == "Buy" else entry_price * (1 + distancia_Recompra_ATR * (i + 1))
+                                
+                                http.place_order(
                                     category="linear",
                                     symbol=SYMBOL,
-                                    interval=str(INTERVAL),
-                                    limit = 20
+                                    side=side,
+                                    orderType="Limit",
+                                    qty=math.ceil(tamaño_recompra),
+                                    price=round(precio_recompra, PRECISION_ROUND),
+                                    positionIdx=int(position_idx),
+                                    reduceOnly=False,
+                                    closeOnTrigger=False
                                 )
-                            candlesticksList = []
-                            for v in prices['result']['list']:
-                                candleStick = CandleStick()                                    
-
-                                candleStick.open = float(v[1])
-                                candleStick.high = float(v[2])
-                                candleStick.low = float(v[3])
-                                candleStick.close = float(v[4])
-                                candlesticksList.append(candleStick)
-                                
-                            ATR = calculate_ATR(candlesticksList)
-                            print(f'ATR: {ATR}...')
-                            ATR_price = entry_price - ATR if side == "Buy" else entry_price + ATR
-                            ATR_percentage_distance = abs(CalculateDistancePercentage(entry_price,ATR_price))/100
-                            print(f'Porcentaje ATR: {ATR_percentage_distance}...')
-                            if ATR_percentage_distance < MIN_PERCENTAGE_DISTANCE:
-                                ATR_percentage_distance = 1
-
-                            distancia_Recompra_ATR = (ATR_percentage_distance * ATR_MULTIPLIER)/100
-
+                                ##time.sleep(0.5)  # Pausa entre órdenes para evitar saturación
                         else:
-                            print(f'recompras por porcentaje Fijo({DISTANCIA_RECOMPRA}%)...')
-                        # Crear órdenes de recompra
-                        for i in range(MAX_RECOMPRAS):
-                            tamaño_recompra = position_size * (MULTIPLICADOR ** i) if i > 0 else position_size 
-                            precio_recompra = 0
-
-                            if calculateByATR == False:
-
-                                precio_recompra = entry_price * (1 - DISTANCIA_RECOMPRA * (i + 1)) if side == "Buy" else entry_price * (1 + DISTANCIA_RECOMPRA * (i + 1))
-                            else:                               
-                                precio_recompra = entry_price * (1 - distancia_Recompra_ATR * (i + 1)) if side == "Buy" else entry_price * (1 + distancia_Recompra_ATR * (i + 1))
-                            
-                            http.place_order(
-                                category="linear",
-                                symbol=SYMBOL,
-                                side=side,
-                                orderType="Limit",
-                                qty=math.ceil(tamaño_recompra),
-                                price=round(precio_recompra, PRECISION_ROUND),
-                                positionIdx=int(position_idx),
-                                reduceOnly=False,
-                                closeOnTrigger=False
-                            )
-                            ##time.sleep(0.5)  # Pausa entre órdenes para evitar saturación
-                    
+                            print('existe orden de cobertura, no se colocan mas recompras...')
+                            is_updating_orders = False
+                            return
                 else:
                     posiciones=http.get_positions(category="linear",symbol=SYMBOL)
                     oP = 0

@@ -29,7 +29,7 @@ hedgeInsteadStop = True
 
 # Conectar a Bybit
 http = HTTP(testnet=False, api_key=API_KEY, api_secret=API_SECRET)
-ws = WebSocket(testnet=False,channel_type="private", api_key=API_KEY, api_secret=API_SECRET)
+#ws = WebSocket(testnet=False,channel_type="private", api_key=API_KEY, api_secret=API_SECRET)
 
 # Obtener saldo de la cuenta
 def obtener_saldo():

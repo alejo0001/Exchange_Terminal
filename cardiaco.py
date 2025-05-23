@@ -103,14 +103,14 @@ def manejar_posicion(msg):
                     if len(posiciones['result']['list'])>= 2:
                         if float(posiciones['result']['list'][0]['size']) > 0 and float(posiciones['result']['list'][1]['size']) > 0:
                             print(f'cobertura detectada en {SYMBOL}, cancelando órdenes pendientes... ')
-                            print(posiciones['result']['list'])
+                            #print(posiciones['result']['list'])
                             for order in ordenes['result']['list']:                                
                                 http.cancel_order(symbol=SYMBOL,category="linear", order_id=order["orderId"])
                             print('órdenes canceladas con éxito, gestionar cobertura manualmente')
                             is_updating_orders = False
                             return
                                         
-                    print('órdenes: ',ordenes)
+                    #print('órdenes: ',ordenes)
                     ordenes_abiertas = [o for o in ordenes['result']['list'] if o['side'] == side]
 
                     # Configurar Take Profit
@@ -118,7 +118,7 @@ def manejar_posicion(msg):
                     if ordenes:
                         
                         tp_orders = [order for order in ordenes['result']['list'] if order["reduceOnly"] == True and order["side"] != side]
-                        print('tp_orders: ',tp_orders)
+                        #print('tp_orders: ',tp_orders)
                         if tp_orders:
                             print('validando órdenes TP...')
                             for order in tp_orders:
@@ -148,7 +148,7 @@ def manejar_posicion(msg):
                             position_idx=int(position_idx)  # Para modo cobertura
                         )
 
-                        print('response TP: ',response)
+                        #print('response TP: ',response)
 
                         # Calcular y actualizar stop loss
                         stop_loss = calcular_stop_loss(entry_price, position_size,side)
@@ -195,7 +195,8 @@ def manejar_posicion(msg):
                                         else:
                                             if stop_loss < float(last_DCA_Order['price']):
                                                 stop_loss = float(last_DCA_Order['price']) * (1 + DISTANCIA_RECOMPRA)
-
+                                    elif hedgeOrder:
+                                        stop_loss = float (hedgeOrder[0]['price'])
 
                                     SetHedgeOrder(SYMBOL,stop_loss,"Sell" if side == "Buy" else "Buy",position_size,price_scale,tickSize)
                                     print('Orden de cobertura colocada con éxito')

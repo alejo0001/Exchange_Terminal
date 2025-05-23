@@ -99,6 +99,17 @@ def manejar_posicion(msg):
                     # Validar órdenes abiertas
                     
                     ordenes = http.get_open_orders(category="linear", symbol=SYMBOL)
+                    posiciones = http.get_positions(category="linear", symbol=SYMBOL)
+                    if len(posiciones['result']['list'])>= 2:
+                        if float(posiciones['result']['list'][0]['size']) > 0 and float(posiciones['result']['list'][1]['size']) > 0:
+                            print(f'cobertura detectada en {SYMBOL}, cancelando órdenes pendientes... ')
+                            print(posiciones['result']['list'])
+                            for order in ordenes['result']['list']:                                
+                                http.cancel_order(symbol=SYMBOL,category="linear", order_id=order["orderId"])
+                            print('órdenes canceladas con éxito, gestionar cobertura manualmente')
+                            is_updating_orders = False
+                            return
+                                        
                     print('órdenes: ',ordenes)
                     ordenes_abiertas = [o for o in ordenes['result']['list'] if o['side'] == side]
 

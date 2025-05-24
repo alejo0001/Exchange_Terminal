@@ -313,21 +313,36 @@ def iniciar_websocket():
             ws = WebSocket(testnet=False, channel_type="private", api_key=API_KEY, api_secret=API_SECRET)
             ws.subscribe("position", callback=manejar_posicion)
             print("WebSocket conectado con éxito.")
-            
-            while True:
-                time.sleep(1)  # Mantener el WebSocket vivo
+            break
+       
             
         except Exception as e:
             print(f"⚠️ Error en WebSocket: {e}")
             print("Reiniciando script...")
+            try:
+                if ws:
+                    ws.exit()  # Cierra la conexión si existe
+                    print("WebSocket cerrado.")
+            except:
+                pass  # Ignora errores al cerrar
             restart_script()
             time.sleep(60)  # Espera 1 minuto antes de reconectar
 
 # 🔥 Iniciar WebSocket en un hilo separado
-threading.Thread(target=iniciar_websocket, daemon=True).start()
-            
-
+pos_WebSocket = threading.Thread(target=iniciar_websocket, daemon=True)
+pos_WebSocket.start()
+pos_WebSocket.join()
 
 # Mantener la conexión abierta
 while True:
+
+    try:
+        p = 0
+    except Exception as e:
+        
+        print(f"Error en el bot: {e}")
+        restart_script()
+            
+        
+
     time.sleep(1)

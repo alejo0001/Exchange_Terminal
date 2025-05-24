@@ -48,6 +48,11 @@ def calcular_stop_loss(entry_price, position_size,side):
         stop_loss = 0
     return round(stop_loss, PRECISION_ROUND)
 
+def restart_script():
+    print("Reiniciando el script automáticamente...")
+    python = sys.executable
+    os.execv(python, [python] + sys.argv)
+
 # Manejo de posiciones abiertas
 def manejar_posicion(msg):
     
@@ -297,13 +302,12 @@ def manejar_posicion(msg):
     except Exception as e:
         is_updating_orders = False
         print(f"Error en el bot: {e}")
+        print("Reiniciando script...")
+        restart_script()
     finally:
         lock.release()  # Liberar el lock al finalizar
         
-def restart_script():
-    print("Reiniciando el script automáticamente...")
-    python = sys.executable
-    os.execv(python, [python] + sys.argv)
+
 # Suscribirse al stream de posiciones
 def iniciar_websocket():
     global ws

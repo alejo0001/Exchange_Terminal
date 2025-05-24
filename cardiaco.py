@@ -318,23 +318,7 @@ def iniciar_websocket():
             ws = WebSocket(testnet=False, channel_type="private", api_key=API_KEY, api_secret=API_SECRET)
             ws.subscribe("position", callback=manejar_posicion)
             print("WebSocket conectado con éxito.")
-            # 2) Hilo que envía ping cada 20s
-            def send_ping():
-                while True:
-                    try:
-                        # req_id puede ser lo que quieras
-                        ws.send(json.dumps({"req_id": "beat", "op": "ping"}))
-                        # print("Ping enviado")
-                    except Exception as e:
-                        print("Error enviando ping:", e)
-                        break
-                    time.sleep(20)
-
-            threading.Thread(target=send_ping, daemon=True).start()
-
-            # 3) Mantener vivo este hilo
-            while True:
-                time.sleep(1)
+            break
        
             
         except Exception as e:

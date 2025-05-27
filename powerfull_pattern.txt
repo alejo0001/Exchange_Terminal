@@ -9,3 +9,20 @@ ERROR:pybit._http_manager:invalid request, please check your server timestamp or
 ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748126048683],server_timestamp[1748126047246],recv_window[10000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 0 retries remain.
 ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748127104930],server_timestamp[1748127103535],recv_window[5000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 2 retries remain.
 ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748127108240],server_timestamp[1748127106845],recv_window[7500] (ErrCode: 10002). Added 2.5 seconds to recv_window. 1 retries remain.
+ERROR:pybit._websocket_stream:WebSocket Unified V5 (wss://stream.bybit.com/v5/public/linear) encountered error: ping/pong timed out.
+ERROR:websocket:ping/pong timed out - goodbye
+ERROR:pybit._http_manager:Too many visits. Exceeded the API Rate Limit. (ErrCode: 10006). Hit the API rate limit. Sleeping, then trying again. Request: https://api.bybit.com/v5/market/kline
+ERROR:pybit._websocket_stream:WebSocket Unified V5 (wss://stream.bybit.com/v5/public/linear) encountered error: ping/pong timed out.
+ERROR:websocket:ping/pong timed out - goodbye
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748357865337],server_timestamp[1748357864206],recv_window[5000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 2 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748357868667],server_timestamp[1748357867534],recv_window[7500] (ErrCode: 10002). Added 2.5 seconds to recv_window. 1 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748357871962],server_timestamp[1748357870829],recv_window[10000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 0 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748360921850],server_timestamp[1748360920822],recv_window[5000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 2 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748360925152],server_timestamp[1748360924124],recv_window[7500] (ErrCode: 10002). Added 2.5 seconds to recv_window. 1 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748360928486],server_timestamp[1748360927459],recv_window[10000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 0 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748361105904],server_timestamp[1748361104877],recv_window[5000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 2 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748361109237],server_timestamp[1748361108218],recv_window[7500] (ErrCode: 10002). Added 2.5 seconds to recv_window. 1 retries remain.
+ERROR:pybit._http_manager:invalid request, please check your server timestamp or recv_window param. req_timestamp[1748361112564],server_timestamp[1748361111544],recv_window[10000] (ErrCode: 10002). Added 2.5 seconds to recv_window. 0 retries remain.
+ERROR:pybit._http_manager:Too many visits. Exceeded the API Rate Limit. (ErrCode: 10006). Hit the API rate limit. Sleeping, then trying again. Request: https://api.bybit.com/v5/market/kline
+ERROR:pybit._websocket_stream:WebSocket Unified V5 (wss://stream.bybit.com/v5/public/linear) encountered error: ping/pong timed out.
+ERROR:websocket:ping/pong timed out - goodbye

@@ -62,16 +62,6 @@ ws = None
 client = None
 
 
-# last_kline_time = time.time()
-# last_ticker_time = time.time()
-
-# ws = WebSocket(
-#     testnet=False,
-#     channel_type="linear",
-# )
-
-
-# client = HTTP(api_key=bybit_api_key, api_secret=bybit_secret_key,testnet = False)
 
 def getMeanReversionAverage(data, side,threshold = 0,EMAWindow = 20):
 
@@ -251,23 +241,6 @@ def ValidateEntry(wsMessage):
     
 
 
-# def start_kline_stream():
-#     ws.kline_stream(
-#         interval=int(interval),
-#         symbol=symbol,
-#         callback=CalculateValues
-#     )
-
-# # Iniciar kline_stream en un hilo normal (no daemon)
-# kline_thread = threading.Thread(target=start_kline_stream)
-# kline_thread.start()
-
-# ws.ticker_stream(
-#                 symbol=symbol,
-#                 callback=ValidateEntry
-#             )
-# kline_thread.join()
-
 def enviar_mensaje_telegram(mensaje):
     asyncio.run(SendTelegramMessage(mensaje))
 
@@ -322,72 +295,11 @@ def start_ticker_ws():
 def monitor_websockets():
     global last_kline_time, last_ticker_time
     while True:
-        #if time.time() - last_kline_time > 120:
-            # print("Reiniciando WebSocket de Kline...")
-            # start_kline_ws()
-
-        #if time.time() - last_ticker_time > 60:
-            # print("Reiniciando WebSocket de Ticker...")
-            # start_ticker_ws()
+       
 
         time.sleep(5)  # Revisar cada 5 segundos
 
-# Iniciar ambos WebSockets en hilos separados
-# kline_thread = threading.Thread(target=start_kline_ws)
-# ticker_thread = threading.Thread(target=start_ticker_ws)
-# monitor_thread = threading.Thread(target=monitor_websockets, daemon=True)
 
-# kline_thread.start()
-# ticker_thread.start()
-# monitor_thread.start()
-
-# # Esperar a que los hilos terminen
-# kline_thread.join()
-# ticker_thread.join()
-
-# while True:
-#     # This while loop is required for the program to run. You may execute
-#     # additional code for your trading logic here.
-
-#     try:
-#         posiciones=client.get_positions(category="linear",symbol=symbol)
-#         oP = 0
-#         for p in posiciones['result']['list']:
-#             if float(p['size']) != 0:
-#                 oP = oP +1
-
-#         if oP > 0:
-#             print("Hay una posición abierta en: "+symbol)
-#             openedPosition = True
-#             if not takeProfit:
-#                 precio_de_entrada = float(posiciones['result']['list'][0]['avgPrice'])
-#                 if posiciones['result']['list'][0]['side'] == 'Buy':
-#                     stop_loss_price = precio_de_entrada*(1-sl_percent/100)
-#                     take_profit_price = precio_de_entrada*(1+tp_percent/100)
-#                     #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Buy")
-#                     #SetTakeprofit(symbol,take_profit_price,"Sell",qty,priceScale,tickSize)
-#                     print("Take profit activado")
-#                     takeProfit = True
-#                 else:
-#                     stop_loss_price = precio_de_entrada*(1+sl_percent/100)
-#                     take_profit_price = precio_de_entrada*(1-tp_percent/100)
-#                     #establecer_stop_loss(symbol=symbol,sl=stop_loss_price,side="Sell")
-#                     #SetTakeprofit(symbol,take_profit_price,"Buy",qty,priceScale,tickSize)
-#                     print("Take profit activado")
-#                     takeProfit = True
-       
-        
-#         else:
-#             openedPosition = False
-            
-
-#     except Exception as e:
-#         print(f"Error en el bot: {e}")
-#         mensaje = f"Reiniciar bot: {e}. "
-#         threading.Thread(target=enviar_mensaje_telegram, args=(mensaje,)).start()
-#         time.sleep(60)
-
-#     time.sleep(1)
 
 def main():
     setup()

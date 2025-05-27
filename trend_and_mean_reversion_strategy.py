@@ -31,7 +31,7 @@ from decimal import Decimal, ROUND_DOWN,ROUND_FLOOR
 import os
 import sys
 
-symbol='1000PEPEUSDT'
+symbol='WCTUSDT'
 interval='1'
 fastWindow = 50
 slowWindow = 200
@@ -63,7 +63,7 @@ last_ticker_time = time.time()
 
 inRange = False
 lastData = []
-trendThreshold = 0.5 #%
+trendThreshold = 1 #%
 meanReversionThreshold = 5 #%
 longReversionThresholdMultiplier = 2 #%
 meanReversionAvgShort = 0
@@ -245,18 +245,23 @@ def ValidateEntry(wsMessage):
                                     pIdx=2
                                 else:
                                     pIdx=1
-                                response = client.place_order(
-                                    category="linear",
-                                    symbol=symbol,
-                                    side=side,
-                                    order_type='Market',
-                                    qty=qty,
-                                    timeInForce="GoodTillCancel",
-                                    positionIdx=pIdx,
-                                )
-                                print('Orden creada con éxito...')
-                                openedPosition = True
-                                takeProfit = False
+                                try:
+
+                                    response = client.place_order(
+                                        category="linear",
+                                        symbol=symbol,
+                                        side=side,
+                                        order_type='Market',
+                                        qty=qty,
+                                        timeInForce="GoodTillCancel",
+                                        positionIdx=pIdx,
+                                    )
+                                    print('Orden creada con éxito...')
+                                    openedPosition = True
+                                    takeProfit = False
+                                except Exception as e:
+                                    print(f'error al crear orden: {e}. Reiniciando script ...')
+                                    restart_script()
 
             
             isEvaluating = False

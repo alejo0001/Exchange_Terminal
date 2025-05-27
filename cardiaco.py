@@ -13,7 +13,7 @@ lock = threading.Lock()
 # Configuración de la API
 API_KEY = bybit_api_key
 API_SECRET = bybit_secret_key
-SYMBOL = "1000PEPEUSDT"
+SYMBOL = "WCTUSDT"
 MAX_RECOMPRAS = 3
 DISTANCIA_RECOMPRA = 0.01  # 0.01 = 1% de distancia
 MULTIPLICADOR = 2
@@ -328,26 +328,34 @@ def iniciar_websocket():
                 if ws:
                     ws.exit()  # Cierra la conexión si existe
                     print("WebSocket cerrado.")
-            except:
-                pass  # Ignora errores al cerrar
+            except Exception as e:
+                print(f"⚠️ Error al cerrar el WebSocket: {e}")
+                restart_script()
+                  # Ignora errores al cerrar
             restart_script()
             time.sleep(60)  # Espera 1 minuto antes de reconectar
 
 # 🔥 Iniciar WebSocket en un hilo separado
-pos_WebSocket = threading.Thread(target=iniciar_websocket, daemon=True)
-pos_WebSocket.start()
-pos_WebSocket.join()
+try:
 
-# Mantener la conexión abierta
-while True:
+    pos_WebSocket = threading.Thread(target=iniciar_websocket, daemon=True)
+    pos_WebSocket.start()
+    pos_WebSocket.join()
 
-    try:
-        p = 0
-    except Exception as e:
-        
-        print(f"Error en el bot: {e}")
-        restart_script()
+    # Mantener la conexión abierta
+    while True:
+
+        try:
+            p = 0
+        except Exception as e:
             
-        
+            print(f"Error en el bot: {e}")
+            restart_script()
+                
+            
 
-    time.sleep(1)
+        time.sleep(1)
+except Exception as e:
+    print(f'Error general: {e}')
+    print('reiniciando script...')
+    restart_script()

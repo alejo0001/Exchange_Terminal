@@ -141,6 +141,36 @@ def manejar_posicion(msg):
                         print ('takeProfit: ',take_profit)
                         print('entry_price: ',entry_price)
                         print('side: ',side)
+
+                        distancia_Recompra_ATR = 0
+                        if calculateByATR : 
+                            
+                            prices = http.get_kline(
+                                    category="linear",
+                                    symbol=SYMBOL,
+                                    interval=str(INTERVAL),
+                                    limit = 20
+                                )
+                            candlesticksList = []
+                            for v in prices['result']['list']:
+                                candleStick = CandleStick()                                    
+
+                                candleStick.open = float(v[1])
+                                candleStick.high = float(v[2])
+                                candleStick.low = float(v[3])
+                                candleStick.close = float(v[4])
+                                candlesticksList.append(candleStick)
+                                
+                            ATR = calculate_ATR(candlesticksList)
+                            
+                            ATR_price = entry_price - ATR if side == "Buy" else entry_price + ATR
+                            ATR_percentage_distance = abs(CalculateDistancePercentage(entry_price,ATR_price))/100
+                            
+                            if ATR_percentage_distance < MIN_PERCENTAGE_DISTANCE:
+                                ATR_percentage_distance = 1
+
+                            distancia_Recompra_ATR = (ATR_percentage_distance * ATR_MULTIPLIER)/100
+
                         # 4️⃣ Crear nueva orden límite para el TP
                         response = http.place_order(
                             category="linear",
@@ -197,12 +227,15 @@ def manejar_posicion(msg):
                                         last_DCA_Order = max(ordenes_abiertas, key=lambda x: float(x["price"])) if side == "Sell" else  min(ordenes_abiertas, key=lambda x: float(x["price"]))
                                         if side == "Buy":
                                             if stop_loss > float(last_DCA_Order['price']):
-                                                stop_loss = float(last_DCA_Order['price']) * (1 - DISTANCIA_RECOMPRA)
+                                                stop_loss = entry_price * (1 - (distancia_Recompra_ATR * MAX_RECOMPRAS))
                                         else:
                                             if stop_loss < float(last_DCA_Order['price']):
-                                                stop_loss = float(last_DCA_Order['price']) * (1 + DISTANCIA_RECOMPRA)
+                                                stop_loss = entry_price * (1 + (distancia_Recompra_ATR * MAX_RECOMPRAS))
                                     elif hedgeOrder:
-                                        stop_loss = float (hedgeOrder[0]['price'])
+                                        if side == "Buy":                                            
+                                            stop_loss = entry_price * (1 - (distancia_Recompra_ATR * MAX_RECOMPRAS))
+                                        else:                                            
+                                            stop_loss = entry_price * (1 + (distancia_Recompra_ATR * MAX_RECOMPRAS))
 
                                     SetHedgeOrder(SYMBOL,stop_loss,"Sell" if side == "Buy" else "Buy",position_size,price_scale,tickSize)
                                     print('Orden de cobertura colocada con éxito')
@@ -217,31 +250,11 @@ def manejar_posicion(msg):
                             distancia_Recompra_ATR = 0
                             if calculateByATR : 
                                 print('recompras por porcentaje según ATR...')
-                                prices = http.get_kline(
-                                        category="linear",
-                                        symbol=SYMBOL,
-                                        interval=str(INTERVAL),
-                                        limit = 20
-                                    )
-                                candlesticksList = []
-                                for v in prices['result']['list']:
-                                    candleStick = CandleStick()                                    
-
-                                    candleStick.open = float(v[1])
-                                    candleStick.high = float(v[2])
-                                    candleStick.low = float(v[3])
-                                    candleStick.close = float(v[4])
-                                    candlesticksList.append(candleStick)
-                                    
-                                ATR = calculate_ATR(candlesticksList)
+                               
                                 print(f'ATR: {ATR}...')
-                                ATR_price = entry_price - ATR if side == "Buy" else entry_price + ATR
-                                ATR_percentage_distance = abs(CalculateDistancePercentage(entry_price,ATR_price))/100
+                               
                                 print(f'Porcentaje ATR: {ATR_percentage_distance}...')
-                                if ATR_percentage_distance < MIN_PERCENTAGE_DISTANCE:
-                                    ATR_percentage_distance = 1
-
-                                distancia_Recompra_ATR = (ATR_percentage_distance * ATR_MULTIPLIER)/100
+                               
 
                             else:
                                 print(f'recompras por porcentaje Fijo({DISTANCIA_RECOMPRA}%)...')
